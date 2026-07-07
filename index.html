@@ -1,167 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PCGsoft Ltd</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PCGsoft Ltd | Software for Transport, Compliance and AI</title>
+<meta name="description" content="PCGsoft Ltd builds practical software for transport, compliance, AI tools and mobile applications." />
 
 <style>
-*{
-    margin:0;
-        padding:0;
-            box-sizing:border-box;
-            }
+:root {
+  --bg: #07111f;
+  --panel: #0f1e33;
+  --panel-2: #13243d;
+  --text: #e5edf7;
+  --muted: #9fb0c7;
+  --line: rgba(255,255,255,.12);
+  --accent: #38bdf8;
+  --accent-2: #22c55e;
+  --warning: #f59e0b;
+  --concept: #a78bfa;
+}
 
-            body{
-                font-family:Arial,Helvetica,sans-serif;
-                    background:#0f172a;
-                        color:#e2e8f0;
-                            line-height:1.6;
-                            }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-                            header{
-                                text-align:center;
-                                    padding:60px 20px;
-                                        background:#111827;
-                                        }
+body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(56,189,248,.18), transparent 35%),
+    radial-gradient(circle at top right, rgba(34,197,94,.12), transparent 30%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
 
-                                        header h1{
-                                            font-size:3rem;
-                                                color:white;
-                                                }
+a { color: inherit; text-decoration: none; }
 
-                                                header p{
-                                                    color:#94a3b8;
-                                                        max-width:700px;
-                                                            margin:20px auto;
-                                                            }
+header {
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
 
-                                                            .container{
-                                                                max-width:1100px;
-                                                                    margin:auto;
-                                                                        padding:40px 20px;
-                                                                        }
+.nav {
+  max-width: 1180px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-                                                                        .grid{
-                                                                            display:grid;
-                                                                                grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-                                                                                    gap:20px;
-                                                                                    }
+.logo {
+  font-weight: 800;
+  font-size: 1.3rem;
+  letter-spacing: .4px;
+}
 
-                                                                                    .card{
-                                                                                        background:#1e293b;
-                                                                                            border-radius:12px;
-                                                                                                padding:25px;
-                                                                                                }
+.logo span { color: var(--accent); }
 
-                                                                                                .card h2{
-                                                                                                    margin-bottom:10px;
-                                                                                                    }
+.nav-links {
+  display: flex;
+  gap: 18px;
+  color: var(--muted);
+  font-size: .95rem;
+}
 
-                                                                                                    .status{
-                                                                                                        display:inline-block;
-                                                                                                            padding:6px 12px;
-                                                                                                                border-radius:20px;
-                                                                                                                    font-size:14px;
-                                                                                                                        margin:12px 0;
-                                                                                                                            background:#14532d;
-                                                                                                                                color:#bbf7d0;
-                                                                                                                                }
+.hero {
+  max-width: 1180px;
+  margin: auto;
+  padding: 90px 20px 70px;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 40px;
+  align-items: center;
+}
 
-                                                                                                                                .planning{
-                                                                                                                                    background:#78350f;
-                                                                                                                                        color:#fde68a;
-                                                                                                                                        }
+.badge {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #bae6fd;
+  background: rgba(56,189,248,.08);
+  font-size: .9rem;
+  margin-bottom: 20px;
+}
 
-                                                                                                                                        .concept{
-                                                                                                                                            background:#1e3a8a;
-                                                                                                                                                color:#bfdbfe;
-                                                                                                                                                }
+.hero h1 {
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  line-height: 1;
+  letter-spacing: -2px;
+  max-width: 850px;
+}
 
-                                                                                                                                                footer{
-                                                                                                                                                    text-align:center;
-                                                                                                                                                        padding:40px;
-                                                                                                                                                            color:#94a3b8;
-                                                                                                                                                            }
-                                                                                                                                                            </style>
+.hero p {
+  color: var(--muted);
+  max-width: 680px;
+  margin-top: 24px;
+  font-size: 1.1rem;
+}
 
-                                                                                                                                                            </head>
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
 
-                                                                                                                                                            <body>
+.button {
+  padding: 13px 18px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #03111f;
+  font-weight: 700;
+}
 
-                                                                                                                                                            <header>
+.button.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
 
-                                                                                                                                                            <h1>PCGsoft Ltd</h1>
+.hero-card {
+  background: linear-gradient(145deg, rgba(15,30,51,.95), rgba(19,36,61,.75));
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.25);
+}
 
-                                                                                                                                                            <p>
-                                                                                                                                                            Developing practical software solutions for transport, compliance, AI and mobile applications.
-                                                                                                                                                            </p>
+.hero-card h3 { margin-bottom: 16px; }
 
-                                                                                                                                                            </header>
+.metric {
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
 
-                                                                                                                                                            <div class="container">
+.metric strong {
+  display: block;
+  font-size: 1.8rem;
+}
 
-                                                                                                                                                            <h2 style="margin-bottom:25px;">Current Projects</h2>
+.metric span { color: var(--muted); }
 
-                                                                                                                                                            <div class="grid">
+section {
+  max-width: 1180px;
+  margin: auto;
+  padding: 60px 20px;
+}
 
-                                                                                                                                                            <div class="card">
-                                                                                                                                                            <h2>HourWise EU</h2>
-                                                                                                                                                            <div class="status">Active Development</div>
-                                                                                                                                                            <p>
-                                                                                                                                                            Driver hours and compliance application for UK and EU professional drivers with intelligent alerts and working time management.
-                                                                                                                                                            </p>
-                                                                                                                                                            </div>
+.section-title { margin-bottom: 26px; }
+.section-title h2 { font-size: 2rem; }
 
-                                                                                                                                                            <div class="card">
-                                                                                                                                                            <h2>HourWise Fleet Portal</h2>
-                                                                                                                                                            <div class="status">Active Development</div>
-                                                                                                                                                            <p>
-                                                                                                                                                            Fleet management platform including tachograph analysis, compliance, payroll, maintenance and reporting.
-                                                                                                                                                            </p>
-                                                                                                                                                            </div>
+.section-title p {
+  color: var(--muted);
+  max-width: 720px;
+  margin-top: 8px;
+}
 
-                                                                                                                                                            <div class="card">
-                                                                                                                                                            <h2>Atlas AI</h2>
-                                                                                                                                                            <div class="status planning">In Development</div>
-                                                                                                                                                            <p>
-                                                                                                                                                            AI assistant for transport operators and drivers, providing knowledge, compliance guidance and intelligent fleet insights.
-                                                                                                                                                            </p>
-                                                                                                                                                            </div>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
 
-                                                                                                                                                            <div class="card">
-                                                                                                                                                            <h2>Relief</h2>
-                                                                                                                                                            <div class="status planning">Planning</div>
-                                                                                                                                                            <p>
-                                                                                                                                                            A mobile application helping users quickly locate suitable public toilet facilities with accessibility information.
-                                                                                                                                                            </p>
-                                                                                                                                                            </div>
+.card {
+  background: rgba(15,30,51,.82);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+  transition: transform .2s ease, border-color .2s ease;
+}
 
-                                                                                                                                                            <div class="card">
-                                                                                                                                                            <h2>BuildProof</h2>
-                                                                                                                                                            <div class="status concept">Concept</div>
-                                                                                                                                                            <p>
-                                                                                                                                                            AI-assisted software quality, security and architecture review platform for modern applications.
-                                                                                                                                                            </p>
-                                                                                                                                                            </div>
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56,189,248,.45);
+}
 
-                                                                                                                                                            <div class="card">
-                                                                                                                                                            <h2>Sports Club Platform</h2>
-                                                                                                                                                            <div class="status concept">Concept</div>
-                                                                                                                                                            <p>
-                                                                                                                                                            Communication, scheduling and management platform for sports clubs and community organisations.
-                                                                                                                                                            </p>
-                                                                                                                                                            </div>
+.card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
 
-                                                                                                                                                            </div>
+.card p { color: var(--muted); }
 
-                                                                                                                                                            </div>
+.status {
+  display: inline-block;
+  margin: 14px 0;
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 700;
+  background: rgba(34,197,94,.14);
+  color: #bbf7d0;
+}
 
-                                                                                                                                                            <footer>
+.beta { background: rgba(56,189,248,.14); color: #bae6fd; }
+.planning { background: rgba(245,158,11,.15); color: #fde68a; }
+.concept { background: rgba(167,139,250,.15); color: #ddd6fe; }
 
-                                                                                                                                                            <p>© 2026 PCGsoft Ltd • pcgsoft.co.uk</p>
+.card-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: #bae6fd;
+  font-weight: 700;
+}
 
-                                                                                                                                                            </footer>
+.about {
+  background: rgba(15,30,51,.6);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 32px;
+}
 
-                                                                                                                                                            </body>
-                                                                                                                                                            </html>
+.contact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.contact a {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  color: var(--muted);
+}
+
+.contact strong {
+  display: block;
+  color: var(--text);
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--muted);
+  padding: 36px 20px;
+}
+
+@media (max-width: 780px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 60px;
+  }
+
+  .nav {
+    align-items: flex-start;
+    gap: 14px;
+    flex-direction: column;
+  }
+
+  .nav-links { flex-wrap: wrap; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo">PCG<span>soft</span></div>
+    <div class="nav-links">
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div>
+      <div class="badge">Software for transport, compliance and AI</div>
+      <h1>Building practical software for real-world operations.</h1>
+      <p>
+        PCGsoft Ltd develops focused digital products for transport operators, professional drivers,
+        compliance teams, communities and modern software builders.
+      </p>
+
+      <div class="actions">
+        <a class="button" href="#products">View Projects</a>
+        <a class="button secondary" href="mailto:info@pcgsoft.co.uk">Contact PCGsoft</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>Current focus</h3>
+      <div class="metric">
+        <strong>6</strong>
+        <span>Active and planned product lines</span>
+      </div>
+      <div class="metric">
+        <strong>UK/EU</strong>
+        <span>Initial transport and compliance market</span>
+      </div>
+      <div class="metric">
+        <strong>AI-assisted</strong>
+        <span>Built with automation, safety and usability in mind</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="section-title">
+      <h2>Products and Projects</h2>
+      <p>
+        A portfolio of software projects at different stages of development, from active transport
+        compliance systems to early-stage community and AI tools.
+      </p>
+    </div>
+
+    <div class="grid">
+
+      <article class="card">
+        <h3>HourWise EU</h3>
+        <span class="status">Active Development</span>
+        <p>
+          A driver hours and working time app for UK and EU professional drivers, with shift tracking,
+          break reminders, driving-time awareness and compliance-focused alerts.
+        </p>
+        <a class="card-link" href="https://www.hourwiseeu.co.uk">Visit HourWise →</a>
+      </article>
+
+      <article class="card">
+        <h3>HourWise Fleet Portal</h3>
+        <span class="status">Active Development</span>
+        <p>
+          A fleet management and compliance portal for operators, covering tachograph analysis,
+          maintenance, driver records, incidents, payroll support and operational reporting.
+        </p>
+        <a class="card-link" href="#">Product site coming soon →</a>
+      </article>
+
+      <article class="card">
+        <h3>Atlas AI</h3>
+        <span class="status beta">In Development</span>
+        <p>
+          An AI assistant designed for transport operations, helping drivers and managers find answers,
+          surface risks, query fleet data and understand procedures quickly.
+        </p>
+        <a class="card-link" href="#">More details coming soon →</a>
+      </article>
+
+      <article class="card">
+        <h3>Relief</h3>
+        <span class="status planning">Planning</span>
+        <p>
+          A mobile app concept to help people find suitable public toilet facilities, with accessibility,
+          privacy, cleanliness and opening-hour information.
+        </p>
+        <a class="card-link" href="#">In planning →</a>
+      </article>
+
+      <article class="card">
+        <h3>BuildProof</h3>
+        <span class="status concept">Concept</span>
+        <p>
+          A software review and build-quality platform for AI-assisted projects, focused on structure,
+          security, maintainability and practical launch readiness.
+        </p>
+        <a class="card-link" href="#">Concept stage →</a>
+      </article>
+
+      <article class="card">
+        <h3>Sports Club Platform</h3>
+        <span class="status concept">Concept</span>
+        <p>
+          A communication and management platform for clubs, coaches, parents and committees, covering
+          calendars, messages, events, training and administration.
+        </p>
+        <a class="card-link" href="#">Concept stage →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="about">
+      <div class="section-title">
+        <h2>About PCGsoft</h2>
+        <p>
+          PCGsoft Ltd is a UK software company building practical, focused tools for real operational
+          problems. The current portfolio centres on transport compliance, fleet operations, AI-assisted
+          workflows and community-focused mobile applications.
+        </p>
+      </div>
+      <p style="color: var(--muted);">
+        The aim is simple: create software that is useful, understandable and reliable enough for people
+        who need to get work done, not just software that looks good in a demo.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>For product enquiries, support or general information, use the contact addresses below.</p>
+    </div>
+
+    <div class="contact">
+      <a href="mailto:info@pcgsoft.co.uk">
+        <strong>General</strong>
+        info@pcgsoft.co.uk
+      </a>
+
+      <a href="mailto:support@pcgsoft.co.uk">
+        <strong>Support</strong>
+        support@pcgsoft.co.uk
+      </a>
+
+      <a href="mailto:sales@pcgsoft.co.uk">
+        <strong>Sales</strong>
+        sales@pcgsoft.co.uk
+      </a>
+
+      <a href="https://github.com/pcgsoft">
+        <strong>GitHub</strong>
+        github.com/pcgsoft
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 PCGsoft Ltd. All rights reserved.
+</footer>
+
+</body>
+</html>
