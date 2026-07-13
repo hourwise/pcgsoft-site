@@ -38,7 +38,6 @@
   }
   </script>
   <style>
-    /* ========== Tokens ========== */
     :root {
       --bg: oklch(16% 0.028 250);
       --bg-elevated: oklch(19% 0.03 250);
@@ -57,11 +56,9 @@
       --gold: oklch(78% 0.1 85);
       --gold-dim: oklch(78% 0.1 85 / 0.14);
       --warn: oklch(78% 0.1 75);
-
       --font-display: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
       --font-body: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
       --font-mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
-
       --space-1: 0.25rem;
       --space-2: 0.5rem;
       --space-3: 0.75rem;
@@ -71,7 +68,6 @@
       --space-7: 3rem;
       --space-8: 4rem;
       --space-9: 6rem;
-
       --radius-sm: 6px;
       --radius: 10px;
       --radius-lg: 14px;
@@ -79,31 +75,13 @@
       --header-h: 4rem;
       --focus: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
     }
-
-    /* ========== Reset ========== */
     *, *::before, *::after { box-sizing: border-box; }
-    html {
-      scroll-behavior: smooth;
-      -webkit-text-size-adjust: 100%;
-    }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
     }
-    body {
-      margin: 0;
-      font-family: var(--font-body);
-      font-size: 1.0625rem;
-      line-height: 1.6;
-      color: var(--fg);
-      background: var(--bg);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+    body { margin: 0; font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6; color: var(--fg); background: var(--bg); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
     img, svg { display: block; max-width: 100%; }
     a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
     a:hover { color: var(--accent-text); }
@@ -111,817 +89,147 @@
     ul, ol { margin: 0; padding: 0; list-style: none; }
     h1, h2, h3, h4, p { margin: 0; text-wrap: pretty; }
     :focus-visible { outline: none; box-shadow: var(--focus); border-radius: 4px; }
-    .sr-only {
-      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-    }
-
-    /* ========== Layout ========== */
-    .wrap {
-      width: min(100% - 2rem, var(--max));
-      margin-inline: auto;
-    }
-    .section {
-      padding-block: clamp(3.5rem, 8vw, 6rem);
-    }
-    .section-head {
-      max-width: 40rem;
-      margin-bottom: clamp(2rem, 4vw, 3rem);
-    }
-    .eyebrow {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent-text);
-      margin-bottom: var(--space-3);
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      color: var(--fg);
-      margin-bottom: var(--space-4);
-    }
-    .section-lead {
-      font-size: 1.0625rem;
-      line-height: 1.65;
-      color: var(--muted);
-      max-width: 58ch;
-    }
-
-    /* ========== Header ========== */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      height: var(--header-h);
-      background: oklch(16% 0.028 250 / 0.88);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .header-inner {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-4);
-    }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
-      text-decoration: none;
-      color: var(--fg);
-      flex-shrink: 0;
-    }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .wrap { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
+    .section { padding-block: clamp(3.5rem, 8vw, 6rem); }
+    .section-head { max-width: 40rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
+    .eyebrow { display: inline-block; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-text); margin-bottom: var(--space-3); }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.75rem, 3.5vw, 2.25rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; color: var(--fg); margin-bottom: var(--space-4); }
+    .section-lead { font-size: 1.0625rem; line-height: 1.65; color: var(--muted); max-width: 58ch; }
+    .site-header { position: sticky; top: 0; z-index: 100; height: var(--header-h); background: oklch(16% 0.028 250 / 0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+    .brand { display: inline-flex; align-items: center; gap: 0.65rem; text-decoration: none; color: var(--fg); flex-shrink: 0; }
     .brand:hover { color: var(--fg); }
-    .brand-mark {
-      width: 32px;
-      height: 32px;
-      flex-shrink: 0;
-    }
-    .brand-word {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-    .nav-desktop {
-      display: none;
-      align-items: center;
-      gap: 0.15rem;
-    }
-    .nav-desktop a {
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      color: var(--muted);
-      padding: 0.45rem 0.7rem;
-      border-radius: var(--radius-sm);
-      transition: color 0.15s, background 0.15s;
-    }
-    .nav-desktop a:hover {
-      color: var(--fg);
-      background: var(--surface);
-    }
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-    }
-    .btn-nav-contact {
-      display: none;
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 550;
-      letter-spacing: 0.02em;
-      color: var(--bg);
-      background: var(--accent);
-      padding: 0.5rem 0.95rem;
-      border-radius: var(--radius-sm);
-      transition: filter 0.15s, transform 0.1s;
-    }
-    .btn-nav-contact:hover {
-      color: var(--bg);
-      filter: brightness(1.08);
-    }
+    .brand-mark { width: 32px; height: 32px; flex-shrink: 0; }
+    .brand-word { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; letter-spacing: -0.02em; }
+    .nav-desktop { display: none; align-items: center; gap: 0.15rem; }
+    .nav-desktop a { text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.01em; color: var(--muted); padding: 0.45rem 0.7rem; border-radius: var(--radius-sm); transition: color 0.15s, background 0.15s; }
+    .nav-desktop a:hover { color: var(--fg); background: var(--surface); }
+    .header-actions { display: flex; align-items: center; gap: var(--space-3); }
+    .btn-nav-contact { display: none; text-decoration: none; font-size: 0.875rem; font-weight: 550; letter-spacing: 0.02em; color: var(--bg); background: var(--accent); padding: 0.5rem 0.95rem; border-radius: var(--radius-sm); transition: filter 0.15s, transform 0.1s; }
+    .btn-nav-contact:hover { color: var(--bg); filter: brightness(1.08); }
     .btn-nav-contact:active { transform: translateY(1px); }
-    .menu-toggle {
-      display: grid;
-      place-items: center;
-      width: 44px;
-      height: 44px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--fg);
-    }
+    .menu-toggle { display: grid; place-items: center; width: 44px; height: 44px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--surface); color: var(--fg); }
     .menu-toggle svg { width: 20px; height: 20px; }
     .menu-toggle[aria-expanded="true"] .icon-open { display: none; }
     .menu-toggle[aria-expanded="false"] .icon-close { display: none; }
     .menu-toggle[aria-expanded="true"] .icon-close { display: block; }
-
-    .nav-mobile {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: var(--bg-elevated);
-      border-bottom: 1px solid var(--border);
-      padding: var(--space-3) var(--space-4) var(--space-5);
-    }
+    .nav-mobile { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-elevated); border-bottom: 1px solid var(--border); padding: var(--space-3) var(--space-4) var(--space-5); }
     .nav-mobile.is-open { display: block; }
-    .nav-mobile a {
-      display: block;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--fg);
-      padding: 0.85rem 0.5rem;
-      border-bottom: 1px solid var(--border);
-      min-height: 44px;
-    }
+    .nav-mobile a { display: block; text-decoration: none; font-size: 1rem; font-weight: 500; color: var(--fg); padding: 0.85rem 0.5rem; border-bottom: 1px solid var(--border); min-height: 44px; }
     .nav-mobile a:last-of-type { border-bottom: 0; }
-    .nav-mobile .btn-mobile-contact {
-      display: block;
-      margin-top: var(--space-4);
-      text-align: center;
-      text-decoration: none;
-      font-weight: 550;
-      letter-spacing: 0.02em;
-      color: var(--bg);
-      background: var(--accent);
-      padding: 0.85rem 1rem;
-      border-radius: var(--radius-sm);
-      min-height: 48px;
-    }
-
-    @media (min-width: 900px) {
-      .nav-desktop { display: flex; }
-      .btn-nav-contact { display: inline-flex; align-items: center; }
-      .menu-toggle { display: none; }
-      .nav-mobile { display: none !important; }
-    }
-
-    /* ========== Buttons ========== */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      min-height: 48px;
-      padding: 0.75rem 1.35rem;
-      font-size: 0.95rem;
-      font-weight: 550;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      border-radius: var(--radius-sm);
-      border: 1px solid transparent;
-      transition: background 0.15s, border-color 0.15s, color 0.15s, filter 0.15s, transform 0.1s;
-    }
+    .nav-mobile .btn-mobile-contact { display: block; margin-top: var(--space-4); text-align: center; text-decoration: none; font-weight: 550; letter-spacing: 0.02em; color: var(--bg); background: var(--accent); padding: 0.85rem 1rem; border-radius: var(--radius-sm); min-height: 48px; }
+    @media (min-width: 900px) { .nav-desktop { display: flex; } .btn-nav-contact { display: inline-flex; align-items: center; } .menu-toggle { display: none; } .nav-mobile { display: none !important; } }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 48px; padding: 0.75rem 1.35rem; font-size: 0.95rem; font-weight: 550; letter-spacing: 0.02em; text-decoration: none; border-radius: var(--radius-sm); border: 1px solid transparent; transition: background 0.15s, border-color 0.15s, color 0.15s, filter 0.15s, transform 0.1s; }
     .btn:active { transform: translateY(1px); }
-    .btn-primary {
-      background: var(--accent);
-      color: var(--bg);
-      border-color: var(--accent);
-    }
-    .btn-primary:hover {
-      color: var(--bg);
-      filter: brightness(1.08);
-    }
-    .btn-secondary {
-      background: transparent;
-      color: var(--fg);
-      border-color: var(--border-strong);
-    }
-    .btn-secondary:hover {
-      color: var(--fg);
-      background: var(--surface);
-      border-color: var(--muted-2);
-    }
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-    }
-
-    /* ========== Hero ========== */
-    .hero {
-      position: relative;
-      padding-block: clamp(3.5rem, 10vw, 7rem) clamp(4rem, 10vw, 7rem);
-      overflow: hidden;
-    }
-    .hero-grid {
-      display: grid;
-      gap: clamp(2.5rem, 6vw, 4rem);
-      align-items: center;
-    }
-    @media (min-width: 900px) {
-      .hero-grid {
-        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-        gap: 3.5rem;
-      }
-    }
-    .hero-kicker {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-      margin-bottom: var(--space-4);
-    }
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.15rem, 5.2vw, 3.35rem);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      line-height: 1.08;
-      color: var(--fg);
-      margin-bottom: var(--space-5);
-      max-width: 14ch;
-    }
-    .hero-lead {
-      font-size: clamp(1.05rem, 2vw, 1.15rem);
-      line-height: 1.65;
-      color: var(--muted);
-      max-width: 42ch;
-      margin-bottom: var(--space-6);
-    }
-    .hero-visual {
-      position: relative;
-      aspect-ratio: 1 / 0.92;
-      max-width: 480px;
-      margin-inline: auto;
-      width: 100%;
-    }
-    .hero-canvas {
-      width: 100%;
-      height: 100%;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      background:
-        linear-gradient(160deg, var(--bg-elevated) 0%, var(--surface) 55%, var(--bg) 100%);
-      overflow: hidden;
-    }
-    .hero-canvas svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    /* ========== Services ========== */
-    .services-grid {
-      display: grid;
-      gap: var(--space-4);
-      grid-template-columns: 1fr;
-    }
-    @media (min-width: 600px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 1024px) {
-      .services-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    .service-card {
-      padding: var(--space-5);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      transition: border-color 0.15s, background 0.15s;
-    }
-    .service-card:hover {
-      border-color: var(--border-strong);
-      background: var(--surface-2);
-    }
-    .service-icon {
-      width: 36px;
-      height: 36px;
-      margin-bottom: var(--space-4);
-      color: var(--accent-text);
-    }
-    .service-card h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: var(--space-2);
-    }
-    .service-card p {
-      font-size: 0.95rem;
-      line-height: 1.55;
-      color: var(--muted);
-    }
-    .services-note {
-      margin-top: var(--space-6);
-      padding: var(--space-5);
-      border-left: 2px solid var(--accent);
-      background: var(--accent-dim);
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-      max-width: 62ch;
-    }
-
-    /* ========== Products ========== */
-    .section-tint {
-      background: var(--bg-elevated);
-      border-block: 1px solid var(--border);
-    }
-    .products-grid {
-      display: grid;
-      gap: var(--space-4);
-      grid-template-columns: 1fr;
-    }
-    @media (min-width: 700px) {
-      .products-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 1100px) {
-      .products-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    .product-card {
-      display: flex;
-      flex-direction: column;
-      padding: var(--space-5);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      min-height: 100%;
-    }
-    .product-card.span-wide {
-      grid-column: 1 / -1;
-    }
-    @media (min-width: 700px) {
-      .product-card.span-wide {
-        grid-column: auto;
-      }
-      .products-grid .product-card:nth-child(4),
-      .products-grid .product-card:nth-child(5) {
-        /* natural flow */
-      }
-    }
-    .product-top {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: var(--space-3);
-      margin-bottom: var(--space-4);
-    }
-    .product-card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      letter-spacing: -0.015em;
-      line-height: 1.25;
-    }
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.55rem;
-      border-radius: 999px;
-      white-space: nowrap;
-      max-width: 100%;
-    }
-    .status::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: currentColor;
-      flex-shrink: 0;
-    }
-    .status-active {
-      color: var(--success);
-      background: var(--success-dim);
-    }
-    .status-dev {
-      color: var(--accent-text);
-      background: var(--accent-dim);
-    }
-    .status-advanced {
-      color: oklch(78% 0.08 200);
-      background: oklch(78% 0.08 200 / 0.14);
-    }
-    .status-early {
-      color: var(--muted);
-      background: oklch(50% 0.02 240 / 0.2);
-    }
-    .status-proto {
-      color: var(--gold);
-      background: var(--gold-dim);
-    }
-    .status-core {
-      color: var(--fg);
-      background: oklch(90% 0.01 240 / 0.1);
-    }
-    .product-card p {
-      font-size: 0.95rem;
-      line-height: 1.55;
-      color: var(--muted);
-      flex: 1;
-      margin-bottom: var(--space-5);
-    }
-    .coming-soon {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--muted-2);
-      letter-spacing: 0.01em;
-    }
-
-    /* ========== Open source ========== */
-    .oss-list {
-      display: grid;
-      gap: 0;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--surface);
-    }
-    .oss-item {
-      display: grid;
-      gap: var(--space-3);
-      padding: var(--space-5);
-      border-bottom: 1px solid var(--border);
-    }
+    .btn-primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+    .btn-primary:hover { color: var(--bg); filter: brightness(1.08); }
+    .btn-secondary { background: transparent; color: var(--fg); border-color: var(--border-strong); }
+    .btn-secondary:hover { color: var(--fg); background: var(--surface); border-color: var(--muted-2); }
+    .btn-row { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+    .hero { position: relative; padding-block: clamp(3.5rem, 10vw, 7rem) clamp(4rem, 10vw, 7rem); overflow: hidden; }
+    .hero-grid { display: grid; gap: clamp(2.5rem, 6vw, 4rem); align-items: center; }
+    @media (min-width: 900px) { .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 3.5rem; } }
+    .hero-kicker { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; color: var(--muted); margin-bottom: var(--space-4); }
+    .hero-title { font-family: var(--font-display); font-size: clamp(2.15rem, 5.2vw, 3.35rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.08; color: var(--fg); margin-bottom: var(--space-5); max-width: 14ch; }
+    .hero-lead { font-size: clamp(1.05rem, 2vw, 1.15rem); line-height: 1.65; color: var(--muted); max-width: 42ch; margin-bottom: var(--space-6); }
+    .hero-visual { position: relative; aspect-ratio: 1 / 0.92; max-width: 480px; margin-inline: auto; width: 100%; }
+    .hero-canvas { width: 100%; height: 100%; border-radius: var(--radius-lg); border: 1px solid var(--border); background: linear-gradient(160deg, var(--bg-elevated) 0%, var(--surface) 55%, var(--bg) 100%); overflow: hidden; }
+    .hero-canvas svg { width: 100%; height: 100%; }
+    .services-grid { display: grid; gap: var(--space-4); grid-template-columns: 1fr; }
+    @media (min-width: 600px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+    .service-card { padding: var(--space-5); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); transition: border-color 0.15s, background 0.15s; }
+    .service-card:hover { border-color: var(--border-strong); background: var(--surface-2); }
+    .service-icon { width: 36px; height: 36px; margin-bottom: var(--space-4); color: var(--accent-text); }
+    .service-card h3 { font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: var(--space-2); }
+    .service-card p { font-size: 0.95rem; line-height: 1.55; color: var(--muted); }
+    .services-note { margin-top: var(--space-6); padding: var(--space-5); border-left: 2px solid var(--accent); background: var(--accent-dim); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: var(--muted); font-size: 0.98rem; max-width: 62ch; }
+    .section-tint { background: var(--bg-elevated); border-block: 1px solid var(--border); }
+    .products-grid { display: grid; gap: var(--space-4); grid-template-columns: 1fr; }
+    @media (min-width: 700px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1100px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+    .product-card { display: flex; flex-direction: column; padding: var(--space-5); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); min-height: 100%; }
+    .product-card.span-wide { grid-column: 1 / -1; }
+    @media (min-width: 700px) { .product-card.span-wide { grid-column: auto; } }
+    .product-top { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-4); }
+    .product-card h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.25; }
+    .status { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.3rem 0.55rem; border-radius: 999px; white-space: nowrap; max-width: 100%; }
+    .status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+    .status-active { color: var(--success); background: var(--success-dim); }
+    .status-dev { color: var(--accent-text); background: var(--accent-dim); }
+    .status-advanced { color: oklch(78% 0.08 200); background: oklch(78% 0.08 200 / 0.14); }
+    .status-early { color: var(--muted); background: oklch(50% 0.02 240 / 0.2); }
+    .status-proto { color: var(--gold); background: var(--gold-dim); }
+    .status-core { color: var(--fg); background: oklch(90% 0.01 240 / 0.1); }
+    .product-card p { font-size: 0.95rem; line-height: 1.55; color: var(--muted); flex: 1; margin-bottom: var(--space-5); }
+    .coming-soon { font-size: 0.85rem; font-weight: 500; color: var(--muted-2); letter-spacing: 0.01em; }
+    .product-links { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-4); align-items: center; }
+    .oss-list { display: grid; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+    .oss-item { display: grid; gap: var(--space-3); padding: var(--space-5); border-bottom: 1px solid var(--border); }
     .oss-item:last-child { border-bottom: 0; }
-    @media (min-width: 700px) {
-      .oss-item {
-        grid-template-columns: minmax(0, 1fr) auto;
-        align-items: start;
-        gap: var(--space-5);
-      }
-    }
-    .oss-item h3 {
-      font-family: var(--font-mono);
-      font-size: 1rem;
-      font-weight: 550;
-      letter-spacing: -0.01em;
-      margin-bottom: var(--space-2);
-    }
-    .oss-item p {
-      font-size: 0.95rem;
-      line-height: 1.55;
-      color: var(--muted);
-      max-width: 62ch;
-    }
-    .oss-actions {
-      margin-top: var(--space-6);
-    }
-
-    /* ========== Creative ========== */
-    .creative-grid {
-      display: grid;
-      gap: var(--space-4);
-      grid-template-columns: 1fr;
-    }
-    @media (min-width: 700px) {
-      .creative-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    .creative-card {
-      position: relative;
-      padding: var(--space-5);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-    .creative-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 2px;
-      background: var(--gold);
-      opacity: 0.85;
-    }
-    .creative-icon {
-      width: 48px;
-      height: 48px;
-      margin-bottom: var(--space-4);
-      color: var(--gold);
-    }
-    .creative-card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      letter-spacing: -0.015em;
-      margin-bottom: var(--space-3);
-    }
-    .creative-card p {
-      font-size: 0.95rem;
-      line-height: 1.55;
-      color: var(--muted);
-      margin-bottom: var(--space-4);
-    }
-
-    /* ========== Process ========== */
-    .process-steps {
-      display: grid;
-      gap: var(--space-4);
-      counter-reset: step;
-    }
-    @media (min-width: 768px) {
-      .process-steps {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (min-width: 1100px) {
-      .process-steps {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-    .process-step {
-      position: relative;
-      padding: var(--space-5);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      counter-increment: step;
-    }
-    .process-step::before {
-      content: counter(step, decimal-leading-zero);
-      display: block;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--accent-text);
-      margin-bottom: var(--space-3);
-    }
-    .process-step h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: var(--space-2);
-    }
-    .process-step p {
-      font-size: 0.92rem;
-      line-height: 1.55;
-      color: var(--muted);
-    }
-    .process-note {
-      margin-top: var(--space-6);
-      color: var(--muted);
-      font-size: 0.98rem;
-      max-width: 58ch;
-    }
-
-    /* ========== About ========== */
-    .about-block {
-      display: grid;
-      gap: var(--space-6);
-    }
-    @media (min-width: 800px) {
-      .about-block {
-        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-        gap: 3.5rem;
-        align-items: start;
-      }
-    }
-    .about-copy p {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: var(--muted);
-      max-width: 58ch;
-      margin-bottom: var(--space-4);
-    }
+    @media (min-width: 700px) { .oss-item { grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: var(--space-5); } }
+    .oss-item h3 { font-family: var(--font-mono); font-size: 1rem; font-weight: 550; letter-spacing: -0.01em; margin-bottom: var(--space-2); }
+    .oss-item p { font-size: 0.95rem; line-height: 1.55; color: var(--muted); max-width: 62ch; }
+    .oss-actions { margin-top: var(--space-6); }
+    .creative-grid { display: grid; gap: var(--space-4); grid-template-columns: 1fr; }
+    @media (min-width: 700px) { .creative-grid { grid-template-columns: repeat(2, 1fr); } }
+    .creative-card { position: relative; padding: var(--space-5); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .creative-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 2px; background: var(--gold); opacity: 0.85; }
+    .creative-icon { width: 48px; height: 48px; margin-bottom: var(--space-4); color: var(--gold); }
+    .creative-card h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.015em; margin-bottom: var(--space-3); }
+    .creative-card p { font-size: 0.95rem; line-height: 1.55; color: var(--muted); margin-bottom: var(--space-4); }
+    .process-steps { display: grid; gap: var(--space-4); counter-reset: step; }
+    @media (min-width: 768px) { .process-steps { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1100px) { .process-steps { grid-template-columns: repeat(4, 1fr); } }
+    .process-step { position: relative; padding: var(--space-5); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); counter-increment: step; }
+    .process-step::before { content: counter(step, decimal-leading-zero); display: block; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; color: var(--accent-text); margin-bottom: var(--space-3); }
+    .process-step h3 { font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: var(--space-2); }
+    .process-step p { font-size: 0.92rem; line-height: 1.55; color: var(--muted); }
+    .process-note { margin-top: var(--space-6); color: var(--muted); font-size: 0.98rem; max-width: 58ch; }
+    .about-block { display: grid; gap: var(--space-6); }
+    @media (min-width: 800px) { .about-block { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 3.5rem; align-items: start; } }
+    .about-copy p { font-size: 1.05rem; line-height: 1.7; color: var(--muted); max-width: 58ch; margin-bottom: var(--space-4); }
     .about-copy p:last-child { margin-bottom: 0; }
-    .about-aside {
-      padding: var(--space-5);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-    }
-    .about-aside h3 {
-      font-size: 0.85rem;
-      font-weight: 550;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--muted-2);
-      margin-bottom: var(--space-4);
-    }
-    .about-aside ul {
-      display: grid;
-      gap: var(--space-3);
-    }
-    .about-aside li {
-      font-size: 0.98rem;
-      color: var(--fg);
-      padding-left: 1rem;
-      position: relative;
-    }
-    .about-aside li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.55em;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-
-    /* ========== Contact ========== */
-    .contact-panel {
-      display: grid;
-      gap: var(--space-6);
-      padding: clamp(1.75rem, 4vw, 2.75rem);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-    }
-    @media (min-width: 800px) {
-      .contact-panel {
-        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-        gap: 3rem;
-        align-items: start;
-      }
-    }
-    .contact-invite {
-      font-size: clamp(1.35rem, 2.8vw, 1.75rem);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.25;
-      margin-bottom: var(--space-4);
-      max-width: 22ch;
-    }
-    .contact-invite-lead {
-      color: var(--muted);
-      font-size: 1.02rem;
-      line-height: 1.6;
-      max-width: 42ch;
-      margin-bottom: var(--space-5);
-    }
-    .contact-primary {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2);
-      padding: var(--space-5);
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-    }
-    .contact-primary .label {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--muted-2);
-    }
-    .contact-primary .name {
-      font-size: 1.15rem;
-      font-weight: 600;
-    }
-    .contact-primary a {
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--accent-text);
-      text-decoration: none;
-      word-break: break-word;
-    }
+    .about-aside { padding: var(--space-5); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+    .about-aside h3 { font-size: 0.85rem; font-weight: 550; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted-2); margin-bottom: var(--space-4); }
+    .about-aside ul { display: grid; gap: var(--space-3); }
+    .about-aside li { font-size: 0.98rem; color: var(--fg); padding-left: 1rem; position: relative; }
+    .about-aside li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+    .contact-panel { display: grid; gap: var(--space-6); padding: clamp(1.75rem, 4vw, 2.75rem); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+    @media (min-width: 800px) { .contact-panel { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 3rem; align-items: start; } }
+    .contact-invite { font-size: clamp(1.35rem, 2.8vw, 1.75rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: var(--space-4); max-width: 22ch; }
+    .contact-invite-lead { color: var(--muted); font-size: 1.02rem; line-height: 1.6; max-width: 42ch; margin-bottom: var(--space-5); }
+    .contact-primary { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-5); background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); }
+    .contact-primary .label { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted-2); }
+    .contact-primary .name { font-size: 1.15rem; font-weight: 600; }
+    .contact-primary a { font-size: 1.05rem; font-weight: 500; color: var(--accent-text); text-decoration: none; word-break: break-word; }
     .contact-primary a:hover { text-decoration: underline; }
-    .contact-list {
-      display: grid;
-      gap: 0;
-    }
-    .contact-row {
-      display: grid;
-      gap: 0.25rem;
-      padding: var(--space-4) 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .contact-list { display: grid; gap: 0; }
+    .contact-row { display: grid; gap: 0.25rem; padding: var(--space-4) 0; border-bottom: 1px solid var(--border); }
     .contact-row:first-child { padding-top: 0; }
     .contact-row:last-child { border-bottom: 0; padding-bottom: 0; }
-    .contact-row .label {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      color: var(--muted-2);
-    }
-    .contact-row a {
-      font-size: 0.98rem;
-      color: var(--fg);
-      text-decoration: none;
-      word-break: break-word;
-    }
+    .contact-row .label { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.03em; text-transform: uppercase; color: var(--muted-2); }
+    .contact-row a { font-size: 0.98rem; color: var(--fg); text-decoration: none; word-break: break-word; }
     .contact-row a:hover { color: var(--accent-text); }
-
-    /* ========== Footer ========== */
-    .site-footer {
-      border-top: 1px solid var(--border);
-      padding-block: var(--space-7) var(--space-6);
-      background: var(--bg-elevated);
-    }
-    .footer-top {
-      display: grid;
-      gap: var(--space-6);
-      margin-bottom: var(--space-7);
-    }
-    @media (min-width: 700px) {
-      .footer-top {
-        grid-template-columns: 1.2fr 1fr;
-        gap: 3rem;
-      }
-    }
-    .footer-brand {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-    }
+    .site-footer { border-top: 1px solid var(--border); padding-block: var(--space-7) var(--space-6); background: var(--bg-elevated); }
+    .footer-top { display: grid; gap: var(--space-6); margin-bottom: var(--space-7); }
+    @media (min-width: 700px) { .footer-top { grid-template-columns: 1.2fr 1fr; gap: 3rem; } }
+    .footer-brand { display: flex; flex-direction: column; gap: var(--space-3); }
     .footer-brand .brand { align-self: flex-start; }
-    .footer-tagline {
-      color: var(--muted);
-      font-size: 0.95rem;
-      max-width: 32ch;
-      line-height: 1.55;
-    }
-    .footer-nav {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-3) var(--space-5);
-    }
-    .footer-nav a {
-      text-decoration: none;
-      font-size: 0.92rem;
-      color: var(--muted);
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-    }
+    .footer-tagline { color: var(--muted); font-size: 0.95rem; max-width: 32ch; line-height: 1.55; }
+    .footer-nav { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3) var(--space-5); }
+    .footer-nav a { text-decoration: none; font-size: 0.92rem; color: var(--muted); min-height: 44px; display: inline-flex; align-items: center; }
     .footer-nav a:hover { color: var(--fg); }
-    .footer-bottom {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3) var(--space-5);
-      align-items: center;
-      justify-content: space-between;
-      padding-top: var(--space-5);
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem;
-      color: var(--muted-2);
-    }
-    .footer-bottom a {
-      color: var(--muted);
-      text-decoration: none;
-      word-break: break-word;
-    }
+    .footer-bottom { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-5); align-items: center; justify-content: space-between; padding-top: var(--space-5); border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--muted-2); }
+    .footer-bottom a { color: var(--muted); text-decoration: none; word-break: break-word; }
     .footer-bottom a:hover { color: var(--accent-text); }
-    .footer-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3) var(--space-4);
-      align-items: center;
-    }
-
-    /* ========== Print ========== */
-    @media print {
-      .site-header, .menu-toggle, .nav-mobile { display: none !important; }
-      body { background: #fff; color: #111; font-size: 11pt; }
-      .section { padding-block: 1.5rem; break-inside: avoid; }
-      .service-card, .product-card, .creative-card, .process-step,
-      .contact-panel, .oss-list, .about-aside {
-        border-color: #ccc;
-        background: #fff;
-        box-shadow: none;
-      }
-      a { color: #000; text-decoration: underline; }
-      .hero-title { color: #000; }
-      .btn-primary { border: 1px solid #000; color: #000; background: none; }
-    }
+    .footer-meta { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-4); align-items: center; }
+    @media print { .site-header, .menu-toggle, .nav-mobile { display: none !important; } body { background: #fff; color: #111; font-size: 11pt; } .section { padding-block: 1.5rem; break-inside: avoid; } .service-card, .product-card, .creative-card, .process-step, .contact-panel, .oss-list, .about-aside { border-color: #ccc; background: #fff; box-shadow: none; } a { color: #000; text-decoration: underline; } .hero-title { color: #000; } .btn-primary { border: 1px solid #000; color: #000; background: none; } }
   </style>
 </head>
 <body>
   <a class="sr-only" href="#main">Skip to content</a>
-
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#top" aria-label="PCGsoft home">
@@ -933,517 +241,98 @@
         </svg>
         <span class="brand-word">PCGsoft</span>
       </a>
-
       <nav class="nav-desktop" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#products">Products</a>
-        <a href="#open-source">Open Source</a>
-        <a href="#creative">Creative</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#services">Services</a><a href="#products">Products</a><a href="#open-source">Open Source</a><a href="#creative">Creative</a><a href="#about">About</a><a href="#contact">Contact</a>
       </nav>
-
       <div class="header-actions">
         <a class="btn-nav-contact" href="mailto:phil@pcgsoft.co.uk">Contact</a>
-        <button
-          type="button"
-          class="menu-toggle"
-          id="menu-toggle"
-          aria-expanded="false"
-          aria-controls="nav-mobile"
-         
-        >
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-mobile">
           <span class="sr-only">Menu</span>
-          <svg class="icon-open" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-          <svg class="icon-close" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
+          <svg class="icon-open" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <svg class="icon-close" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
         </button>
       </div>
     </div>
-
     <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile">
-      <a href="#services">Services</a>
-      <a href="#products">Products</a>
-      <a href="#open-source">Open Source</a>
-      <a href="#creative">Creative</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a class="btn-mobile-contact" href="mailto:phil@pcgsoft.co.uk">Discuss a project</a>
+      <a href="#services">Services</a><a href="#products">Products</a><a href="#open-source">Open Source</a><a href="#creative">Creative</a><a href="#about">About</a><a href="#contact">Contact</a><a class="btn-mobile-contact" href="mailto:phil@pcgsoft.co.uk">Discuss a project</a>
     </nav>
   </header>
-
   <main id="main">
-    <!-- HERO -->
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <p class="hero-kicker">Practical software for real-world operations</p>
           <h1 class="hero-title" id="hero-title">Software built around the way real work happens.</h1>
-          <p class="hero-lead">
-            PCGsoft designs practical web, mobile and AI-assisted systems for businesses with real operational problems.
-          </p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="mailto:phil@pcgsoft.co.uk">Discuss a project</a>
-            <a class="btn btn-secondary" href="#products">Explore our work</a>
-          </div>
+          <p class="hero-lead">PCGsoft designs practical web, mobile and AI-assisted systems for businesses with real operational problems.</p>
+          <div class="btn-row"><a class="btn btn-primary" href="mailto:phil@pcgsoft.co.uk">Discuss a project</a><a class="btn btn-secondary" href="#products">Explore our work</a></div>
         </div>
-
-        <div class="hero-visual" aria-hidden="true">
-          <div class="hero-canvas">
-            <!-- Abstract system map: aligned nodes, paths, compass grid -->
-            <svg viewBox="0 0 480 440" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
-              <defs>
-                <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-                  <path d="M24 0H0V24" stroke="oklch(38% 0.025 250 / 0.35)" stroke-width="0.6"/>
-                </pattern>
-              </defs>
-              <rect width="480" height="440" fill="url(#grid)"/>
-              <!-- Outer ring / compass -->
-              <circle cx="240" cy="220" r="148" stroke="oklch(38% 0.025 250 / 0.7)" stroke-width="1"/>
-              <circle cx="240" cy="220" r="96" stroke="oklch(48% 0.03 250 / 0.45)" stroke-width="1" stroke-dasharray="3 5"/>
-              <!-- Cardinal ticks -->
-              <path d="M240 62 V86 M240 354 V378 M82 220 H106 M374 220 H398" stroke="oklch(78% 0.12 210 / 0.55)" stroke-width="1.5" stroke-linecap="round"/>
-              <!-- Flow paths -->
-              <path d="M120 300 C160 250, 200 280, 240 220 C280 160, 320 190, 360 140" stroke="oklch(78% 0.12 210 / 0.35)" stroke-width="1.5"/>
-              <path d="M100 160 C150 180, 180 140, 240 220 C300 300, 340 260, 380 300" stroke="oklch(72% 0.12 165 / 0.3)" stroke-width="1.25"/>
-              <!-- Nodes -->
-              <circle cx="120" cy="300" r="6" fill="oklch(22% 0.028 250)" stroke="oklch(78% 0.12 210)" stroke-width="1.5"/>
-              <circle cx="360" cy="140" r="6" fill="oklch(22% 0.028 250)" stroke="oklch(78% 0.12 210)" stroke-width="1.5"/>
-              <circle cx="100" cy="160" r="5" fill="oklch(22% 0.028 250)" stroke="oklch(72% 0.12 165)" stroke-width="1.4"/>
-              <circle cx="380" cy="300" r="5" fill="oklch(22% 0.028 250)" stroke="oklch(72% 0.12 165)" stroke-width="1.4"/>
-              <!-- Centre diamond (logo echo) -->
-              <path d="M240 168 L292 220 L240 272 L188 220 Z" stroke="oklch(78% 0.12 210)" stroke-width="1.75" fill="oklch(22% 0.028 250 / 0.6)"/>
-              <circle cx="240" cy="220" r="8" fill="oklch(78% 0.12 210)"/>
-              <!-- Aligned secondary nodes -->
-              <circle cx="188" cy="220" r="3.5" fill="oklch(78% 0.12 210 / 0.7)"/>
-              <circle cx="292" cy="220" r="3.5" fill="oklch(78% 0.12 210 / 0.7)"/>
-              <circle cx="240" cy="168" r="3.5" fill="oklch(78% 0.12 210 / 0.7)"/>
-              <circle cx="240" cy="272" r="3.5" fill="oklch(78% 0.12 210 / 0.7)"/>
-              <!-- Small labels as pure geometry, not text -->
-              <rect x="128" y="88" width="40" height="4" rx="1" fill="oklch(48% 0.03 250 / 0.5)"/>
-              <rect x="312" y="348" width="52" height="4" rx="1" fill="oklch(48% 0.03 250 / 0.5)"/>
-            </svg>
-          </div>
-        </div>
+        <div class="hero-visual" aria-hidden="true"><div class="hero-canvas"><svg viewBox="0 0 480 440" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation"><defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" stroke="oklch(38% 0.025 250 / 0.35)" stroke-width="0.6"/></pattern></defs><rect width="480" height="440" fill="url(#grid)"/><circle cx="240" cy="220" r="148" stroke="oklch(38% 0.025 250 / 0.7)" stroke-width="1"/><circle cx="240" cy="220" r="96" stroke="oklch(48% 0.03 250 / 0.45)" stroke-width="1" stroke-dasharray="3 5"/><path d="M240 62 V86 M240 354 V378 M82 220 H106 M374 220 H398" stroke="oklch(78% 0.12 210 / 0.55)" stroke-width="1.5" stroke-linecap="round"/><path d="M120 300 C160 250, 200 280, 240 220 C280 160, 320 190, 360 140" stroke="oklch(78% 0.12 210 / 0.35)" stroke-width="1.5"/><path d="M100 160 C150 180, 180 140, 240 220 C300 300, 340 260, 380 300" stroke="oklch(72% 0.12 165 / 0.3)" stroke-width="1.25"/><circle cx="120" cy="300" r="6" fill="oklch(22% 0.028 250)" stroke="oklch(78% 0.12 210)" stroke-width="1.5"/><circle cx="360" cy="140" r="6" fill="oklch(22% 0.028 250)" stroke="oklch(78% 0.12 210)" stroke-width="1.5"/><circle cx="100" cy="160" r="5" fill="oklch(22% 0.028 250)" stroke="oklch(72% 0.12 165)" stroke-width="1.4"/><circle cx="380" cy="300" r="5" fill="oklch(22% 0.028 250)" stroke="oklch(72% 0.12 165)" stroke-width="1.4"/><path d="M240 168 L292 220 L240 272 L188 220 Z" stroke="oklch(78% 0.12 210)" stroke-width="1.75" fill="oklch(22% 0.028 250 / 0.6)"/><circle cx="240" cy="220" r="8" fill="oklch(78% 0.12 210)"/><circle cx="188" cy="220" r="3.5" fill="oklch(78% 0.12 210 / 0.7)"/><circle cx="292" cy="220" r="3.5" fill="oklch(78% 0.12 210 / 0.7)"/><circle cx="240" cy="168" r="3.5" fill="oklch(78% 0.12 210 / 0.7)"/><circle cx="240" cy="272" r="3.5" fill="oklch(78% 0.12 210 / 0.7)"/><rect x="128" y="88" width="40" height="4" rx="1" fill="oklch(48% 0.03 250 / 0.5)"/><rect x="312" y="348" width="52" height="4" rx="1" fill="oklch(48% 0.03 250 / 0.5)"/></svg></div></div>
       </div>
     </section>
-
-    <!-- SERVICES -->
     <section class="section" id="services" aria-labelledby="services-title">
-      <div class="wrap">
-        <header class="section-head">
-          <p class="eyebrow">Services</p>
-          <h2 class="section-title" id="services-title">Software shaped around the problem.</h2>
-          <p class="section-lead">
-            PCGsoft starts by understanding the workflow before recommending a website, web application, mobile app, automation or AI component.
-          </p>
-        </header>
-
+      <div class="wrap"><header class="section-head"><p class="eyebrow">Services</p><h2 class="section-title" id="services-title">Software shaped around the problem.</h2><p class="section-lead">PCGsoft starts by understanding the workflow before recommending a website, web application, mobile app, automation or AI component.</p></header>
         <div class="services-grid">
-          <article class="service-card">
-            <svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-              <rect x="6" y="8" width="24" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M12 14h12M12 19h8M12 24h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-            <h3>Bespoke business systems</h3>
-            <p>Purpose-built tools that fit how your operation actually runs — not a forced template process.</p>
-          </article>
-
-          <article class="service-card">
-            <svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-              <rect x="5" y="7" width="26" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M5 12h26M12 29h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-            <h3>Web applications and dashboards</h3>
-            <p>Internal platforms and operational views that surface the right information at the right time.</p>
-          </article>
-
-          <article class="service-card">
-            <svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-              <rect x="11" y="5" width="14" height="26" rx="2.5" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="18" cy="26.5" r="1.2" fill="currentColor"/>
-            </svg>
-            <h3>Mobile applications</h3>
-            <p>Focused mobile tools for people working away from a desk — clear, reliable and maintainable.</p>
-          </article>
-
-          <article class="service-card">
-            <svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-              <circle cx="10" cy="18" r="3.5" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="26" cy="10" r="3.5" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="26" cy="26" r="3.5" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M13.5 16.5 L22.5 11.5 M13.5 19.5 L22.5 24.5" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
-            <h3>Workflow automation</h3>
-            <p>Connect steps, reduce re-entry and remove friction from processes that already exist.</p>
-          </article>
-
-          <article class="service-card">
-            <svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-              <path d="M18 7v4M18 25v4M7 18h4M25 18h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="18" cy="18" r="6" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="18" cy="18" r="2" fill="currentColor"/>
-            </svg>
-            <h3>AI integration</h3>
-            <p>Assisted tools where they earn their place — governed, practical and tied to real tasks.</p>
-          </article>
-
-          <article class="service-card">
-            <svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-              <circle cx="18" cy="18" r="11" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M7 18h22M18 7c3 3.5 3 18.5 0 22M18 7c-3 3.5-3 18.5 0 22" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
-            <h3>Websites and digital presence</h3>
-            <p>Clear, credible sites that explain the work — without the noise of a generic template.</p>
-          </article>
+          <article class="service-card"><svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect x="6" y="8" width="24" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M12 14h12M12 19h8M12 24h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><h3>Bespoke business systems</h3><p>Purpose-built tools that fit how your operation actually runs — not a forced template process.</p></article>
+          <article class="service-card"><svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect x="5" y="7" width="26" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 12h26M12 29h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><h3>Web applications and dashboards</h3><p>Internal platforms and operational views that surface the right information at the right time.</p></article>
+          <article class="service-card"><svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect x="11" y="5" width="14" height="26" rx="2.5" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="26.5" r="1.2" fill="currentColor"/></svg><h3>Mobile applications</h3><p>Focused mobile tools for people working away from a desk — clear, reliable and maintainable.</p></article>
+          <article class="service-card"><svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true"><circle cx="10" cy="18" r="3.5" stroke="currentColor" stroke-width="1.5"/><circle cx="26" cy="10" r="3.5" stroke="currentColor" stroke-width="1.5"/><circle cx="26" cy="26" r="3.5" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 16.5 L22.5 11.5 M13.5 19.5 L22.5 24.5" stroke="currentColor" stroke-width="1.5"/></svg><h3>Workflow automation</h3><p>Connect steps, reduce re-entry and remove friction from processes that already exist.</p></article>
+          <article class="service-card"><svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M18 7v4M18 25v4M7 18h4M25 18h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="18" cy="18" r="6" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="18" r="2" fill="currentColor"/></svg><h3>AI integration</h3><p>Assisted tools where they earn their place — governed, practical and tied to real tasks.</p></article>
+          <article class="service-card"><svg class="service-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true"><circle cx="18" cy="18" r="11" stroke="currentColor" stroke-width="1.5"/><path d="M7 18h22M18 7c3 3.5 3 18.5 0 22M18 7c-3 3.5-3 18.5 0 22" stroke="currentColor" stroke-width="1.5"/></svg><h3>Websites and digital presence</h3><p>Clear, credible sites that explain the work — without the noise of a generic template.</p></article>
         </div>
-
-        <p class="services-note">
-          The focus is useful, maintainable systems rather than technology for its own sake. The right answer may be a website, internal web application, mobile app, automation, AI-assisted tool — or a carefully designed combination.
-          PCGsoft is currently open to conversations with UK businesses that have an operational problem existing software does not solve well.
-        </p>
+        <p class="services-note">The focus is useful, maintainable systems rather than technology for its own sake. The right answer may be a website, internal web application, mobile app, automation, AI-assisted tool — or a carefully designed combination. PCGsoft is currently open to conversations with UK businesses that have an operational problem existing software does not solve well.</p>
       </div>
     </section>
-
-    <!-- PRODUCTS -->
     <section class="section section-tint" id="products" aria-labelledby="products-title">
-      <div class="wrap">
-        <header class="section-head">
-          <p class="eyebrow">Products</p>
-          <h2 class="section-title" id="products-title">Commercial products in development</h2>
-          <p class="section-lead">
-            Focused products spanning transport compliance, fleet operations, software readiness and accessibility-minded tools.
-          </p>
-        </header>
-
+      <div class="wrap"><header class="section-head"><p class="eyebrow">Products</p><h2 class="section-title" id="products-title">Products and platforms</h2><p class="section-lead">Focused products spanning transport compliance, fleet operations, software readiness, AI intelligence and accessibility-minded tools.</p></header>
         <div class="products-grid">
-          <article class="product-card">
-            <div class="product-top">
-              <h3>HourWise EU</h3>
-              <span class="status status-active">Active development</span>
-            </div>
-            <p>A driver-hours and working-time companion for UK and EU professional drivers, offering shift tracking, break awareness and compliance-focused alerts.</p>
-            <a class="coming-soon" href="https://www.hourwiseeu.co.uk" rel="noopener noreferrer">Visit HourWise EU →</a>
-          </article>
-
-          <article class="product-card">
-            <div class="product-top">
-              <h3>HourWise Fleet Portal</h3>
-              <span class="status status-active">Active development</span>
-            </div>
-            <p>A fleet operations and compliance platform covering tachograph analysis, maintenance, driver records, incidents, payroll support, messaging and reporting.</p>
-            <span class="coming-soon">Details coming soon</span>
-          </article>
-
-          <article class="product-card">
-            <div class="product-top">
-              <h3>Atlas AI</h3>
-              <span class="status status-dev">In development</span>
-            </div>
-            <p>An operational assistant intended to help drivers and managers query information, surface risks and understand procedures across the HourWise ecosystem.</p>
-            <span class="coming-soon">Details coming soon</span>
-          </article>
-
-          <article class="product-card">
-            <div class="product-top">
-              <h3>Reticle Systems</h3>
-              <span class="status status-advanced">Advanced development</span>
-            </div>
-            <p>A guided software planning, inspection and launch-readiness platform that helps users turn an idea or existing build into a structured, testable and maintainable product.</p>
-            <span class="coming-soon">Details coming soon</span>
-          </article>
-
-          <article class="product-card">
-            <div class="product-top">
-              <h3>Relief</h3>
-              <span class="status status-early">Early development</span>
-            </div>
-            <p>A privacy- and accessibility-aware public toilet finder designed to help people locate suitable facilities with confidence.</p>
-            <span class="coming-soon">Details coming soon</span>
-          </article>
+          <article class="product-card"><div class="product-top"><h3>HourWise EU</h3><span class="status status-active">Active development</span></div><p>A driver-hours and working-time companion for UK and EU professional drivers, offering shift tracking, break awareness and compliance-focused alerts.</p><a class="coming-soon" href="https://www.hourwiseeu.co.uk" rel="noopener noreferrer">Visit HourWise EU →</a></article>
+          <article class="product-card"><div class="product-top"><h3>HourWise Fleet Portal</h3><span class="status status-active">Active development</span></div><p>A fleet operations and compliance platform covering tachograph analysis, maintenance, driver records, incidents, payroll support, messaging and reporting.</p><span class="coming-soon">Details coming soon</span></article>
+          <article class="product-card"><div class="product-top"><h3>Atlas AI</h3><span class="status status-dev">In development</span></div><p>An operational assistant intended to help drivers and managers query information, surface risks and understand procedures across the HourWise ecosystem.</p><span class="coming-soon">Details coming soon</span></article>
+          <article class="product-card"><div class="product-top"><h3>Reticle Systems</h3><span class="status status-advanced">Advanced development</span></div><p>A guided software planning, inspection and launch-readiness platform that helps users turn an idea or existing build into a structured, testable and maintainable product.</p><span class="coming-soon">Details coming soon</span></article>
+          <article class="product-card"><div class="product-top"><h3>Relief</h3><span class="status status-early">Early development</span></div><p>A privacy- and accessibility-aware public toilet finder designed to help people locate suitable facilities with confidence.</p><span class="coming-soon">Details coming soon</span></article>
+          <article class="product-card"><div class="product-top"><h3>The Trace Manifest</h3><span class="status status-active">Live</span></div><p>A source-grounded AI intelligence and knowledge platform covering agents, MCP, automation, governance and the systems shaping practical AI development.</p><div class="product-links"><a class="coming-soon" href="https://www.thetracemanifest.com/" target="_blank" rel="noopener noreferrer">Visit The Trace Manifest →</a><a class="coming-soon" href="https://github.com/hourwise/The-Trace-Manifest" target="_blank" rel="noopener noreferrer">View source on GitHub →</a></div></article>
         </div>
       </div>
     </section>
-
-    <!-- OPEN SOURCE -->
     <section class="section" id="open-source" aria-labelledby="oss-title">
-      <div class="wrap">
-        <header class="section-head">
-          <p class="eyebrow">Open source</p>
-          <h2 class="section-title" id="oss-title">Trustworthy AI runtime infrastructure</h2>
-          <p class="section-lead">
-            A collection of open projects for governed AI tool calls, persistent project memory, runtime orchestration and shared contracts — built for developers who need reliability over novelty.
-          </p>
-        </header>
-
+      <div class="wrap"><header class="section-head"><p class="eyebrow">Open source</p><h2 class="section-title" id="oss-title">Trustworthy AI runtime infrastructure</h2><p class="section-lead">A collection of open projects for governed AI tool calls, persistent project memory, runtime orchestration and shared contracts — built for developers who need reliability over novelty.</p></header>
         <div class="oss-list">
-          <article class="oss-item">
-            <div>
-              <h3>Project Ananke</h3>
-              <p>An outcome and governance gateway for AI tool calls, providing typed results, approval binding, policy enforcement and auditable execution.</p>
-            </div>
-            <span class="status status-active">Active development</span>
-          </article>
-
-          <article class="oss-item">
-            <div>
-              <h3>Project Mnemosyne</h3>
-              <p>A persistent project-memory runtime designed to reduce context waste, retain reliable knowledge, detect conflicts and provide traceable recall.</p>
-            </div>
-            <span class="status status-active">Active development</span>
-          </article>
-
-          <article class="oss-item">
-            <div>
-              <h3>Project Horae</h3>
-              <p>A runtime gateway and orchestration layer for discovering, connecting and governing approved AI models, tools and supporting runtimes.</p>
-            </div>
-            <span class="status status-active">Active development</span>
-          </article>
-
-          <article class="oss-item">
-            <div>
-              <h3>Project Runtime Contracts</h3>
-              <p>Shared contracts defining runtime identity, registration, capabilities, health, sessions and interoperability across the ecosystem.</p>
-            </div>
-            <span class="status status-core">Core package</span>
-          </article>
-
-          <article class="oss-item">
-            <div>
-              <h3>Moirae Code</h3>
-              <p>A future coding environment intended to combine governed execution, persistent memory and model choice into a coherent development surface.</p>
-            </div>
-            <span class="status status-early">Early construction</span>
-          </article>
+          <article class="oss-item"><div><h3>Project Ananke</h3><p>An outcome and governance gateway for AI tool calls, providing typed results, approval binding, policy enforcement and auditable execution.</p></div><span class="status status-active">Active development</span></article>
+          <article class="oss-item"><div><h3>Project Mnemosyne</h3><p>A persistent project-memory runtime designed to reduce context waste, retain reliable knowledge, detect conflicts and provide traceable recall.</p></div><span class="status status-active">Active development</span></article>
+          <article class="oss-item"><div><h3>Project Horae</h3><p>A runtime gateway and orchestration layer for discovering, connecting and governing approved AI models, tools and supporting runtimes.</p></div><span class="status status-active">Active development</span></article>
+          <article class="oss-item"><div><h3>Project Runtime Contracts</h3><p>Shared contracts defining runtime identity, registration, capabilities, health, sessions and interoperability across the ecosystem.</p></div><span class="status status-core">Core package</span></article>
+          <article class="oss-item"><div><h3>Moirae Code</h3><p>A future coding environment intended to combine governed execution, persistent memory and model choice into a coherent development surface.</p></div><span class="status status-early">Early construction</span></article>
         </div>
-
-        <div class="oss-actions">
-          <a class="btn btn-secondary" href="https://github.com/hourwise" rel="noopener noreferrer">Explore the repositories on GitHub</a>
-        </div>
+        <div class="oss-actions"><a class="btn btn-secondary" href="https://github.com/hourwise" rel="noopener noreferrer">Explore the repositories on GitHub</a></div>
       </div>
     </section>
-
-    <!-- CREATIVE -->
     <section class="section section-tint" id="creative" aria-labelledby="creative-title">
-      <div class="wrap">
-        <header class="section-head">
-          <p class="eyebrow" style="color: var(--gold);">Creative</p>
-          <h2 class="section-title" id="creative-title">Selected creative projects</h2>
-          <p class="section-lead">
-            A small corner of the studio for narrative and playful work — warmer in tone, still carefully built.
-          </p>
-        </header>
-
+      <div class="wrap"><header class="section-head"><p class="eyebrow" style="color: var(--gold);">Creative</p><h2 class="section-title" id="creative-title">Selected creative projects</h2><p class="section-lead">A small corner of the studio for narrative and playful work — warmer in tone, still carefully built.</p></header>
         <div class="creative-grid">
-          <article class="creative-card">
-            <svg class="creative-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-              <path d="M10 14c0-2 1.5-4 6-4 4 0 6 2 8 2s4-2 8-2c4.5 0 6 2 6 4v22c0 1.5-1 3-4 3-4 0-7-2-10-2s-6 2-10 2c-3 0-4-1.5-4-3V14z" stroke="currentColor" stroke-width="1.6"/>
-              <path d="M24 12v26" stroke="currentColor" stroke-width="1.6"/>
-              <circle cx="34" cy="22" r="3" stroke="currentColor" stroke-width="1.4"/>
-              <path d="M32 28c1.5 2 4.5 2 6 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-            </svg>
-            <div class="product-top">
-              <h3>Read Me a Story</h3>
-              <span class="status status-proto">Under construction</span>
-            </div>
-            <p>A child-focused reading experience in which young readers help a mother dragon hatch her eggs by reading stories aloud.</p>
-            <span class="coming-soon">Details coming soon</span>
-          </article>
-
-          <article class="creative-card">
-            <svg class="creative-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-              <circle cx="18" cy="30" r="6" stroke="currentColor" stroke-width="1.6"/>
-              <circle cx="34" cy="26" r="5" stroke="currentColor" stroke-width="1.6"/>
-              <path d="M24 30V14l16-4v16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="product-top">
-              <h3>Riff Wilde and the Sold Out Saga</h3>
-              <span class="status status-proto">Prototype</span>
-            </div>
-            <p>A playful narrative game following Riff Wilde through a humorous music-industry adventure.</p>
-            <span class="coming-soon">Details coming soon</span>
-          </article>
+          <article class="creative-card"><svg class="creative-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M10 14c0-2 1.5-4 6-4 4 0 6 2 8 2s4-2 8-2c4.5 0 6 2 6 4v22c0 1.5-1 3-4 3-4 0-7-2-10-2s-6 2-10 2c-3 0-4-1.5-4-3V14z" stroke="currentColor" stroke-width="1.6"/><path d="M24 12v26" stroke="currentColor" stroke-width="1.6"/><circle cx="34" cy="22" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M32 28c1.5 2 4.5 2 6 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><div class="product-top"><h3>Read Me a Story</h3><span class="status status-proto">Under construction</span></div><p>A child-focused reading experience in which young readers help a mother dragon hatch her eggs by reading stories aloud.</p><span class="coming-soon">Details coming soon</span></article>
+          <article class="creative-card"><svg class="creative-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="18" cy="30" r="6" stroke="currentColor" stroke-width="1.6"/><circle cx="34" cy="26" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M24 30V14l16-4v16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="product-top"><h3>Riff Wilde and the Sold Out Saga</h3><span class="status status-proto">Prototype</span></div><p>A playful narrative game following Riff Wilde through a humorous music-industry adventure.</p><span class="coming-soon">Details coming soon</span></article>
         </div>
       </div>
     </section>
-
-    <!-- PROCESS -->
     <section class="section" id="working" aria-labelledby="working-title">
-      <div class="wrap">
-        <header class="section-head">
-          <p class="eyebrow">How we work</p>
-          <h2 class="section-title" id="working-title">Working with PCGsoft</h2>
-          <p class="section-lead">
-            A grounded process: understand first, then build the smallest system that solves the real problem.
-          </p>
-        </header>
-
-        <ol class="process-steps">
-          <li class="process-step">
-            <h3>Understand the workflow</h3>
-            <p>Map how work actually happens — people, hand-offs, tools and constraints — before writing software.</p>
-          </li>
-          <li class="process-step">
-            <h3>Identify the real problem</h3>
-            <p>Separate symptoms from causes so the solution targets friction that matters, not noise.</p>
-          </li>
-          <li class="process-step">
-            <h3>Prototype the right solution</h3>
-            <p>Shape a clear direction early — enough to test assumptions without over-building.</p>
-          </li>
-          <li class="process-step">
-            <h3>Build, test and improve</h3>
-            <p>Deliver maintainable software, validate it in use, and refine based on real operation.</p>
-          </li>
-        </ol>
-
-        <p class="process-note">
-          The appropriate answer may be a website, web application, mobile application, automation — or a combination. PCGsoft investigates carefully and builds what fits; not every enquiry becomes a project.
-        </p>
+      <div class="wrap"><header class="section-head"><p class="eyebrow">How we work</p><h2 class="section-title" id="working-title">Working with PCGsoft</h2><p class="section-lead">A grounded process: understand first, then build the smallest system that solves the real problem.</p></header>
+        <ol class="process-steps"><li class="process-step"><h3>Understand the workflow</h3><p>Map how work actually happens — people, hand-offs, tools and constraints — before writing software.</p></li><li class="process-step"><h3>Identify the real problem</h3><p>Separate symptoms from causes so the solution targets friction that matters, not noise.</p></li><li class="process-step"><h3>Prototype the right solution</h3><p>Shape a clear direction early — enough to test assumptions without over-building.</p></li><li class="process-step"><h3>Build, test and improve</h3><p>Deliver maintainable software, validate it in use, and refine based on real operation.</p></li></ol>
+        <p class="process-note">The appropriate answer may be a website, web application, mobile application, automation — or a combination. PCGsoft investigates carefully and builds what fits; not every enquiry becomes a project.</p>
       </div>
     </section>
-
-    <!-- ABOUT -->
-    <section class="section section-tint" id="about" aria-labelledby="about-title">
-      <div class="wrap about-block">
-        <div class="about-copy">
-          <p class="eyebrow">About</p>
-          <h2 class="section-title" id="about-title">An independent UK software studio</h2>
-          <p>
-            PCGsoft is an independent UK software studio founded by Phil Geran. It grew from first-hand experience of operational work and the belief that useful software should reflect how people actually work, not force people into a generic process.
-          </p>
-          <p>
-            The studio’s current work spans transport compliance, business systems, trustworthy AI infrastructure and selected creative applications.
-          </p>
-        </div>
-        <aside class="about-aside" aria-label="Areas of work">
-          <h3>Current focus</h3>
-          <ul>
-            <li>Transport compliance tools</li>
-            <li>Business systems &amp; dashboards</li>
-            <li>Trustworthy AI infrastructure</li>
-            <li>Selected creative applications</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact" aria-labelledby="contact-title">
-      <div class="wrap">
-        <header class="section-head">
-          <p class="eyebrow">Contact</p>
-          <h2 class="section-title" id="contact-title">Start with a conversation</h2>
-        </header>
-
-        <div class="contact-panel">
-          <div>
-            <p class="contact-invite">
-              Have an operational problem that existing software does not solve well?
-            </p>
-            <p class="contact-invite-lead">
-              PCGsoft can investigate and build bespoke business systems, internal web applications, operational dashboards, workflow automation, mobile applications, AI-assisted tools and modern business websites.
-            </p>
-            <div class="contact-primary">
-              <span class="label">Primary contact</span>
-              <span class="name">Phil Geran</span>
-              <a href="mailto:phil@pcgsoft.co.uk">phil@pcgsoft.co.uk</a>
-            </div>
-          </div>
-
-          <div class="contact-list">
-            <div class="contact-row">
-              <span class="label">General</span>
-              <a href="mailto:info@pcgsoft.co.uk">info@pcgsoft.co.uk</a>
-            </div>
-            <div class="contact-row">
-              <span class="label">Support</span>
-              <a href="mailto:support@pcgsoft.co.uk">support@pcgsoft.co.uk</a>
-            </div>
-            <div class="contact-row">
-              <span class="label">Sales</span>
-              <a href="mailto:sales@pcgsoft.co.uk">sales@pcgsoft.co.uk</a>
-            </div>
-            <div class="contact-row">
-              <span class="label">Website</span>
-              <a href="https://pcgsoft.co.uk">pcgsoft.co.uk</a>
-            </div>
-            <div class="contact-row">
-              <span class="label">GitHub</span>
-              <a href="https://github.com/hourwise" rel="noopener noreferrer">github.com/hourwise</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="section section-tint" id="about" aria-labelledby="about-title"><div class="wrap about-block"><div class="about-copy"><p class="eyebrow">About</p><h2 class="section-title" id="about-title">An independent UK software studio</h2><p>PCGsoft is an independent UK software studio founded by Phil Geran. It grew from first-hand experience of operational work and the belief that useful software should reflect how people actually work, not force people into a generic process.</p><p>The studio’s current work spans transport compliance, business systems, trustworthy AI infrastructure and selected creative applications.</p></div><aside class="about-aside" aria-label="Areas of work"><h3>Current focus</h3><ul><li>Transport compliance tools</li><li>Business systems &amp; dashboards</li><li>Trustworthy AI infrastructure</li><li>Selected creative applications</li></ul></aside></div></section>
+    <section class="section" id="contact" aria-labelledby="contact-title"><div class="wrap"><header class="section-head"><p class="eyebrow">Contact</p><h2 class="section-title" id="contact-title">Start with a conversation</h2></header><div class="contact-panel"><div><p class="contact-invite">Have an operational problem that existing software does not solve well?</p><p class="contact-invite-lead">PCGsoft can investigate and build bespoke business systems, internal web applications, operational dashboards, workflow automation, mobile applications, AI-assisted tools and modern business websites.</p><div class="contact-primary"><span class="label">Primary contact</span><span class="name">Phil Geran</span><a href="mailto:phil@pcgsoft.co.uk">phil@pcgsoft.co.uk</a></div></div><div class="contact-list"><div class="contact-row"><span class="label">General</span><a href="mailto:info@pcgsoft.co.uk">info@pcgsoft.co.uk</a></div><div class="contact-row"><span class="label">Support</span><a href="mailto:support@pcgsoft.co.uk">support@pcgsoft.co.uk</a></div><div class="contact-row"><span class="label">Sales</span><a href="mailto:sales@pcgsoft.co.uk">sales@pcgsoft.co.uk</a></div><div class="contact-row"><span class="label">Website</span><a href="https://pcgsoft.co.uk">pcgsoft.co.uk</a></div><div class="contact-row"><span class="label">GitHub</span><a href="https://github.com/hourwise" rel="noopener noreferrer">github.com/hourwise</a></div></div></div></div></section>
   </main>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <a class="brand" href="#top" aria-label="PCGsoft home">
-            <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
-              <rect width="32" height="32" rx="7" fill="oklch(22% 0.028 250)"/>
-              <path d="M16 5.5 L26.5 16 L16 26.5 L5.5 16 Z" stroke="oklch(78% 0.12 210)" stroke-width="1.5"/>
-              <circle cx="16" cy="16" r="2.4" fill="oklch(78% 0.12 210)"/>
-              <path d="M16 9 V13.2 M16 18.8 V23 M9 16 H13.2 M18.8 16 H23" stroke="oklch(78% 0.12 210)" stroke-width="1.25" stroke-linecap="round"/>
-            </svg>
-            <span class="brand-word">PCGsoft</span>
-          </a>
-          <p class="footer-tagline">Practical software for real-world operations.</p>
-        </div>
-        <nav class="footer-nav" aria-label="Footer">
-          <a href="#services">Services</a>
-          <a href="#products">Products</a>
-          <a href="#open-source">Open Source</a>
-          <a href="#creative">Creative</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-meta">
-          <span>© 2026 PCGsoft</span>
-          <span>United Kingdom</span>
-        </div>
-        <div class="footer-meta">
-          <a href="mailto:info@pcgsoft.co.uk">info@pcgsoft.co.uk</a>
-          <a href="https://github.com/hourwise" rel="noopener noreferrer">GitHub</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
+  <footer class="site-footer"><div class="wrap"><div class="footer-top"><div class="footer-brand"><a class="brand" href="#top" aria-label="PCGsoft home"><svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="7" fill="oklch(22% 0.028 250)"/><path d="M16 5.5 L26.5 16 L16 26.5 L5.5 16 Z" stroke="oklch(78% 0.12 210)" stroke-width="1.5"/><circle cx="16" cy="16" r="2.4" fill="oklch(78% 0.12 210)"/><path d="M16 9 V13.2 M16 18.8 V23 M9 16 H13.2 M18.8 16 H23" stroke="oklch(78% 0.12 210)" stroke-width="1.25" stroke-linecap="round"/></svg><span class="brand-word">PCGsoft</span></a><p class="footer-tagline">Practical software for real-world operations.</p></div><nav class="footer-nav" aria-label="Footer"><a href="#services">Services</a><a href="#products">Products</a><a href="#open-source">Open Source</a><a href="#creative">Creative</a><a href="#about">About</a><a href="#contact">Contact</a></nav></div><div class="footer-bottom"><div class="footer-meta"><span>© 2026 PCGsoft</span><span>United Kingdom</span></div><div class="footer-meta"><a href="mailto:info@pcgsoft.co.uk">info@pcgsoft.co.uk</a><a href="https://github.com/hourwise" rel="noopener noreferrer">GitHub</a></div></div></div></footer>
   <script>
     (function () {
       var toggle = document.getElementById("menu-toggle");
       var panel = document.getElementById("nav-mobile");
       if (!toggle || !panel) return;
-
-      function setOpen(open) {
-        toggle.setAttribute("aria-expanded", open ? "true" : "false");
-        panel.classList.toggle("is-open", open);
-      }
-
-      toggle.addEventListener("click", function () {
-        var open = toggle.getAttribute("aria-expanded") !== "true";
-        setOpen(open);
-      });
-
-      panel.querySelectorAll("a").forEach(function (link) {
-        link.addEventListener("click", function () {
-          setOpen(false);
-        });
-      });
-
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") setOpen(false);
-      });
+      function setOpen(open) { toggle.setAttribute("aria-expanded", open ? "true" : "false"); panel.classList.toggle("is-open", open); }
+      toggle.addEventListener("click", function () { var open = toggle.getAttribute("aria-expanded") !== "true"; setOpen(open); });
+      panel.querySelectorAll("a").forEach(function (link) { link.addEventListener("click", function () { setOpen(false); }); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
     })();
   </script>
 </body>
