@@ -133,7 +133,7 @@ ul, ol { padding: 0; list-style: none; }
 .card:hover { border-color: var(--line-strong); background: var(--panel-2); }
 .card h3 { margin-bottom: 0.55rem; font-size: 1.08rem; letter-spacing: -0.02em; line-height: 1.25; }
 .card p { color: var(--muted); font-size: 0.95rem; line-height: 1.55; }
-.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.8rem; margin-bottom: 0.85rem; }
+.card-top { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 0.8rem; margin-bottom: 0.85rem; }
 .card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; margin-top: 1.15rem; }
 .project-card { display: flex; flex-direction: column; }
 .project-card .card-summary { flex: 1; }
