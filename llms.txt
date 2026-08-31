@@ -1,0 +1,27 @@
+# PCGsoft
+
+> PCGsoft is an independent UK software studio building practical web, mobile and AI-assisted systems for real-world operations.
+
+This is a navigation aid generated from the public PCGsoft project registry. It is not a ranking or crawler-control mechanism. The canonical explanations are the linked PCGsoft pages; public GitHub repositories are the implementation and evidence layer where linked.
+
+## Start here
+
+- [PCGsoft homepage](https://pcgsoft.co.uk/): studio identity, services and selected work.
+- [Project registry](https://pcgsoft.co.uk/projects/): browsable public project index.
+- [Products](https://pcgsoft.co.uk/products/): product and platform pages.
+- [Open source](https://pcgsoft.co.uk/open-source/): trustworthy AI runtime infrastructure.
+- [Engineering notes](https://pcgsoft.co.uk/engineering/): future home for technical evidence; currently intentionally light.
+
+## Featured projects
+
+- [The Fates](https://pcgsoft.co.uk/open-source/fates/): umbrella architecture separating capability discovery from authority to execute.
+- [Project Ananke](https://pcgsoft.co.uk/open-source/ananke/): policy, approval, audit and recoverable outcomes around tool execution.
+- [Project Mnemosyne](https://pcgsoft.co.uk/open-source/mnemosyne/): governed project memory, provenance, reliability and conflicts.
+- [Project Horae](https://pcgsoft.co.uk/open-source/horae/): discovery, admission, composition and lifecycle supervision.
+- [Runtime Contracts](https://pcgsoft.co.uk/open-source/runtime-contracts/): shared runtime identity and compatibility contracts.
+- [Moirae Console](https://pcgsoft.co.uk/open-source/moirae-console/): human-visible WebMCP governance demonstration.
+- [The Trace Manifest](https://pcgsoft.co.uk/products/the-trace-manifest/): evidence-linked AI intelligence platform.
+
+## Source trail
+
+Every project page states its current status and links to a verified public repository or live surface where one exists. Private repositories and ambiguous project associations are not listed here.

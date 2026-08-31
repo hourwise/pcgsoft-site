@@ -1,0 +1,11 @@
+{
+  "name": "pcgsoft-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Canonical PCGsoft project hub and public AI-discovery surface.",
+  "type": "module",
+  "scripts": {
+    "build": "npm run validate",
+    "validate": "node scripts/validate-site.mjs"
+  }
+}
