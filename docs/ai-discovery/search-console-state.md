@@ -1,51 +1,40 @@
-# Google Search Console state - AEO-07
+# Google Search Console state - AEO-08
 
-Status: `OPERATOR_ACTION_REMAINING`
+Status: `OPERATOR_EVIDENCE_NOT_SUPPLIED`
 
-Captured 2026-08-31 at 18:15:27 UTC / 19:15:27 Europe/London.
+Captured 2026-08-31 at 19:55:38 UTC / 20:55:38 Europe/London.
 
-The authenticated browser was unavailable in this session (`[]`). No protected
-login was automated, no credentials or tokens were requested, and no account
-state was fabricated.
+The AEO-08 request states that the operator performed or attempted
+authenticated actions, but no Search Console observations were included in the
+provided evidence. This record therefore preserves every account-specific
+field as `UNKNOWN`. No login was performed, no credentials were requested, and
+no verification token was stored.
 
-## Current state
+## Operator result record
 
-- Property requested: `pcgsoft.co.uk`
-- Property classification: `UNKNOWN` (`DOMAIN PROPERTY`, `URL PREFIX PROPERTY`, or `NOT PRESENT`)
-- Verification: `UNKNOWN`
+- Property: `pcgsoft.co.uk`
+- Property type: `UNKNOWN` (`DOMAIN`, `URL_PREFIX`, or `NOT_PRESENT`)
+- Verified: `UNKNOWN`
 - Verification method: `UNKNOWN`
-- Sitemap submission: `UNKNOWN`
-- Sitemap last read: `UNKNOWN`
-- Discovered URL count: `UNKNOWN`
-- Processing status, warnings, errors: `UNKNOWN`
-- URL Inspection: `NOT_RUN`
+- Sitemap: `https://pcgsoft.co.uk/sitemap.xml`
+- Sitemap submitted: `UNKNOWN`
+- Sitemap status: `UNKNOWN`
+- Discovered URLs: `UNKNOWN`
+- Last read: `UNKNOWN`
+- Warnings: `UNKNOWN`
+- Errors: `UNKNOWN`
+- URL Inspection: see `google-url-inspection-v1.json`; all ten records are `UNKNOWN`/`NOT_RUN`
 - Indexing requests: `NOT_RUN`
+- Operator evidence reference: `NOT_SUPPLIED`
 
-Repository search found no `google-site-verification` evidence. Existing AEO
-records state that Search Console was not connected.
+HTTP 200, sitemap presence, robots.txt, public search results, and the 31 live
+routes do not establish Search Console registration or indexing. No
+`SEARCH_REGISTRATION_V1` event is created until a Search Console or Bing
+sitemap acceptance is actually evidenced.
 
-## Operator action
+## Evidence still required
 
-1. Open [Google Search Console](https://search.google.com/search-console) and
-   sign in interactively.
-2. Select or add the Domain property `pcgsoft.co.uk`. Google documents Domain
-   properties as covering protocols and subdomains and using DNS verification.
-3. If Google requests a DNS TXT record, stop and provide the exact record for
-   separate operator authorization. Do not change DNS in this workstream.
-4. Once verified, inspect the existing sitemap
-   `https://pcgsoft.co.uk/sitemap.xml`. Submit it only if it is not already
-   registered; do not create a duplicate submission.
-5. Record submission state, last read, discovered URL count, processing status,
-   warnings, and errors. Submission is not proof of indexing.
-6. Inspect the ten URLs in `google-url-inspection-v1.json`. For each, record
-   `URL_KNOWN_TO_GOOGLE`, `INDEXED`, `LAST_CRAWL`, `CRAWL_ALLOWED`,
-   `INDEXING_ALLOWED`, `USER_CANONICAL`, `GOOGLE_CANONICAL`,
-   `PAGE_FETCH_STATUS`, and `WARNINGS`.
-7. If an important new page is not indexed and the UI offers **Request
-   indexing**, make at most one request for that URL and record the result.
-
-Google's current guidance places sitemap submission/monitoring in the Sitemaps
-report and individual crawl requests in URL Inspection:
-
-- [Add a website or platform property](https://support.google.com/webmasters/answer/34592?hl=en)
-- [Top tasks for Search Console users](https://support.google.com/webmasters/answer/10351509?hl=en)
+Provide the visible Search Console property and sitemap results, or an
+operator screenshot/export reference containing the fields above. Do not paste
+DNS TXT values, session cookies, passwords, or account tokens into the
+repository.
