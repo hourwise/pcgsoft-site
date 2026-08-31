@@ -1,47 +1,42 @@
-# Bing Webmaster Tools state — AEO-06
+# Bing Webmaster Tools state - AEO-07
 
-Status: `OPERATOR_VERIFICATION_REQUIRED`
+Status: `OPERATOR_ACTION_REMAINING`
 
-Recorded 2026-08-31. The in-app browser was unavailable in this session, so no
-Bing account, property, sitemap, URL Inspection, or IndexNow submission state
-was asserted. No Bing verification token or Webmaster configuration is
-present in the repository evidence.
+Captured 2026-08-31 at 18:15:27 UTC / 19:15:27 Europe/London.
 
-## Exact operator action
+The authenticated browser was unavailable in this session. No Bing account,
+property, sitemap, URL inspection, or IndexNow state was asserted. No
+credentials, verification tokens, DNS records, or duplicate sitemap
+submissions were created.
 
-1. Open [Bing Webmaster Tools](https://www.bing.com/webmasters/) and sign in.
-2. Add or select the domain property `https://pcgsoft.co.uk/` / `pcgsoft.co.uk`.
-3. If the property is already verified in Google Search Console, the operator
-   may use Bing's **Import from Google Search Console** flow after reviewing
-   and authorising the requested account access.
-4. Otherwise, choose a normal Bing ownership-verification method. If a DNS
-   record is required, stop and provide the exact record for separate operator
-   approval; do not edit DNS here.
-5. Submit exactly:
-   `https://pcgsoft.co.uk/sitemap.xml`
-6. Record the visible processing status, submission/discovered dates, URL
-   count, and warnings/errors. A sitemap submission is not an indexing claim.
-7. Use Bing URL Inspection only if the verified property exposes it, and keep
-   any requests bounded to the same seven priority URLs listed in
-   `search-console-state.md`.
+## Current state
 
-## Evidence fields to return
+- Property requested: `pcgsoft.co.uk`
+- Property state: `UNKNOWN`
+- Verification: `UNKNOWN`
+- Verification method: `UNKNOWN`
+- Sitemap registration/submission: `UNKNOWN`
+- Discovered/indexed URLs: `UNKNOWN`
+- Crawl information: `UNKNOWN`
+- Warnings/errors: `UNKNOWN`
+- URL Inspection: `NOT_RUN`
+- IndexNow state: `UNKNOWN`
 
-```text
-property: pcgsoft.co.uk / UNKNOWN
-verified: OBSERVED | NOT_OBSERVED | UNKNOWN
-verificationMethod: import | HTML | DNS | meta | UNKNOWN
-sitemap: submitted | not submitted | UNKNOWN
-sitemapStatus: visible status or UNKNOWN
-discoveredUrlCount: number or UNKNOWN
-urlInspection: per-URL status or NOT_RUN
-indexnow: configured | not configured | UNKNOWN
-operatorEvidenceReference: reference to the operator's screenshot/export
-```
+## Operator action
 
-Bing's current documentation says verified sites can be imported from Google
-Search Console, sites can also be added manually, and the Sitemaps tool records
-processing status and discovered URLs:
+1. Open [Bing Webmaster Tools](https://www.bing.com/webmasters/) and sign in
+   interactively.
+2. Prefer importing the already verified Google Search Console property if it
+   exists and the operator approves the permission flow.
+3. Otherwise add `pcgsoft.co.uk` manually and use a normal verification method.
+   If DNS is required, stop and provide the exact record for separate approval.
+4. Inspect the existing sitemap
+   `https://pcgsoft.co.uk/sitemap.xml`. Submit it only if it is not already
+   registered; do not create a duplicate submission.
+5. Record site state, sitemap processing state, discovered/indexed URL counts,
+   crawl information, warnings, and errors.
 
-- [Add and Verify site](https://www.bing.com/webmasters/help/add-and-verify-site-12184f8b)
+Bing documents both Google Search Console import and sitemap processing details:
+
+- [Add and verify a site](https://www.bing.com/webmasters/help/add-and-verify-site-12184f8b)
 - [Sitemaps](https://www.bing.com/webmasters/help/sitemaps-3b5cf6ed)

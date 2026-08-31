@@ -1,0 +1,14 @@
+{
+  "observationSetId": "AEO_DISCOVERY_REGISTRATION_DAY_OBSERVATION",
+  "capturedAtUtc": "2026-08-31T18:15:27.6182423+00:00",
+  "status": "NOT_RUN",
+  "requiredPrecondition": "Authenticated Search Console/Bing registration and sitemap state",
+  "reason": "No authenticated browser was available and no sitemap registration was performed. The AEO-06 public-search sample remains the latest public observation and is not relabeled as a registration-day result.",
+  "baselineId": "AEO_DISCOVERY_BASELINE_V1",
+  "querySetId": "AEO_DISCOVERY_QUERY_SET_V1",
+  "sealedQuestionCount": 35,
+  "publicSearchQueryCount": 15,
+  "aiModelMeasurements": "NOT_YET_COLLECTED",
+  "indexingClaim": "NONE",
+  "productionChangeMade": false
+}
