@@ -28,10 +28,20 @@ function statusClass(status) {
   return "status-neutral";
 }
 
+function publicRepositories(record) {
+  if (Array.isArray(record.repositories)) return record.repositories.filter((item) => item?.visibility === "public" && item.url);
+  return record.githubUrl ? [{ url: record.githubUrl, label: "Public repository" }] : [];
+}
+
+function liveSurfaces(record) {
+  if (Array.isArray(record.liveUrls)) return record.liveUrls.filter(Boolean);
+  return record.liveUrl ? [record.liveUrl] : [];
+}
+
 function card(record) {
   const accent = record.category === "creative" ? "card-accent-gold" : record.category === "open-source" ? "card-accent-green" : "card-accent";
-  const source = record.githubUrl ? `<a class="text-link" href="${record.githubUrl}" target="_blank" rel="noopener noreferrer">Source ${icon}</a>` : "";
-  const live = record.liveUrl ? `<a class="text-link" href="${record.liveUrl}" target="_blank" rel="noopener noreferrer">Live surface →</a>` : "";
+  const source = publicRepositories(record)[0]?.url ? `<a class="text-link" href="${publicRepositories(record)[0].url}" target="_blank" rel="noopener noreferrer">Source ${icon}</a>` : "";
+  const live = liveSurfaces(record)[0] ? `<a class="text-link" href="${liveSurfaces(record)[0]}" target="_blank" rel="noopener noreferrer">Live surface →</a>` : "";
   return `<article class="card project-card ${accent}" data-category="${record.category}" data-slug="${record.slug}">
     <div class="card-top"><span class="tag">${record.categoryLabel}</span><span class="status ${statusClass(record.status)}">${record.status}</span></div>
     <h3><a href="${record.sitePath}">${record.name}</a></h3>
@@ -87,8 +97,8 @@ function renderRelated(records) {
 
 function fillRegistryStats(records) {
   document.querySelectorAll("[data-registry-count]").forEach((node) => { node.textContent = String(records.length); });
-  document.querySelectorAll("[data-public-source-count]").forEach((node) => { node.textContent = String(records.filter((record) => record.githubUrl).length); });
-  document.querySelectorAll("[data-live-count]").forEach((node) => { node.textContent = String(records.filter((record) => record.liveUrl).length); });
+  document.querySelectorAll("[data-public-source-count]").forEach((node) => { node.textContent = String(records.filter((record) => publicRepositories(record).length).length); });
+  document.querySelectorAll("[data-live-count]").forEach((node) => { node.textContent = String(records.filter((record) => liveSurfaces(record).length).length); });
 }
 
 setMenu();

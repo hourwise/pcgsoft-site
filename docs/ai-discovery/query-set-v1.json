@@ -1,0 +1,183 @@
+{
+  "querySetId": "AEO_DISCOVERY_QUERY_SET_V1",
+  "sealedAt": "2026-08-31",
+  "count": 35,
+  "wording": "Copied verbatim from docs/ai-discovery-baseline.md; do not rewrite between runs.",
+  "queries": [
+    {
+      "id": "Q01",
+      "family": "Open-source AI governance",
+      "text": "What open-source AI governance frameworks exist for tool-using agents?"
+    },
+    {
+      "id": "Q02",
+      "family": "Open-source AI governance",
+      "text": "What open-source projects govern AI agent actions rather than only exposing tools?"
+    },
+    {
+      "id": "Q03",
+      "family": "Deterministic governance",
+      "text": "What does deterministic AI governance mean in practice?"
+    },
+    {
+      "id": "Q04",
+      "family": "Deterministic governance",
+      "text": "Are there open-source deterministic policy engines for AI agent execution?"
+    },
+    {
+      "id": "Q05",
+      "family": "Secure agent execution",
+      "text": "How can an AI agent be prevented from taking an unauthorised tool action?"
+    },
+    {
+      "id": "Q06",
+      "family": "Secure agent execution",
+      "text": "What are the main architectural patterns for secure AI agent execution?"
+    },
+    {
+      "id": "Q07",
+      "family": "MCP governance",
+      "text": "How can MCP tool calls be governed and audited?"
+    },
+    {
+      "id": "Q08",
+      "family": "MCP governance",
+      "text": "Is MCP itself an authorization system?"
+    },
+    {
+      "id": "Q09",
+      "family": "WebMCP authorization",
+      "text": "Does WebMCP authorize an agent to publish or disclose information?"
+    },
+    {
+      "id": "Q10",
+      "family": "WebMCP authorization",
+      "text": "What is the difference between WebMCP capability discovery and authorization?"
+    },
+    {
+      "id": "Q11",
+      "family": "AI policy enforcement",
+      "text": "Where should policy enforcement happen in an AI tool-calling system?"
+    },
+    {
+      "id": "Q12",
+      "family": "AI policy enforcement",
+      "text": "What should an AI agent governance audit record contain?"
+    },
+    {
+      "id": "Q13",
+      "family": "Persistent AI memory",
+      "text": "What open-source runtimes provide persistent project memory for AI agents?"
+    },
+    {
+      "id": "Q14",
+      "family": "Persistent AI memory",
+      "text": "How should an AI agent remember project decisions across sessions?"
+    },
+    {
+      "id": "Q15",
+      "family": "Provenance-aware memory",
+      "text": "How can provenance and source references be preserved in AI agent memory?"
+    },
+    {
+      "id": "Q16",
+      "family": "Provenance-aware memory",
+      "text": "How should an agent handle conflicting memories or unreliable recalled facts?"
+    },
+    {
+      "id": "Q17",
+      "family": "AI runtime orchestration",
+      "text": "What is the difference between AI agent orchestration and tool governance?"
+    },
+    {
+      "id": "Q18",
+      "family": "AI runtime orchestration",
+      "text": "What does a runtime discovery layer do in an AI agent architecture?"
+    },
+    {
+      "id": "Q19",
+      "family": "Firecracker containment",
+      "text": "How is Firecracker used to contain AI agent workloads?"
+    },
+    {
+      "id": "Q20",
+      "family": "Firecracker containment",
+      "text": "What are the limits of using Firecracker for AI agent sandboxing?"
+    },
+    {
+      "id": "Q21",
+      "family": "Open-source control plane",
+      "text": "Are there open-source AI agent control planes with human approval?"
+    },
+    {
+      "id": "Q22",
+      "family": "Open-source control plane",
+      "text": "What is an AI agent control plane responsible for?"
+    },
+    {
+      "id": "Q23",
+      "family": "Comparisons",
+      "text": "MCP versus function calling: what is the practical difference?"
+    },
+    {
+      "id": "Q24",
+      "family": "Comparisons",
+      "text": "MCP versus REST APIs: when does each make sense for an agent?"
+    },
+    {
+      "id": "Q25",
+      "family": "Comparisons",
+      "text": "Agent gateway versus API gateway: what does each govern?"
+    },
+    {
+      "id": "Q26",
+      "family": "Alternatives",
+      "text": "What are alternatives to an AI tool-call governance gateway?"
+    },
+    {
+      "id": "Q27",
+      "family": "Entity",
+      "text": "What is The Fates in the PCGsoft project ecosystem?"
+    },
+    {
+      "id": "Q28",
+      "family": "Entity",
+      "text": "What is Project Ananke?"
+    },
+    {
+      "id": "Q29",
+      "family": "Entity",
+      "text": "What is Project Mnemosyne?"
+    },
+    {
+      "id": "Q30",
+      "family": "Entity",
+      "text": "What is Moirae Console?"
+    },
+    {
+      "id": "Q31",
+      "family": "Entity",
+      "text": "What is PCGsoft?"
+    },
+    {
+      "id": "Q32",
+      "family": "Entity",
+      "text": "What is Project Horae and how does it relate to Ananke?"
+    },
+    {
+      "id": "Q33",
+      "family": "Entity",
+      "text": "What are Runtime Contracts / Project Adrasteia?"
+    },
+    {
+      "id": "Q34",
+      "family": "Entity",
+      "text": "Is Project PlainSpeak an offline readability tool?"
+    },
+    {
+      "id": "Q35",
+      "family": "Product discovery",
+      "text": "What is The Trace Manifest and where is its source code?"
+    }
+  ]
+}

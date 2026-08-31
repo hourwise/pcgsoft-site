@@ -48,3 +48,29 @@ public description and a useful canonical route.
 This certification permits a preview from the feature branch only. Production branch,
 custom domains, DNS, repository visibility, Cloudflare project configuration and
 production deployments remain out of scope.
+
+## AEO-03 production publication event
+
+This section is a local, post-publication evidence note. It is intentionally not
+included in the production source commit and must not be pushed without a new
+bounded review.
+
+```text
+AEO HUB PRODUCTION PUBLICATION DATE: 31 August 2026
+PREVIOUS_PRODUCTION_GIT_SHA: b95a42796a03ac4305218993b3dc262b4919948e
+PREVIOUS_CLOUDFLARE_DEPLOYMENT: e0654b23-d9ba-4ef7-9571-41171228cf73
+CERTIFIED_CANDIDATE_SHA: ca1d7c4d16256d34e998d5f75d4653c5ddb50c40
+PRODUCTION_CANDIDATE_SHA: ca1d7c4d16256d34e998d5f75d4653c5ddb50c40
+PRODUCTION_DEPLOYMENT_ID: a4222e92-5985-490c-aaca-6d9781e68fd2
+PRODUCTION_DEPLOYMENT_ENVIRONMENT: Production
+PRODUCTION_DEPLOYMENT_BRANCH: main
+PRODUCTION_DEPLOYMENT_SOURCE: ca1d7c4
+PRODUCTION_DEPLOYMENT_URL: https://a4222e92.pcgsoft-site.pages.dev
+PRODUCTION_CANONICAL_IDENTITY: https://pcgsoft.co.uk/
+PRE-LAUNCH AI DISCOVERY QUERY SET: 35 queries
+PRE-LAUNCH MEASUREMENTS: NOT COLLECTED
+AUTOMATIC_GIT_DEPLOYMENT: CONFIRMED
+```
+
+The sealed query wording remains unchanged. No before/after AI discovery or
+ranking measurement is claimed by this note.

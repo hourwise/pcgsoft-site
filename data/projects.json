@@ -16,13 +16,28 @@
     "licence": null,
     "openSource": false,
     "technologies": [],
-    "relatedProjects": ["hourwise-fleet", "atlas-ai"],
+    "relatedProjects": [
+      "hourwise-fleet",
+      "atlas-ai"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": true,
     "featuredRank": 99,
     "evidenceLinks": [
-      {"label": "Visit the product", "url": "https://www.hourwiseeu.co.uk", "note": "Public product surface"}
-    ]
+      {
+        "label": "Visit the product",
+        "url": "https://www.hourwiseeu.co.uk",
+        "note": "Public product surface"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [
+      "https://www.hourwiseeu.co.uk"
+    ],
+    "repositories": [],
+    "documentationLinks": [],
+    "parentProject": null,
+    "sourceVisibility": "unknown"
   },
   {
     "slug": "hourwise-fleet",
@@ -40,16 +55,60 @@
     "documentationUrl": "https://github.com/hourwise/HourWiseEU_Fleet_Portal/tree/main/docs",
     "licence": null,
     "openSource": false,
-    "technologies": ["React", "TypeScript", "Vite", "Supabase", "Vitest"],
-    "relatedProjects": ["hourwise-eu", "atlas-ai", "reticle"],
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Supabase",
+      "Vitest"
+    ],
+    "relatedProjects": [
+      "hourwise-eu",
+      "atlas-ai",
+      "reticle"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": true,
     "featuredRank": 99,
     "evidenceLinks": [
-      {"label": "View source repository", "url": "https://github.com/hourwise/HourWiseEU_Fleet_Portal", "note": "Public repository"},
-      {"label": "Read project documentation", "url": "https://github.com/hourwise/HourWiseEU_Fleet_Portal/tree/main/docs", "note": "Verified docs directory"},
-      {"label": "Open the current demo", "url": "https://hour-wise-eu-fleet-portal.vercel.app", "note": "Repository homepage metadata"}
-    ]
+      {
+        "label": "View source repository",
+        "url": "https://github.com/hourwise/HourWiseEU_Fleet_Portal",
+        "note": "Public repository"
+      },
+      {
+        "label": "Read project documentation",
+        "url": "https://github.com/hourwise/HourWiseEU_Fleet_Portal/tree/main/docs",
+        "note": "Verified docs directory"
+      },
+      {
+        "label": "Open the current demo",
+        "url": "https://hour-wise-eu-fleet-portal.vercel.app",
+        "note": "Repository homepage metadata"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [
+      "https://hour-wise-eu-fleet-portal.vercel.app"
+    ],
+    "repositories": [
+      {
+        "name": "HourWiseEU_Fleet_Portal",
+        "url": "https://github.com/hourwise/HourWiseEU_Fleet_Portal",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Primary public repository",
+        "licence": null
+      }
+    ],
+    "documentationLinks": [
+      {
+        "label": "Project documentation",
+        "url": "https://github.com/hourwise/HourWiseEU_Fleet_Portal/tree/main/docs"
+      }
+    ],
+    "parentProject": null,
+    "sourceVisibility": "public"
   },
   {
     "slug": "atlas-ai",
@@ -68,10 +127,20 @@
     "licence": null,
     "openSource": false,
     "technologies": [],
-    "relatedProjects": ["hourwise-eu", "hourwise-fleet", "ananke"],
+    "relatedProjects": [
+      "hourwise-eu",
+      "hourwise-fleet",
+      "ananke"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": false,
-    "evidenceLinks": []
+    "evidenceLinks": [],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [],
+    "documentationLinks": [],
+    "parentProject": null,
+    "sourceVisibility": "none"
   },
   {
     "slug": "reticle",
@@ -89,16 +158,59 @@
     "documentationUrl": "https://github.com/hourwise/Reticle-systems/tree/main/docs",
     "licence": null,
     "openSource": false,
-    "technologies": ["React", "TypeScript", "Vite", "Firebase", "Tailwind CSS"],
-    "relatedProjects": ["hourwise-fleet", "plain-speak"],
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Firebase",
+      "Tailwind CSS"
+    ],
+    "relatedProjects": [
+      "hourwise-fleet",
+      "plain-speak"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": true,
     "featuredRank": 99,
     "evidenceLinks": [
-      {"label": "View source repository", "url": "https://github.com/hourwise/Reticle-systems", "note": "Public repository"},
-      {"label": "Read project documentation", "url": "https://github.com/hourwise/Reticle-systems/tree/main/docs", "note": "Verified docs directory"},
-      {"label": "Open the current demo", "url": "https://reticle-systems.vercel.app", "note": "Repository homepage metadata"}
-    ]
+      {
+        "label": "View source repository",
+        "url": "https://github.com/hourwise/Reticle-systems",
+        "note": "Public repository"
+      },
+      {
+        "label": "Read project documentation",
+        "url": "https://github.com/hourwise/Reticle-systems/tree/main/docs",
+        "note": "Verified docs directory"
+      },
+      {
+        "label": "Open the current demo",
+        "url": "https://reticle-systems.vercel.app",
+        "note": "Repository homepage metadata"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [
+      "https://reticle-systems.vercel.app"
+    ],
+    "repositories": [
+      {
+        "name": "Reticle-systems",
+        "url": "https://github.com/hourwise/Reticle-systems",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Primary public repository",
+        "licence": null
+      }
+    ],
+    "documentationLinks": [
+      {
+        "label": "Project documentation",
+        "url": "https://github.com/hourwise/Reticle-systems/tree/main/docs"
+      }
+    ],
+    "parentProject": null,
+    "sourceVisibility": "public"
   },
   {
     "slug": "relief",
@@ -116,15 +228,64 @@
     "documentationUrl": "https://github.com/hourwise/Relief/tree/main/docs",
     "licence": "MIT (mobile repository)",
     "openSource": true,
-    "technologies": ["React Native", "Expo", "TypeScript", "Supabase"],
-    "relatedProjects": ["plain-speak"],
+    "technologies": [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Supabase"
+    ],
+    "relatedProjects": [
+      "plain-speak"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": false,
     "evidenceLinks": [
-      {"label": "View mobile source", "url": "https://github.com/hourwise/Relief", "note": "Public repository"},
-      {"label": "View the public companion site source", "url": "https://github.com/hourwise/Relief-WebApp", "note": "Public repository"},
-      {"label": "Visit the public site", "url": "https://findrelief.co.uk", "note": "Cloudflare Pages project domain"}
-    ]
+      {
+        "label": "View mobile source",
+        "url": "https://github.com/hourwise/Relief",
+        "note": "Public repository"
+      },
+      {
+        "label": "View the public companion site source",
+        "url": "https://github.com/hourwise/Relief-WebApp",
+        "note": "Public repository"
+      },
+      {
+        "label": "Visit the public site",
+        "url": "https://findrelief.co.uk",
+        "note": "Cloudflare Pages project domain"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [
+      "https://findrelief.co.uk"
+    ],
+    "repositories": [
+      {
+        "name": "Relief",
+        "url": "https://github.com/hourwise/Relief",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Primary public repository",
+        "licence": "MIT (mobile repository)"
+      },
+      {
+        "name": "Relief-WebApp",
+        "url": "https://github.com/hourwise/Relief-WebApp",
+        "visibility": "public",
+        "role": "web-app",
+        "label": "Public companion website source",
+        "licence": null
+      }
+    ],
+    "documentationLinks": [
+      {
+        "label": "Project documentation",
+        "url": "https://github.com/hourwise/Relief/tree/main/docs"
+      }
+    ],
+    "parentProject": null,
+    "sourceVisibility": "mixed"
   },
   {
     "slug": "whilom",
@@ -142,15 +303,52 @@
     "documentationUrl": "https://github.com/hourwise/Whilom/tree/main/docs",
     "licence": null,
     "openSource": false,
-    "technologies": ["Next.js", "Expo", "React Native", "Supabase", "TypeScript"],
-    "relatedProjects": ["the-trace-manifest", "plain-speak"],
+    "technologies": [
+      "Next.js",
+      "Expo",
+      "React Native",
+      "Supabase",
+      "TypeScript"
+    ],
+    "relatedProjects": [
+      "the-trace-manifest",
+      "plain-speak"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": true,
     "featuredRank": 3,
     "evidenceLinks": [
-      {"label": "View source repository", "url": "https://github.com/hourwise/Whilom", "note": "Public repository"},
-      {"label": "Read architecture and design notes", "url": "https://github.com/hourwise/Whilom/tree/main/docs", "note": "Verified docs directory"}
-    ]
+      {
+        "label": "View source repository",
+        "url": "https://github.com/hourwise/Whilom",
+        "note": "Public repository"
+      },
+      {
+        "label": "Read architecture and design notes",
+        "url": "https://github.com/hourwise/Whilom/tree/main/docs",
+        "note": "Verified docs directory"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "Whilom",
+        "url": "https://github.com/hourwise/Whilom",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Primary public repository",
+        "licence": null
+      }
+    ],
+    "documentationLinks": [
+      {
+        "label": "Project documentation",
+        "url": "https://github.com/hourwise/Whilom/tree/main/docs"
+      }
+    ],
+    "parentProject": null,
+    "sourceVisibility": "public"
   },
   {
     "slug": "the-trace-manifest",
@@ -168,16 +366,62 @@
     "documentationUrl": "https://github.com/hourwise/The-Trace-Manifest/tree/main/docs",
     "licence": null,
     "openSource": true,
-    "technologies": ["Astro", "Cloudflare Pages", "Cloudflare Workers", "D1", "TypeScript"],
-    "relatedProjects": ["fates", "ananke", "mnemosyne", "horae"],
+    "technologies": [
+      "Astro",
+      "Cloudflare Pages",
+      "Cloudflare Workers",
+      "D1",
+      "TypeScript"
+    ],
+    "relatedProjects": [
+      "fates",
+      "ananke",
+      "mnemosyne",
+      "horae",
+      "trace-capture"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": true,
     "featuredRank": 1,
     "evidenceLinks": [
-      {"label": "Visit the live platform", "url": "https://www.thetracemanifest.com", "note": "Public product surface"},
-      {"label": "View source repository", "url": "https://github.com/hourwise/The-Trace-Manifest", "note": "Public repository"},
-      {"label": "Read project documentation", "url": "https://github.com/hourwise/The-Trace-Manifest/tree/main/docs", "note": "Verified docs directory"}
-    ]
+      {
+        "label": "Visit the live platform",
+        "url": "https://www.thetracemanifest.com",
+        "note": "Public product surface"
+      },
+      {
+        "label": "View source repository",
+        "url": "https://github.com/hourwise/The-Trace-Manifest",
+        "note": "Public repository"
+      },
+      {
+        "label": "Read project documentation",
+        "url": "https://github.com/hourwise/The-Trace-Manifest/tree/main/docs",
+        "note": "Verified docs directory"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [
+      "https://www.thetracemanifest.com"
+    ],
+    "repositories": [
+      {
+        "name": "The-Trace-Manifest",
+        "url": "https://github.com/hourwise/The-Trace-Manifest",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Primary public repository",
+        "licence": null
+      }
+    ],
+    "documentationLinks": [
+      {
+        "label": "Project documentation",
+        "url": "https://github.com/hourwise/The-Trace-Manifest/tree/main/docs"
+      }
+    ],
+    "parentProject": null,
+    "sourceVisibility": "public"
   },
   {
     "slug": "fates",
@@ -195,16 +439,60 @@
     "documentationUrl": "https://github.com/hourwise/Project-Fates-Integration/tree/main/docs",
     "licence": null,
     "openSource": true,
-    "technologies": ["TypeScript", "JavaScript", "JSON contracts"],
-    "relatedProjects": ["ananke", "mnemosyne", "horae", "runtime-contracts", "moirae-console", "moirae-code"],
+    "technologies": [
+      "TypeScript",
+      "JavaScript",
+      "JSON contracts"
+    ],
+    "relatedProjects": [
+      "fates-integration",
+      "ananke",
+      "mnemosyne",
+      "horae",
+      "runtime-contracts",
+      "moirae-console",
+      "moirae-code"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": true,
     "featuredRank": 2,
     "evidenceLinks": [
-      {"label": "View the integration repository", "url": "https://github.com/hourwise/Project-Fates-Integration", "note": "Public control repository"},
-      {"label": "Read integration documentation", "url": "https://github.com/hourwise/Project-Fates-Integration/tree/main/docs", "note": "Verified docs directory"},
-      {"label": "Inspect the compatibility lock", "url": "https://github.com/hourwise/Project-Fates-Integration/blob/main/fates-lock.json", "note": "Verified file"}
-    ]
+      {
+        "label": "View the integration repository",
+        "url": "https://github.com/hourwise/Project-Fates-Integration",
+        "note": "Public control repository"
+      },
+      {
+        "label": "Read integration documentation",
+        "url": "https://github.com/hourwise/Project-Fates-Integration/tree/main/docs",
+        "note": "Verified docs directory"
+      },
+      {
+        "label": "Inspect the compatibility lock",
+        "url": "https://github.com/hourwise/Project-Fates-Integration/blob/main/fates-lock.json",
+        "note": "Verified file"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "Project-Fates-Integration",
+        "url": "https://github.com/hourwise/Project-Fates-Integration",
+        "visibility": "public",
+        "role": "integration",
+        "label": "Fates integration and evidence repository",
+        "licence": null
+      }
+    ],
+    "documentationLinks": [
+      {
+        "label": "Project documentation",
+        "url": "https://github.com/hourwise/Project-Fates-Integration/tree/main/docs"
+      }
+    ],
+    "parentProject": null,
+    "sourceVisibility": "public"
   },
   {
     "slug": "ananke",
@@ -222,16 +510,58 @@
     "documentationUrl": "https://github.com/hourwise/Project-Ananke/tree/main/docs",
     "licence": "MIT",
     "openSource": true,
-    "technologies": ["TypeScript", "MCP", "Vitest"],
-    "relatedProjects": ["fates", "runtime-contracts", "moirae-console", "mnemosyne", "horae"],
+    "technologies": [
+      "TypeScript",
+      "MCP",
+      "Vitest"
+    ],
+    "relatedProjects": [
+      "fates",
+      "runtime-contracts",
+      "moirae-console",
+      "mnemosyne",
+      "horae"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": true,
     "featuredRank": 4,
     "evidenceLinks": [
-      {"label": "View source repository", "url": "https://github.com/hourwise/Project-Ananke", "note": "Public repository"},
-      {"label": "Read architecture and design notes", "url": "https://github.com/hourwise/Project-Ananke/tree/main/docs", "note": "Verified docs directory"},
-      {"label": "Read the security policy", "url": "https://github.com/hourwise/Project-Ananke/blob/main/SECURITY.md", "note": "Verified file"}
-    ]
+      {
+        "label": "View source repository",
+        "url": "https://github.com/hourwise/Project-Ananke",
+        "note": "Public repository"
+      },
+      {
+        "label": "Read architecture and design notes",
+        "url": "https://github.com/hourwise/Project-Ananke/tree/main/docs",
+        "note": "Verified docs directory"
+      },
+      {
+        "label": "Read the security policy",
+        "url": "https://github.com/hourwise/Project-Ananke/blob/main/SECURITY.md",
+        "note": "Verified file"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "Project-Ananke",
+        "url": "https://github.com/hourwise/Project-Ananke",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Primary public repository",
+        "licence": "MIT"
+      }
+    ],
+    "documentationLinks": [
+      {
+        "label": "Project documentation",
+        "url": "https://github.com/hourwise/Project-Ananke/tree/main/docs"
+      }
+    ],
+    "parentProject": null,
+    "sourceVisibility": "public"
   },
   {
     "slug": "mnemosyne",
@@ -249,15 +579,57 @@
     "documentationUrl": "https://github.com/hourwise/Project-Mnemosyne/tree/main/docs",
     "licence": null,
     "openSource": true,
-    "technologies": ["TypeScript", "SQLite", "MCP", "Vitest"],
-    "relatedProjects": ["fates", "ananke", "horae", "moirae-code"],
+    "technologies": [
+      "TypeScript",
+      "SQLite",
+      "MCP",
+      "Vitest"
+    ],
+    "relatedProjects": [
+      "fates",
+      "ananke",
+      "horae",
+      "moirae-code"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": true,
     "evidenceLinks": [
-      {"label": "View source repository", "url": "https://github.com/hourwise/Project-Mnemosyne", "note": "Public repository"},
-      {"label": "Read documentation", "url": "https://github.com/hourwise/Project-Mnemosyne/tree/main/docs", "note": "Verified docs directory"},
-      {"label": "Inspect the test suite", "url": "https://github.com/hourwise/Project-Mnemosyne/tree/main/tests", "note": "Verified tests directory"}
-    ]
+      {
+        "label": "View source repository",
+        "url": "https://github.com/hourwise/Project-Mnemosyne",
+        "note": "Public repository"
+      },
+      {
+        "label": "Read documentation",
+        "url": "https://github.com/hourwise/Project-Mnemosyne/tree/main/docs",
+        "note": "Verified docs directory"
+      },
+      {
+        "label": "Inspect the test suite",
+        "url": "https://github.com/hourwise/Project-Mnemosyne/tree/main/tests",
+        "note": "Verified tests directory"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "Project-Mnemosyne",
+        "url": "https://github.com/hourwise/Project-Mnemosyne",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Primary public repository",
+        "licence": null
+      }
+    ],
+    "documentationLinks": [
+      {
+        "label": "Project documentation",
+        "url": "https://github.com/hourwise/Project-Mnemosyne/tree/main/docs"
+      }
+    ],
+    "parentProject": null,
+    "sourceVisibility": "public"
   },
   {
     "slug": "horae",
@@ -275,14 +647,51 @@
     "documentationUrl": "https://github.com/hourwise/Project-Horae/tree/main/docs",
     "licence": null,
     "openSource": true,
-    "technologies": ["TypeScript", "MCP", "Vitest"],
-    "relatedProjects": ["fates", "ananke", "mnemosyne", "runtime-contracts"],
+    "technologies": [
+      "TypeScript",
+      "MCP",
+      "Vitest"
+    ],
+    "relatedProjects": [
+      "fates",
+      "ananke",
+      "mnemosyne",
+      "runtime-contracts"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": true,
     "evidenceLinks": [
-      {"label": "View source repository", "url": "https://github.com/hourwise/Project-Horae", "note": "Public repository"},
-      {"label": "Read documentation", "url": "https://github.com/hourwise/Project-Horae/tree/main/docs", "note": "Verified docs directory"}
-    ]
+      {
+        "label": "View source repository",
+        "url": "https://github.com/hourwise/Project-Horae",
+        "note": "Public repository"
+      },
+      {
+        "label": "Read documentation",
+        "url": "https://github.com/hourwise/Project-Horae/tree/main/docs",
+        "note": "Verified docs directory"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "Project-Horae",
+        "url": "https://github.com/hourwise/Project-Horae",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Primary public repository",
+        "licence": null
+      }
+    ],
+    "documentationLinks": [
+      {
+        "label": "Project documentation",
+        "url": "https://github.com/hourwise/Project-Horae/tree/main/docs"
+      }
+    ],
+    "parentProject": null,
+    "sourceVisibility": "public"
   },
   {
     "slug": "runtime-contracts",
@@ -300,15 +709,61 @@
     "documentationUrl": "https://github.com/hourwise/Project-Adrasteia/tree/main/docs",
     "licence": "MIT",
     "openSource": true,
-    "technologies": ["TypeScript", "Zod", "JSON schemas"],
-    "relatedProjects": ["fates", "ananke", "mnemosyne", "horae", "moirae-code", "moirae-console"],
+    "technologies": [
+      "TypeScript",
+      "Zod",
+      "JSON schemas"
+    ],
+    "relatedProjects": [
+      "fates",
+      "ananke",
+      "mnemosyne",
+      "horae",
+      "moirae-code",
+      "moirae-console"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": true,
     "evidenceLinks": [
-      {"label": "View source repository", "url": "https://github.com/hourwise/Project-Adrasteia", "note": "Public repository"},
-      {"label": "Read contract documentation", "url": "https://github.com/hourwise/Project-Adrasteia/tree/main/docs", "note": "Verified docs directory"},
-      {"label": "Inspect the validation tests", "url": "https://github.com/hourwise/Project-Adrasteia/tree/main/tests", "note": "Verified tests directory"}
-    ]
+      {
+        "label": "View source repository",
+        "url": "https://github.com/hourwise/Project-Adrasteia",
+        "note": "Public repository"
+      },
+      {
+        "label": "Read contract documentation",
+        "url": "https://github.com/hourwise/Project-Adrasteia/tree/main/docs",
+        "note": "Verified docs directory"
+      },
+      {
+        "label": "Inspect the validation tests",
+        "url": "https://github.com/hourwise/Project-Adrasteia/tree/main/tests",
+        "note": "Verified tests directory"
+      }
+    ],
+    "alternateNames": [
+      "Project Adrasteia",
+      "Runtime Contracts"
+    ],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "Project-Adrasteia",
+        "url": "https://github.com/hourwise/Project-Adrasteia",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Project Adrasteia / runtime-contracts source",
+        "licence": "MIT"
+      }
+    ],
+    "documentationLinks": [
+      {
+        "label": "Project documentation",
+        "url": "https://github.com/hourwise/Project-Adrasteia/tree/main/docs"
+      }
+    ],
+    "parentProject": null,
+    "sourceVisibility": "public"
   },
   {
     "slug": "moirae-console",
@@ -326,15 +781,57 @@
     "documentationUrl": "https://github.com/hourwise/Moirae-Console/tree/main/docs",
     "licence": "Apache-2.0",
     "openSource": true,
-    "technologies": ["TypeScript", "Vite", "WebMCP", "MCP"],
-    "relatedProjects": ["fates", "ananke", "runtime-contracts", "moirae-code"],
+    "technologies": [
+      "TypeScript",
+      "Vite",
+      "WebMCP",
+      "MCP"
+    ],
+    "relatedProjects": [
+      "fates",
+      "ananke",
+      "runtime-contracts",
+      "moirae-code"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": true,
     "evidenceLinks": [
-      {"label": "View source repository", "url": "https://github.com/hourwise/Moirae-Console", "note": "Public repository"},
-      {"label": "Read console documentation", "url": "https://github.com/hourwise/Moirae-Console/tree/main/docs", "note": "Verified docs directory"},
-      {"label": "Read the security policy", "url": "https://github.com/hourwise/Moirae-Console/blob/main/SECURITY.md", "note": "Verified file"}
-    ]
+      {
+        "label": "View source repository",
+        "url": "https://github.com/hourwise/Moirae-Console",
+        "note": "Public repository"
+      },
+      {
+        "label": "Read console documentation",
+        "url": "https://github.com/hourwise/Moirae-Console/tree/main/docs",
+        "note": "Verified docs directory"
+      },
+      {
+        "label": "Read the security policy",
+        "url": "https://github.com/hourwise/Moirae-Console/blob/main/SECURITY.md",
+        "note": "Verified file"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "Moirae-Console",
+        "url": "https://github.com/hourwise/Moirae-Console",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Primary public repository",
+        "licence": "Apache-2.0"
+      }
+    ],
+    "documentationLinks": [
+      {
+        "label": "Project documentation",
+        "url": "https://github.com/hourwise/Moirae-Console/tree/main/docs"
+      }
+    ],
+    "parentProject": null,
+    "sourceVisibility": "public"
   },
   {
     "slug": "moirae-code",
@@ -352,15 +849,57 @@
     "documentationUrl": "https://github.com/hourwise/Project-Moirae-Code/tree/main/docs",
     "licence": null,
     "openSource": true,
-    "technologies": ["TypeScript", "MCP", "Vitest"],
-    "relatedProjects": ["fates", "ananke", "mnemosyne", "horae", "runtime-contracts"],
+    "technologies": [
+      "TypeScript",
+      "MCP",
+      "Vitest"
+    ],
+    "relatedProjects": [
+      "fates",
+      "ananke",
+      "mnemosyne",
+      "horae",
+      "runtime-contracts"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": false,
     "evidenceLinks": [
-      {"label": "View source repository", "url": "https://github.com/hourwise/Project-Moirae-Code", "note": "Public repository"},
-      {"label": "Read integration documentation", "url": "https://github.com/hourwise/Project-Moirae-Code/tree/main/docs", "note": "Verified docs directory"},
-      {"label": "Inspect the test suite", "url": "https://github.com/hourwise/Project-Moirae-Code/tree/main/tests", "note": "Verified tests directory"}
-    ]
+      {
+        "label": "View source repository",
+        "url": "https://github.com/hourwise/Project-Moirae-Code",
+        "note": "Public repository"
+      },
+      {
+        "label": "Read integration documentation",
+        "url": "https://github.com/hourwise/Project-Moirae-Code/tree/main/docs",
+        "note": "Verified docs directory"
+      },
+      {
+        "label": "Inspect the test suite",
+        "url": "https://github.com/hourwise/Project-Moirae-Code/tree/main/tests",
+        "note": "Verified tests directory"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "Project-Moirae-Code",
+        "url": "https://github.com/hourwise/Project-Moirae-Code",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Primary public repository",
+        "licence": null
+      }
+    ],
+    "documentationLinks": [
+      {
+        "label": "Project documentation",
+        "url": "https://github.com/hourwise/Project-Moirae-Code/tree/main/docs"
+      }
+    ],
+    "parentProject": null,
+    "sourceVisibility": "public"
   },
   {
     "slug": "plain-speak",
@@ -378,15 +917,66 @@
     "documentationUrl": "https://github.com/hourwise/PlainSpeak-Next/blob/main/ARCHITECTURE.md",
     "licence": "MIT",
     "openSource": true,
-    "technologies": ["Python", "HTML", "Markdown", "pytest"],
-    "relatedProjects": ["reticle", "relief"],
+    "technologies": [
+      "Python",
+      "HTML",
+      "Markdown",
+      "pytest"
+    ],
+    "relatedProjects": [
+      "reticle",
+      "relief"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": false,
     "evidenceLinks": [
-      {"label": "View the current source repository", "url": "https://github.com/hourwise/PlainSpeak-Next", "note": "Public successor repository"},
-      {"label": "Read the architecture", "url": "https://github.com/hourwise/PlainSpeak-Next/blob/main/ARCHITECTURE.md", "note": "Verified file"},
-      {"label": "Read the testing notes", "url": "https://github.com/hourwise/PlainSpeak-Next/blob/main/TESTING.md", "note": "Verified file"}
-    ]
+      {
+        "label": "View the current source repository",
+        "url": "https://github.com/hourwise/PlainSpeak-Next",
+        "note": "Public successor repository"
+      },
+      {
+        "label": "Read the architecture",
+        "url": "https://github.com/hourwise/PlainSpeak-Next/blob/main/ARCHITECTURE.md",
+        "note": "Verified file"
+      },
+      {
+        "label": "Read the testing notes",
+        "url": "https://github.com/hourwise/PlainSpeak-Next/blob/main/TESTING.md",
+        "note": "Verified file"
+      }
+    ],
+    "alternateNames": [
+      "PlainSpeak",
+      "PlainSpeak Next"
+    ],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "Project-PlainSpeak",
+        "url": "https://github.com/hourwise/Project-PlainSpeak",
+        "visibility": "public",
+        "role": "original",
+        "label": "Original project repository",
+        "licence": "MIT"
+      },
+      {
+        "name": "PlainSpeak-Next",
+        "url": "https://github.com/hourwise/PlainSpeak-Next",
+        "visibility": "public",
+        "role": "current",
+        "label": "Current successor repository",
+        "licence": "MIT"
+      }
+    ],
+    "documentationLinks": [
+      {
+        "label": "Project documentation",
+        "url": "https://github.com/hourwise/PlainSpeak-Next/blob/main/ARCHITECTURE.md"
+      }
+    ],
+    "parentProject": null,
+    "sourceVisibility": "public"
   },
   {
     "slug": "read-me-a-story",
@@ -405,10 +995,18 @@
     "licence": null,
     "openSource": false,
     "technologies": [],
-    "relatedProjects": ["riff-wilde"],
+    "relatedProjects": [
+      "riff-wilde"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": false,
-    "evidenceLinks": []
+    "evidenceLinks": [],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [],
+    "documentationLinks": [],
+    "parentProject": null,
+    "sourceVisibility": "private"
   },
   {
     "slug": "riff-wilde",
@@ -426,12 +1024,389 @@
     "documentationUrl": null,
     "licence": null,
     "openSource": false,
-    "technologies": ["Godot", "GDScript"],
-    "relatedProjects": ["read-me-a-story"],
+    "technologies": [
+      "Godot",
+      "GDScript"
+    ],
+    "relatedProjects": [
+      "read-me-a-story"
+    ],
     "lastReviewed": "2026-08-31",
     "featured": false,
     "evidenceLinks": [
-      {"label": "View the public repository", "url": "https://github.com/hourwise/Riff-Wilde-and-the-Sold-Out-Saga", "note": "Public repository"}
-    ]
+      {
+        "label": "View the public repository",
+        "url": "https://github.com/hourwise/Riff-Wilde-and-the-Sold-Out-Saga",
+        "note": "Public repository"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "Riff-Wilde-and-the-Sold-Out-Saga",
+        "url": "https://github.com/hourwise/Riff-Wilde-and-the-Sold-Out-Saga",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Primary public repository",
+        "licence": null
+      }
+    ],
+    "documentationLinks": [],
+    "parentProject": null,
+    "sourceVisibility": "public"
+  },
+  {
+    "githubUrl": null,
+    "liveUrl": null,
+    "documentationUrl": null,
+    "licence": null,
+    "technologies": [
+      "TypeScript",
+      "JSON contracts",
+      "Compatibility checks"
+    ],
+    "relatedProjects": [
+      "fates",
+      "runtime-contracts",
+      "ananke",
+      "mnemosyne",
+      "horae",
+      "moirae-console",
+      "moirae-code"
+    ],
+    "evidenceLinks": [
+      {
+        "label": "View the integration repository",
+        "url": "https://github.com/hourwise/Project-Fates-Integration",
+        "note": "Public control and evidence repository"
+      },
+      {
+        "label": "Read integration documentation",
+        "url": "https://github.com/hourwise/Project-Fates-Integration/tree/main/docs",
+        "note": "Verified docs directory"
+      },
+      {
+        "label": "Inspect the compatibility lock",
+        "url": "https://github.com/hourwise/Project-Fates-Integration/blob/main/fates-lock.json",
+        "note": "Verified checkpoint file"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "Project-Fates-Integration",
+        "url": "https://github.com/hourwise/Project-Fates-Integration",
+        "visibility": "public",
+        "role": "integration",
+        "label": "Integration and system-validation repository",
+        "licence": null
+      }
+    ],
+    "documentationLinks": [
+      {
+        "label": "Integration documentation",
+        "url": "https://github.com/hourwise/Project-Fates-Integration/tree/main/docs"
+      }
+    ],
+    "parentProject": "fates",
+    "sourceVisibility": "public",
+    "openSource": true,
+    "lastReviewed": "2026-08-31",
+    "featured": false,
+    "slug": "fates-integration",
+    "name": "Fates Integration",
+    "shortName": "Fates Integration",
+    "category": "open-source",
+    "categoryLabel": "Open source component",
+    "status": "Inspection-only integration",
+    "summary": "The public integration and system-validation layer for the Fates runtime ecosystem.",
+    "description": "Fates Integration is the public control and evidence layer around The Fates. It records compatible checkpoints, integration slices and anti-drift checks; it is not a runtime and does not replace the component repositories.",
+    "sitePath": "/open-source/fates-integration/",
+    "canonicalUrl": "https://pcgsoft.co.uk/open-source/fates-integration/"
+  },
+  {
+    "githubUrl": null,
+    "liveUrl": null,
+    "documentationUrl": null,
+    "licence": null,
+    "technologies": [
+      "Android",
+      "Kotlin",
+      "Room"
+    ],
+    "relatedProjects": [
+      "the-trace-manifest"
+    ],
+    "evidenceLinks": [
+      {
+        "label": "View the companion repository",
+        "url": "https://github.com/hourwise/Trace-Capture-App",
+        "note": "Public repository"
+      },
+      {
+        "label": "Read the architecture",
+        "url": "https://github.com/hourwise/Trace-Capture-App/blob/main/ARCHITECTURE.md",
+        "note": "Verified architecture file"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "Trace-Capture-App",
+        "url": "https://github.com/hourwise/Trace-Capture-App",
+        "visibility": "public",
+        "role": "companion",
+        "label": "Public companion application repository",
+        "licence": null
+      }
+    ],
+    "documentationLinks": [],
+    "parentProject": "the-trace-manifest",
+    "sourceVisibility": "public",
+    "openSource": false,
+    "lastReviewed": "2026-08-31",
+    "featured": false,
+    "slug": "trace-capture",
+    "name": "TRACE Capture App",
+    "shortName": "TRACE Capture",
+    "category": "products",
+    "categoryLabel": "Companion project",
+    "status": "Early development",
+    "summary": "A local-first Android companion for capturing URLs and text for later review in The Trace Manifest.",
+    "description": "TRACE Capture App is a genuine companion project to The Trace Manifest. Its public architecture describes Android share capture, local Room storage, explicit save confirmation and a later sync path into the editorial workflow; it is not presented as a finished release.",
+    "sitePath": "/products/trace-capture/",
+    "canonicalUrl": "https://pcgsoft.co.uk/products/trace-capture/"
+  },
+  {
+    "githubUrl": null,
+    "liveUrl": null,
+    "documentationUrl": null,
+    "licence": null,
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Supabase",
+      "Realtime"
+    ],
+    "relatedProjects": [],
+    "evidenceLinks": [
+      {
+        "label": "View the project repository",
+        "url": "https://github.com/hourwise/teamsphere",
+        "note": "Public repository"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "teamsphere",
+        "url": "https://github.com/hourwise/teamsphere",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Public project repository",
+        "licence": null
+      }
+    ],
+    "documentationLinks": [],
+    "parentProject": null,
+    "sourceVisibility": "public",
+    "openSource": false,
+    "lastReviewed": "2026-08-31",
+    "featured": false,
+    "slug": "teamsphere",
+    "name": "TeamSphere",
+    "shortName": "TeamSphere",
+    "category": "products",
+    "categoryLabel": "Product",
+    "status": "Active development",
+    "summary": "An operational platform for sports clubs and community organisations sharing one connected dataset across web and mobile.",
+    "description": "TeamSphere is a public project for sports clubs and community organisations. Its repository documents functional authentication, club creation, multi-club membership, roles and permissions, groups, realtime messaging and notifications, with mobile and roadmap work still in progress.",
+    "sitePath": "/products/teamsphere/",
+    "canonicalUrl": "https://pcgsoft.co.uk/products/teamsphere/"
+  },
+  {
+    "githubUrl": null,
+    "liveUrl": null,
+    "documentationUrl": null,
+    "licence": null,
+    "technologies": [
+      "Python",
+      "Deterministic simulation",
+      "AI agents"
+    ],
+    "relatedProjects": [],
+    "evidenceLinks": [
+      {
+        "label": "View the prototype repository",
+        "url": "https://github.com/hourwise/AI-Agent-Robot-Battle-Wars",
+        "note": "Public prototype source"
+      }
+    ],
+    "alternateNames": [
+      "AI Agent Robot Battle Wars"
+    ],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "AI-Agent-Robot-Battle-Wars",
+        "url": "https://github.com/hourwise/AI-Agent-Robot-Battle-Wars",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Public prototype repository",
+        "licence": null
+      }
+    ],
+    "documentationLinks": [],
+    "parentProject": null,
+    "sourceVisibility": "public",
+    "openSource": false,
+    "lastReviewed": "2026-08-31",
+    "featured": false,
+    "slug": "forge-arena",
+    "name": "Forge Arena",
+    "shortName": "Forge Arena",
+    "category": "creative",
+    "categoryLabel": "Creative / game",
+    "status": "Prototype 0.1",
+    "summary": "A deterministic text-based robot combat arena where AI agents design, build and fight under equal constraints.",
+    "description": "Forge Arena is the public project identity for AI Agent Robot Battle Wars. The repository describes a deterministic text-based combat prototype with an initial validated pack and a planned next iteration; no finished game or hosted demo is claimed.",
+    "sitePath": "/creative/forge-arena/",
+    "canonicalUrl": "https://pcgsoft.co.uk/creative/forge-arena/"
+  },
+  {
+    "githubUrl": null,
+    "liveUrl": null,
+    "documentationUrl": null,
+    "licence": null,
+    "technologies": [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Supabase"
+    ],
+    "relatedProjects": [],
+    "evidenceLinks": [
+      {
+        "label": "View the project repository",
+        "url": "https://github.com/hourwise/The-Gilded-Bazaar",
+        "note": "Public repository"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "The-Gilded-Bazaar",
+        "url": "https://github.com/hourwise/The-Gilded-Bazaar",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Public project repository",
+        "licence": null
+      }
+    ],
+    "documentationLinks": [],
+    "parentProject": null,
+    "sourceVisibility": "public",
+    "openSource": false,
+    "lastReviewed": "2026-08-31",
+    "featured": false,
+    "slug": "gilded-bazaar",
+    "name": "The Gilded Bazaar",
+    "shortName": "Gilded Bazaar",
+    "category": "creative",
+    "categoryLabel": "Creative / tabletop",
+    "status": "Early development",
+    "summary": "An AI-assisted economy and downtime companion for tabletop RPG campaigns.",
+    "description": "The Gilded Bazaar is a campaign companion for tabletop RPG groups, with a focus on DM-managed shops, party purchases, approvals and shared campaign economy. Its public repository describes an early React Native and Supabase project, not a replacement for character-sheet software.",
+    "sitePath": "/creative/gilded-bazaar/",
+    "canonicalUrl": "https://pcgsoft.co.uk/creative/gilded-bazaar/"
+  },
+  {
+    "githubUrl": null,
+    "liveUrl": null,
+    "documentationUrl": null,
+    "licence": null,
+    "technologies": [],
+    "relatedProjects": [],
+    "evidenceLinks": [],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [],
+    "documentationLinks": [],
+    "parentProject": null,
+    "sourceVisibility": "private",
+    "openSource": false,
+    "lastReviewed": "2026-08-31",
+    "featured": false,
+    "slug": "prefixity",
+    "name": "Prefixity",
+    "shortName": "Prefixity",
+    "category": "products",
+    "categoryLabel": "Private project",
+    "status": "Private development",
+    "summary": "A PCGsoft project whose implementation remains private.",
+    "description": "Prefixity is recorded as a PCGsoft project identity. Its source and implementation details are private, so this page intentionally makes no claims about a public repository, API, maturity or feature set.",
+    "sitePath": "/products/prefixity/",
+    "canonicalUrl": "https://pcgsoft.co.uk/products/prefixity/"
+  },
+  {
+    "githubUrl": null,
+    "liveUrl": null,
+    "documentationUrl": null,
+    "licence": null,
+    "technologies": [],
+    "relatedProjects": [],
+    "evidenceLinks": [],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [],
+    "documentationLinks": [],
+    "parentProject": null,
+    "sourceVisibility": "private",
+    "openSource": false,
+    "lastReviewed": "2026-08-31",
+    "featured": false,
+    "slug": "vestigia-new-dawn",
+    "name": "Vestigia: New Dawn",
+    "shortName": "Vestigia",
+    "category": "creative",
+    "categoryLabel": "Creative / game",
+    "status": "Early development",
+    "summary": "A creative game project in early development.",
+    "description": "Vestigia: New Dawn is a PCGsoft creative project. The implementation remains private, so this public page keeps the concept and status high-level without exposing source or claiming a finished release.",
+    "sitePath": "/creative/vestigia-new-dawn/",
+    "canonicalUrl": "https://pcgsoft.co.uk/creative/vestigia-new-dawn/"
+  },
+  {
+    "githubUrl": null,
+    "liveUrl": null,
+    "documentationUrl": null,
+    "licence": null,
+    "technologies": [],
+    "relatedProjects": [],
+    "evidenceLinks": [],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [],
+    "documentationLinks": [],
+    "parentProject": null,
+    "sourceVisibility": "none",
+    "openSource": false,
+    "lastReviewed": "2026-08-31",
+    "featured": false,
+    "slug": "akuma-velocity",
+    "name": "Akuma Velocity",
+    "shortName": "Akuma Velocity",
+    "category": "creative",
+    "categoryLabel": "Creative / game",
+    "status": "Prototype direction",
+    "summary": "A fast side-scrolling shooter direction with manga-inspired energy.",
+    "description": "Akuma Velocity is a high-level creative project direction for a fast side-scrolling shooter with manga-inspired energy. It is recorded as early/prototype work without a claimed public repository, release, demo or screenshot set.",
+    "sitePath": "/creative/akuma-velocity/",
+    "canonicalUrl": "https://pcgsoft.co.uk/creative/akuma-velocity/"
   }
 ]

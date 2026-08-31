@@ -2,13 +2,14 @@ const routes = [
   "/", "/projects/", "/products/", "/open-source/", "/open-source/fates/",
   "/open-source/ananke/", "/open-source/mnemosyne/", "/open-source/horae/",
   "/open-source/runtime-contracts/", "/open-source/moirae-console/",
-  "/open-source/moirae-code/", "/open-source/plain-speak/",
+  "/open-source/moirae-code/", "/open-source/plain-speak/", "/open-source/fates-integration/",
   "/products/atlas-ai/", "/products/hourwise-eu/", "/products/hourwise-fleet/", "/products/reticle/",
-  "/products/relief/", "/products/whilom/", "/products/the-trace-manifest/",
-  "/creative/", "/creative/read-me-a-story/", "/creative/riff-wilde/", "/engineering/",
+  "/products/relief/", "/products/whilom/", "/products/the-trace-manifest/", "/products/trace-capture/", "/products/teamsphere/", "/products/prefixity/",
+  "/creative/", "/creative/read-me-a-story/", "/creative/riff-wilde/", "/creative/forge-arena/", "/creative/gilded-bazaar/", "/creative/vestigia-new-dawn/", "/creative/akuma-velocity/", "/engineering/",
   "/robots.txt", "/sitemap.xml"
 ];
-const origin = process.env.LOCAL_ORIGIN || "http://127.0.0.1:4173";
+const origin = process.env.LOCAL_ORIGIN;
+if (!origin) throw new Error("Set LOCAL_ORIGIN to the local server origin before running this smoke check.");
 const results = [];
 for (const route of routes) {
   const response = await fetch(`${origin}${route}`);

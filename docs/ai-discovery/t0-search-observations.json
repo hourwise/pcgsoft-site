@@ -1,0 +1,75 @@
+{
+  "observationId": "PCGSOFT_AEO_T0",
+  "observedAtUtc": "2026-08-31T12:37:16.6311752Z",
+  "observedAtEuropeLondon": "2026-08-31T13:37:16.6311752+01:00",
+  "interface": "Configured public web-search interface",
+  "scope": "Search-result observation only; this is not Google Search Console, Bing Webmaster Tools, an AI-model query, or an indexation guarantee.",
+  "results": [
+    {
+      "query": "site:pcgsoft.co.uk",
+      "relevantPcGsoftUrlsObserved": ["https://pcgsoft.co.uk/"],
+      "resultSummary": "PCGsoft homepage observed as a result.",
+      "indexStatus": "UNKNOWN"
+    },
+    {
+      "query": "PCGsoft",
+      "relevantPcGsoftUrlsObserved": ["https://pcgsoft.co.uk/"],
+      "resultSummary": "PCGsoft homepage observed as a result.",
+      "indexStatus": "UNKNOWN"
+    },
+    {
+      "query": "PCGsoft Fates",
+      "relevantPcGsoftUrlsObserved": ["https://pcgsoft.co.uk/"],
+      "resultSummary": "PCGsoft homepage observed; the dedicated Fates page was not surfaced in this result set.",
+      "indexStatus": "UNKNOWN"
+    },
+    {
+      "query": "PCGsoft Mnemosyne",
+      "relevantPcGsoftUrlsObserved": [],
+      "resultSummary": "No PCGsoft result observed; unrelated Mnemosyne results were returned.",
+      "indexStatus": "UNKNOWN"
+    },
+    {
+      "query": "PCGsoft Moirae Console",
+      "relevantPcGsoftUrlsObserved": [],
+      "resultSummary": "No PCGsoft result observed in this result set.",
+      "indexStatus": "UNKNOWN"
+    },
+    {
+      "query": "PCGsoft Project Ananke",
+      "relevantPcGsoftUrlsObserved": [],
+      "resultSummary": "No PCGsoft result observed in this result set; unrelated Ananke results were returned.",
+      "indexStatus": "UNKNOWN"
+    },
+    {
+      "query": "PCGsoft PlainSpeak",
+      "relevantPcGsoftUrlsObserved": [],
+      "resultSummary": "No PCGsoft result observed; unrelated PlainSpeak results were returned.",
+      "indexStatus": "UNKNOWN"
+    },
+    {
+      "query": "site:pcgsoft.co.uk/open-source/",
+      "relevantPcGsoftUrlsObserved": ["https://pcgsoft.co.uk/"],
+      "resultSummary": "PCGsoft homepage observed; no dedicated open-source route was surfaced in this result set.",
+      "indexStatus": "UNKNOWN"
+    },
+    {
+      "query": "site:pcgsoft.co.uk/products/",
+      "relevantPcGsoftUrlsObserved": ["https://pcgsoft.co.uk/"],
+      "resultSummary": "PCGsoft homepage observed; no dedicated product route was surfaced in this result set.",
+      "indexStatus": "UNKNOWN"
+    },
+    {
+      "query": "site:pcgsoft.co.uk/creative/",
+      "relevantPcGsoftUrlsObserved": ["https://pcgsoft.co.uk/"],
+      "resultSummary": "PCGsoft homepage observed; no dedicated creative route was surfaced in this result set.",
+      "indexStatus": "UNKNOWN"
+    },
+    {
+      "query": "site:pcgsoft.co.uk/projects/",
+      "relevantPcGsoftUrlsObserved": ["https://pcgsoft.co.uk/"],
+      "resultSummary": "PCGsoft homepage observed; no dedicated registry route was surfaced in this result set.",
+      "indexStatus": "UNKNOWN"
+    }
+  ]
+}
