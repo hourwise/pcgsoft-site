@@ -1,6 +1,6 @@
 # AEO_DISCOVERY_BASELINE_V1 — search-registration observation summary
 
-Recorded 2026-08-31 at 17:17:27 UTC / 18:17:27 Europe/London.
+Recorded 2026-08-31 at 17:25:46 UTC / 18:25:46 Europe/London.
 
 This is a read-only public-search sample attached to the reconciled production
 baseline. It is not a Search Console export, Bing Webmaster export, AI-model
