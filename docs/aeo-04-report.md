@@ -115,8 +115,19 @@ navigation. Sitemap and `llms.txt` were regenerated to include the new routes.
 
 All source changes are on `codex/pcgsoft-portfolio-reconciliation`, created from
 the exact production `main` SHA. The branch is the only permitted publication target
-for this track. Preview deployment details are recorded in the final handoff after
-the branch push.
+for this track. Cloudflare Git integration reported a successful preview for
+commit `e4ac7572c45db05342c02ff8920e2fc7b7dfa93b`:
+
+- Deployment ID: `c8259478-f055-4996-9b13-4366e02afec6`
+- Exact deployment preview: <https://c8259478.pcgsoft-site.pages.dev>
+- Branch preview alias: <https://codex-pcgsoft-portfolio-reco.pcgsoft-site.pages.dev>
+- Environment: Pages preview / non-production
+
+The preview sitemap and all 31 routes returned HTTP 200. All route canonicals point
+to `https://pcgsoft.co.uk/`; no `pages.dev` canonical and no private-source hit was
+observed. The branch preview pattern follows Cloudflare Pages' documented Git
+integration and preview-deployment behaviour ([Git integration](https://developers.cloudflare.com/pages/configuration/git-integration/),
+[preview deployments](https://developers.cloudflare.com/pages/configuration/preview-deployments/)).
 
 ## M. Recommendations and stop condition
 
