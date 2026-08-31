@@ -1,0 +1,118 @@
+{
+  "observationSetId": "AEO_DISCOVERY_BASELINE_V1_SEARCH_REGISTRATION",
+  "baselineId": "AEO_DISCOVERY_BASELINE_V1",
+  "recordedAtUtc": "2026-08-31T17:17:27.0817057+00:00",
+  "recordedAtEuropeLondon": "2026-08-31T18:17:27.0817057+01:00",
+  "production": {
+    "canonicalOrigin": "https://pcgsoft.co.uk/",
+    "productionSha": "989a09ecf4b96e26a128d7b531fbc2f0a880602d",
+    "deploymentId": "87dee485-e51f-475b-8743-ab80730c7ce2",
+    "sitemapUrl": "https://pcgsoft.co.uk/sitemap.xml",
+    "sitemapUrlCount": 31,
+    "endpointCheck": "PASS",
+    "endpointNotes": "/, /sitemap.xml and /robots.txt returned HTTP 200. The home page canonical was https://pcgsoft.co.uk/."
+  },
+  "method": {
+    "surface": "public web search",
+    "engineLabel": "Codex web search tool; underlying provider/engine not exposed",
+    "access": "read-only",
+    "locale": "UNKNOWN",
+    "queryWording": "Exact strings listed below; no sealed 35-question wording was changed.",
+    "interpretationRule": "A returned result is OBSERVED only for what is visibly returned. No result is NOT_OBSERVED for this sample, not proof of non-indexing. Conflicting repeat observations are UNKNOWN."
+  },
+  "queries": [
+    {
+      "query": "site:pcgsoft.co.uk",
+      "resultStatus": "UNKNOWN",
+      "observations": [
+        {"pass": "initial", "status": "OBSERVED", "url": "https://pcgsoft.co.uk/", "note": "PCGsoft homepage result surfaced."},
+        {"pass": "repeat", "status": "NOT_OBSERVED", "note": "Empty search results returned."}
+      ],
+      "note": "Conflicting results in the same setup session; retain UNKNOWN."
+    },
+    {
+      "query": "site:pcgsoft.co.uk fates",
+      "resultStatus": "NOT_OBSERVED",
+      "note": "No result returned for the PCGsoft site query."
+    },
+    {
+      "query": "site:pcgsoft.co.uk mnemosyne",
+      "resultStatus": "OBSERVED",
+      "url": "https://pcgsoft.co.uk/",
+      "note": "PCGsoft homepage result surfaced and its visible content named Project Mnemosyne."
+    },
+    {
+      "query": "site:pcgsoft.co.uk moirae",
+      "resultStatus": "OBSERVED",
+      "url": "https://pcgsoft.co.uk/",
+      "note": "PCGsoft homepage result surfaced and its visible content named Moirae Code."
+    },
+    {
+      "query": "site:pcgsoft.co.uk prefixity",
+      "resultStatus": "NOT_OBSERVED",
+      "note": "No result returned for the PCGsoft site query."
+    },
+    {
+      "query": "site:pcgsoft.co.uk akuma velocity",
+      "resultStatus": "NOT_OBSERVED",
+      "note": "No result returned for the PCGsoft site query."
+    },
+    {
+      "query": "site:pcgsoft.co.uk vestigia",
+      "resultStatus": "NOT_OBSERVED",
+      "note": "No result returned for the PCGsoft site query."
+    },
+    {
+      "query": "site:pcgsoft.co.uk teamsphere",
+      "resultStatus": "NOT_OBSERVED",
+      "note": "No result returned for the PCGsoft site query."
+    },
+    {
+      "query": "site:pcgsoft.co.uk trace capture",
+      "resultStatus": "OBSERVED",
+      "url": "https://pcgsoft.co.uk/",
+      "note": "PCGsoft homepage result surfaced; visible content referenced The Trace Manifest, not a separate Trace Capture result."
+    },
+    {
+      "query": "PCGsoft",
+      "resultStatus": "OBSERVED",
+      "url": "https://pcgsoft.co.uk/",
+      "note": "PCGsoft homepage result surfaced."
+    },
+    {
+      "query": "PCGsoft Fates",
+      "resultStatus": "NOT_OBSERVED",
+      "url": "https://www.pcgamingwiki.com/wiki/FATE",
+      "note": "A FATE result was returned, but no PCGsoft result was visible."
+    },
+    {
+      "query": "PCGsoft Mnemosyne",
+      "resultStatus": "NOT_OBSERVED",
+      "url": "https://store.steampowered.com/app/4358670/Mnemosyne/",
+      "note": "An unrelated Mnemosyne result was returned, but no PCGsoft result was visible."
+    },
+    {
+      "query": "PCGsoft Moirae Console",
+      "resultStatus": "OBSERVED",
+      "url": "https://pcgsoft.co.uk/",
+      "note": "PCGsoft homepage result surfaced; its visible content named Moirae Code, not an exact Moirae Console route."
+    },
+    {
+      "query": "PCGsoft Prefixity",
+      "resultStatus": "NOT_OBSERVED",
+      "url": "https://github.com/igiagkiozis/PCGSharp",
+      "note": "An unrelated PCGSharp result was returned, but no PCGsoft result was visible."
+    },
+    {
+      "query": "PCGsoft Akuma Velocity",
+      "resultStatus": "NOT_OBSERVED",
+      "url": "https://gamefaqs.gamespot.com/arcade/583736-pocket-fighter/faqs/28382",
+      "note": "An unrelated Akuma result was returned, but no PCGsoft result was visible."
+    }
+  ],
+  "aiModelMeasurements": "NOT_YET_COLLECTED",
+  "searchConsole": "OPERATOR_VERIFICATION_REQUIRED",
+  "bingWebmaster": "OPERATOR_VERIFICATION_REQUIRED",
+  "indexingClaim": "NONE",
+  "productionChangeMade": false
+}
