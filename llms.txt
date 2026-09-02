@@ -19,10 +19,12 @@ This is a navigation aid generated from the public PCGsoft project registry. It 
 - [Project Mnemosyne](https://pcgsoft.co.uk/open-source/mnemosyne/): governed project memory, provenance, reliability and conflicts.
 - [Project Horae](https://pcgsoft.co.uk/open-source/horae/): discovery, admission, composition and lifecycle supervision.
 - [Runtime Contracts](https://pcgsoft.co.uk/open-source/runtime-contracts/): shared runtime identity and compatibility contracts.
-- [Moirae Console](https://pcgsoft.co.uk/open-source/moirae-console/): human-visible WebMCP governance demonstration.
+- [Moirae Console](https://pcgsoft.co.uk/open-source/moirae-console/): completed WebMCP hackathon reference implementation showing governed discovery, authority, approval and execution boundaries.
 - [Fates Integration](https://pcgsoft.co.uk/open-source/fates-integration/): public integration and system-validation layer for the Fates ecosystem.
 - [The Trace Manifest](https://pcgsoft.co.uk/products/the-trace-manifest/): evidence-linked AI intelligence platform.
 - [TRACE Capture App](https://pcgsoft.co.uk/products/trace-capture/): local-first capture companion for The Trace Manifest.
+- [Reticle Systems](https://pcgsoft.co.uk/products/reticle/): deterministic software project planning core; reticlesystems.co.uk is coming soon.
+- [PlainSpeak](https://pcgsoft.co.uk/open-source/plain-speak/): deterministic presentation layer for AI- and machine-generated text.
 
 ## Additional public projects
 

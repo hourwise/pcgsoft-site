@@ -144,7 +144,8 @@ ul, ol { padding: 0; list-style: none; }
 .card-accent { border-top: 2px solid var(--cyan); }
 .card-accent-gold { border-top: 2px solid var(--gold); }
 .card-accent-green { border-top: 2px solid var(--green); }
-.tag, .status { display: inline-flex; align-items: center; gap: 0.4rem; width: fit-content; padding: 0.28rem 0.55rem; border-radius: 999px; font: 600 0.68rem/1.2 var(--mono); letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
+.tag, .status { display: inline-flex; align-items: center; gap: 0.4rem; width: fit-content; padding: 0.28rem 0.55rem; border-radius: 999px; font: 600 0.68rem/1.2 var(--mono); letter-spacing: 0.05em; text-transform: uppercase; }
+.status { white-space: normal; overflow-wrap: anywhere; }
 .tag { border: 1px solid var(--line); color: var(--muted); }
 .status::before { width: 0.38rem; height: 0.38rem; content: ""; border-radius: 50%; background: currentColor; }
 .status-active, .status-live { color: var(--green); background: var(--green-dim); }
@@ -185,6 +186,7 @@ ul, ol { padding: 0; list-style: none; }
 .answer li::before { position: absolute; top: 0.75em; left: 0; width: 0.35rem; height: 1px; content: ""; background: var(--cyan); }
 .evidence-list { display: grid; gap: 0.75rem; }
 .evidence-list li { display: grid; gap: 0.2rem; padding: 0.85rem 1rem; border: 1px solid var(--line); background: var(--panel); }
+.evidence-list a, .evidence-list span { overflow-wrap: anywhere; }
 .evidence-list span { color: var(--muted-2); font-size: 0.82rem; }
 .faq { display: grid; gap: 0.9rem; }
 .faq details { padding: 1rem 1.1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }

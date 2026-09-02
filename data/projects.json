@@ -148,13 +148,13 @@
     "shortName": "Reticle",
     "category": "products",
     "categoryLabel": "Product",
-    "status": "Advanced development",
-    "summary": "A guided software planning, inspection and launch-readiness platform for turning an idea or existing build into a structured, testable product.",
-    "description": "Reticle Systems is a planning and inspection surface for AI-assisted builders and software teams. Its public repository describes a Vite/React application, a pre-audit assessment flow and planned URL and repository scanning; it does not claim that every planned scan or payment feature is live.",
+    "status": "Active development — deterministic planning core implemented",
+    "summary": "A deterministic planning core that turns an incomplete software idea into a canonical ProjectSpec and build-ready artifacts.",
+    "description": "Reticle Systems is becoming a deterministic software project definition and planning system. Its public Phoenix branch documents a versioned ProjectSpec, deterministic questions and technology rules, readiness and conflict checks, and a compiler for build-ready outputs; MCP/WebMCP, cloud persistence and richer integrations remain later work.",
     "sitePath": "/products/reticle/",
     "canonicalUrl": "https://pcgsoft.co.uk/products/reticle/",
     "githubUrl": "https://github.com/hourwise/Reticle-systems",
-    "liveUrl": "https://reticle-systems.vercel.app",
+    "liveUrl": null,
     "documentationUrl": "https://github.com/hourwise/Reticle-systems/tree/main/docs",
     "licence": null,
     "openSource": false,
@@ -166,10 +166,9 @@
       "Tailwind CSS"
     ],
     "relatedProjects": [
-      "hourwise-fleet",
       "plain-speak"
     ],
-    "lastReviewed": "2026-08-31",
+    "lastReviewed": "2026-09-02",
     "featured": true,
     "featuredRank": 99,
     "evidenceLinks": [
@@ -184,15 +183,13 @@
         "note": "Verified docs directory"
       },
       {
-        "label": "Open the current demo",
-        "url": "https://reticle-systems.vercel.app",
-        "note": "Repository homepage metadata"
+        "label": "Inspect Phoenix ProjectSpec evidence",
+        "url": "https://github.com/hourwise/Reticle-systems/blob/5060f86bb4c0371edd992f9c51209dd964fc3e68/docs/PROJECTSPEC.md",
+        "note": "Public Phoenix branch documentation"
       }
     ],
     "alternateNames": [],
-    "liveUrls": [
-      "https://reticle-systems.vercel.app"
-    ],
+    "liveUrls": [],
     "repositories": [
       {
         "name": "Reticle-systems",
@@ -771,13 +768,13 @@
     "shortName": "Console",
     "category": "open-source",
     "categoryLabel": "Open source",
-    "status": "Release candidate / inspection-only",
-    "summary": "A human-visible WebMCP demonstration showing the difference between capability discovery, governance and authorized execution.",
-    "description": "Moirae Console makes the authority boundary visible to a human. Its public README describes two fixed WebMCP tools, allow, approval and deny outcomes, and an inspection-only demo path backed by exact source checkpoints.",
+    "status": "Completed hackathon reference implementation",
+    "summary": "A completed WebMCP hackathon reference implementation showing governed capability discovery, authority, approval and execution boundaries.",
+    "description": "Moirae Console is the human- and agent-facing demonstration of governed WebMCP capability use. WebMCP exposes and discovers capability, The Fates determines authority, Ananke returns ALLOW, REQUIRES_APPROVAL or DENY, and sensitive actions require an independent human approval transition before execution; the wider Fates governance system is not represented as production-complete.",
     "sitePath": "/open-source/moirae-console/",
     "canonicalUrl": "https://pcgsoft.co.uk/open-source/moirae-console/",
     "githubUrl": "https://github.com/hourwise/Moirae-Console",
-    "liveUrl": null,
+    "liveUrl": "https://moirae-console-production.up.railway.app",
     "documentationUrl": "https://github.com/hourwise/Moirae-Console/tree/main/docs",
     "licence": "Apache-2.0",
     "openSource": true,
@@ -791,9 +788,10 @@
       "fates",
       "ananke",
       "runtime-contracts",
-      "moirae-code"
+      "moirae-code",
+      "fates-integration"
     ],
-    "lastReviewed": "2026-08-31",
+    "lastReviewed": "2026-09-02",
     "featured": true,
     "evidenceLinks": [
       {
@@ -810,10 +808,27 @@
         "label": "Read the security policy",
         "url": "https://github.com/hourwise/Moirae-Console/blob/main/SECURITY.md",
         "note": "Verified file"
+      },
+      {
+        "label": "View Devpost entry",
+        "url": "https://devpost.com/software/moirae-console",
+        "note": "Published WebMCP Challenge submission"
+      },
+      {
+        "label": "Watch demo on YouTube",
+        "url": "https://www.youtube.com/watch?v=N1TLGIohgCY",
+        "note": "Public project demo"
+      },
+      {
+        "label": "Open live demo",
+        "url": "https://moirae-console-production.up.railway.app",
+        "note": "Public Railway deployment"
       }
     ],
     "alternateNames": [],
-    "liveUrls": [],
+    "liveUrls": [
+      "https://moirae-console-production.up.railway.app"
+    ],
     "repositories": [
       {
         "name": "Moirae-Console",
@@ -903,13 +918,13 @@
   },
   {
     "slug": "plain-speak",
-    "name": "Project PlainSpeak",
+    "name": "PlainSpeak",
     "shortName": "PlainSpeak",
     "category": "open-source",
     "categoryLabel": "Open source",
-    "status": "Active development",
-    "summary": "An offline diagnostic and review assistant that measures readability and identifies barriers to plain-language communication.",
-    "description": "PlainSpeak is a diagnostic tool rather than an authoritative automatic rewriting system. The current public successor, PlainSpeak Next, documents readability metrics, barrier detection, review suggestions, multiple input formats and a no-network operating mode.",
+    "status": "Active development — deterministic core / next-generation architecture",
+    "summary": "A deterministic presentation layer for AI- and machine-generated text that improves clarity without a second LLM making semantic decisions.",
+    "description": "PlainSpeak by PCGsoft is a deterministic presentation and humanisation layer for AI- or machine-generated text. PlainSpeak Next documents separated transformation, document, integrity and reporting layers, reproducible rule-based behaviour, protected material and regression evidence; it is not an AI paraphraser and a Reticle adapter, headless service, MCP integration and speech extension remain roadmap work.",
     "sitePath": "/open-source/plain-speak/",
     "canonicalUrl": "https://pcgsoft.co.uk/open-source/plain-speak/",
     "githubUrl": "https://github.com/hourwise/PlainSpeak-Next",
@@ -924,16 +939,20 @@
       "pytest"
     ],
     "relatedProjects": [
-      "reticle",
-      "relief"
+      "reticle"
     ],
-    "lastReviewed": "2026-08-31",
+    "lastReviewed": "2026-09-02",
     "featured": false,
     "evidenceLinks": [
       {
         "label": "View the current source repository",
         "url": "https://github.com/hourwise/PlainSpeak-Next",
         "note": "Public successor repository"
+      },
+      {
+        "label": "View the original project repository",
+        "url": "https://github.com/hourwise/Project-PlainSpeak",
+        "note": "Original project lineage"
       },
       {
         "label": "Read the architecture",

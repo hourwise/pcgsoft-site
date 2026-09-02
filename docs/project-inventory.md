@@ -32,8 +32,8 @@ description and a useful PCGsoft route.
 | `Project-Fates-Integration` | Included as The Fates | Public control repository; provisional, inspection-only integration; open source |
 | `Project-Moirae-Code` | Included | Public README documents Stage-A inspection-only host; open source |
 | `The-Trace-Manifest` | Included | Public Astro/Cloudflare project and live platform; product/open source |
-| `PlainSpeak-Next` | Included as Project PlainSpeak | Public MIT successor; offline readability and review tool; open source |
-| `Moirae-Console` | Included | Public Apache-2.0 WebMCP governance demonstration; open source |
+| `PlainSpeak-Next` | Included as PlainSpeak | Public MIT successor; deterministic presentation and review engine with layered document/integrity architecture; open source |
+| `Moirae-Console` | Included | Public Apache-2.0 completed WebMCP hackathon reference implementation; open source |
 | `Whilom` | Included | Public web MVP and heritage platform documentation; product |
 | `Project-Horae` | Included | Public TypeScript discovery and supervision runtime; open source |
 | `Project-Mnemosyne` | Included | Public TypeScript governed memory runtime; open source |
@@ -48,7 +48,7 @@ description and a useful PCGsoft route.
 | `HourWiseEUVer4` | Not linked as current source | Public repository exists, but the current HourWise EU implementation association is not confirmed |
 | `Trace-Capture-App` | Omitted pending review | Public repository; README evidence was insufficient for a canonical page |
 | `Riff-Wilde-and-the-Sold-Out-Saga` | Included | Public Godot/GDScript prototype; creative |
-| `Reticle-systems` | Included | Public Vite/React readiness platform with a live demo; product |
+| `Reticle-systems` | Included | Public product with a deterministic planning core evidenced on the Phoenix branch; planned domain coming soon |
 | `pcgsoft-site` | Source repository | Current website source; not a project card |
 | `The-Gilded-Bazaar` | Omitted pending review | Public repository, but no clear current PCGsoft canonical classification was established |
 
