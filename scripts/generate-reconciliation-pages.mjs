@@ -67,14 +67,14 @@ const pages = [
   {
     slug: "gilded-bazaar", section: "creative", sectionLabel: "Creative", routeLabel: "Creative / tabletop campaign companion", title: "The Gilded Bazaar", type: "SoftwareApplication", status: "Early development", tone: "gold",
     summary: "An AI-assisted economy and downtime companion for tabletop RPG campaigns.",
-    description: "The Gilded Bazaar is a campaign companion for tabletop RPG groups, with a focus on DM-managed shops, party purchases, approvals and shared campaign economy. Its public repository describes an early React Native and Supabase project, not a replacement for character-sheet software.",
+    description: "The Gilded Bazaar is a campaign companion for tabletop RPG groups, with a focus on DM-managed shops, party purchases, approvals and shared campaign economy. Its implementation is private, so this page keeps the project identity and concept high-level without exposing source details.",
     answers: [
       ["What is The Gilded Bazaar?", "It is a tabletop RPG campaign companion focused on shops, party purchases, approvals and the shared economy around downtime."],
       ["Who is it for?", "The project is shaped for campaign groups and Dungeon Masters who want an explicit, shared way to manage purchases and the consequences of an economy."],
       ["What is the source trail?", "The public repository describes a React Native and Expo application using TypeScript and Supabase, with the project still in early development."],
       ["Current status and limits", "Early development. It is not presented as a character-sheet replacement, finished service or generally available product."],
     ],
-    evidence: [["View the project repository", "https://github.com/hourwise/The-Gilded-Bazaar", "Public project repository"]],
+    evidence: [],
     related: "", relatedCopy: "The Gilded Bazaar is currently recorded as a standalone creative project.",
   },
   {

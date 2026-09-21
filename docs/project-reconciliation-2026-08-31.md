@@ -36,7 +36,7 @@ Each repository receives one primary role: `NEW_PROJECT`,
 | `Reticle-systems` | Public | `EXISTING_PROJECT_PRIMARY_SOURCE` | Primary source for `reticle`; public demo retained. |
 | `Riff-Wilde-and-the-Sold-Out-Saga` | Public | `EXISTING_PROJECT_PRIMARY_SOURCE` | Primary source for `riff-wilde`; prototype status retained. |
 | `teamsphere` | Public | `NEW_PROJECT` | New public identity `teamsphere`; Active development. |
-| `The-Gilded-Bazaar` | Public | `NEW_PROJECT` | New public identity `gilded-bazaar`; Early development. |
+| `THE_GILDED_BAZAAR_SOURCE` | Historical public source; private now | `PRIVATE_PUBLIC_FACING_PROJECT` | Public identity `gilded-bazaar` retained; current source is not linked or described. |
 | `The-Trace-Manifest` | Public | `EXISTING_PROJECT_PRIMARY_SOURCE` | Primary source for `the-trace-manifest`; companion graph now includes TRACE Capture. |
 | `Trace-Capture-App` | Public | `PROJECT_COMPONENT` | New companion identity `trace-capture`, parented to The Trace Manifest. |
 | `Whilom` | Public | `EXISTING_PROJECT_PRIMARY_SOURCE` | Primary source for `whilom`; working web MVP status retained. |

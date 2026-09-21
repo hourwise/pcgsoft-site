@@ -122,7 +122,7 @@ const robots = read("robots.txt");
 if (!/^User-agent: \*\s*$/m.test(robots) || !/^Allow: \/\s*$/m.test(robots)) fail("robots.txt must allow public crawling");
 if (!robots.includes("https://pcgsoft.co.uk/sitemap.xml")) fail("robots.txt must point to sitemap.xml");
 
-const inspectedTextFiles = allFiles.filter((file) => /\.(html|css|js|json|xml|txt)$/.test(file));
+const inspectedTextFiles = allFiles.filter((file) => /\.(html|css|js|mjs|json|xml|txt)$/.test(file));
 for (const file of inspectedTextFiles) {
   const relative = path.relative(root, file);
   const contents = fs.readFileSync(file, "utf8");
