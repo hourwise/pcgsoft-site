@@ -10,6 +10,7 @@ This is a navigation aid generated from the public PCGsoft project registry. It 
 - [Project registry](https://pcgsoft.co.uk/projects/): browsable public project index.
 - [Products](https://pcgsoft.co.uk/products/): product and platform pages.
 - [Open source](https://pcgsoft.co.uk/open-source/): trustworthy AI runtime infrastructure.
+- [Web & Client Work](https://pcgsoft.co.uk/web-client-work/): studio-built websites and applications for real people, organisations and client-facing projects.
 - [Engineering notes](https://pcgsoft.co.uk/engineering/): future home for technical evidence; currently intentionally light.
 
 ## Featured projects
@@ -20,6 +21,8 @@ This is a navigation aid generated from the public PCGsoft project registry. It 
 - [Project Horae](https://pcgsoft.co.uk/open-source/horae/): discovery, admission, composition and lifecycle supervision.
 - [Runtime Contracts](https://pcgsoft.co.uk/open-source/runtime-contracts/): shared runtime identity and compatibility contracts.
 - [Moirae Console](https://pcgsoft.co.uk/open-source/moirae-console/): completed WebMCP hackathon reference implementation showing governed discovery, authority, approval and execution boundaries.
+- [Moirae Protocol](https://pcgsoft.co.uk/open-source/moirae-protocol/): submitted Agents for Humans hackathon build demonstrating governed-agent proposals, deterministic action compilation, human approval and evidence-aware reconciliation; not production security software.
+- [Moirae Accord](https://pcgsoft.co.uk/open-source/moirae-accord/): accepted ACCORD-02 research and specification package for portable records, authority composition, effect settlement and falsification testing; not a production runtime.
 - [Fates Integration](https://pcgsoft.co.uk/open-source/fates-integration/): public integration and system-validation layer for the Fates ecosystem.
 - [The Trace Manifest](https://pcgsoft.co.uk/products/the-trace-manifest/): evidence-linked AI intelligence platform.
 - [TRACE Capture App](https://pcgsoft.co.uk/products/trace-capture/): local-first capture companion for The Trace Manifest.
@@ -34,6 +37,10 @@ This is a navigation aid generated from the public PCGsoft project registry. It 
 - [Prefixity](https://pcgsoft.co.uk/products/prefixity/): PCGsoft project identity with private implementation.
 - [Vestigia: New Dawn](https://pcgsoft.co.uk/creative/vestigia-new-dawn/): creative game project in early development.
 - [Akuma Velocity](https://pcgsoft.co.uk/creative/akuma-velocity/): high-level creative shooter direction in prototype stage.
+- [Anyaparallax](https://pcgsoft.co.uk/web-client-work/anyaparallax/): photography portfolio web project with V1 development underway and public launch pending.
+- [Amped Up Music Promotions](https://pcgsoft.co.uk/web-client-work/amped-up-music-promotions/): live-music promotion website and management system with V1 development underway and public launch pending.
+
+The Gilded Bazaar remains a public creative project identity, but its implementation is private and no repository link is published.
 
 ## Source trail
 

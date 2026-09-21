@@ -49,6 +49,7 @@ if (new Set(canonicalUrls).size !== canonicalUrls.length) fail("project registry
 
 const allowedRepositoryRoles = new Set(["primary", "component", "integration", "web-app", "companion", "original", "current", "evidence", "documentation"]);
 const allowedVisibility = new Set(["public", "private", "unknown"]);
+const allowedCategories = new Set(["products", "open-source", "creative", "web-client"]);
 const requiredFields = ["slug", "name", "shortName", "alternateNames", "category", "categoryLabel", "status", "summary", "description", "sitePath", "canonicalUrl", "liveUrls", "repositories", "documentationLinks", "parentProject", "sourceVisibility", "openSource", "licence", "technologies", "lastReviewed", "featured", "relatedProjects", "evidenceLinks"];
 const primaryRepositoryClaims = new Map();
 for (const record of registry) {
@@ -56,11 +57,12 @@ for (const record of registry) {
   if (!/^\/[a-z0-9-]+(?:\/[a-z0-9-]+)*\/$/.test(record.sitePath)) fail(`${record.slug} has an unstable sitePath: ${record.sitePath}`);
   if (!/^https:\/\/pcgsoft\.co\.uk\/.+\/$/.test(record.canonicalUrl)) fail(`${record.slug} has an invalid canonicalUrl`);
   if (record.githubUrl && !/^https:\/\/github\.com\/hourwise\/[A-Za-z0-9._-]+$/.test(record.githubUrl)) fail(`${record.slug} has an unexpected GitHub URL`);
+  if (!allowedCategories.has(record.category)) fail(`${record.slug} has an unknown category ${record.category}`);
   if (!Array.isArray(record.alternateNames) || !Array.isArray(record.liveUrls) || !Array.isArray(record.repositories) || !Array.isArray(record.documentationLinks) || !Array.isArray(record.technologies)) fail(`${record.slug} has an invalid array field`);
   if (!["public", "private", "mixed", "none", "unknown"].includes(record.sourceVisibility)) fail(`${record.slug} has an invalid sourceVisibility`);
   if (record.parentProject !== null && !slugs.includes(record.parentProject)) fail(`${record.slug} has an unknown parentProject ${record.parentProject}`);
   if (record.parentProject === record.slug) fail(`${record.slug} cannot be its own parentProject`);
-  if (record.sourceVisibility === "private" && (record.repositories.length || record.liveUrls.length)) fail(`${record.slug} has public links despite private sourceVisibility`);
+  if (record.sourceVisibility === "private" && (record.githubUrl || record.repositories.length || record.liveUrls.length || record.evidenceLinks.length)) fail(`${record.slug} has public links despite private sourceVisibility`);
   for (const liveUrl of record.liveUrls) if (!/^https:\/\//.test(liveUrl)) fail(`${record.slug} has an invalid live URL`);
   for (const item of record.repositories) {
     if (!item || !item.name || !item.url || !allowedRepositoryRoles.has(item.role) || !allowedVisibility.has(item.visibility)) fail(`${record.slug} has an invalid repository entry`);
@@ -125,6 +127,7 @@ for (const file of inspectedTextFiles) {
   const relative = path.relative(root, file);
   const contents = fs.readFileSync(file, "utf8");
   if (/https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?/i.test(contents)) fail(`${relative} contains a localhost URL`);
+  if (/github\.com\/hourwise\/The-Gilded-Bazaar/i.test(contents)) fail(`${relative} exposes the private Gilded Bazaar repository URL`);
 }
 
 if (/\b\d+ projects shown\b/i.test(read("projects/index.html"))) fail("projects/index.html contains a hard-coded registry count");

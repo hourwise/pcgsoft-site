@@ -2,10 +2,10 @@ const routes = [
   "/", "/projects/", "/products/", "/open-source/", "/open-source/fates/",
   "/open-source/ananke/", "/open-source/mnemosyne/", "/open-source/horae/",
   "/open-source/runtime-contracts/", "/open-source/moirae-console/",
-  "/open-source/moirae-code/", "/open-source/plain-speak/", "/open-source/fates-integration/",
+  "/open-source/moirae-code/", "/open-source/moirae-protocol/", "/open-source/moirae-accord/", "/open-source/plain-speak/", "/open-source/fates-integration/",
   "/products/atlas-ai/", "/products/hourwise-eu/", "/products/hourwise-fleet/", "/products/reticle/",
   "/products/relief/", "/products/whilom/", "/products/the-trace-manifest/", "/products/trace-capture/", "/products/teamsphere/", "/products/prefixity/",
-  "/creative/", "/creative/read-me-a-story/", "/creative/riff-wilde/", "/creative/forge-arena/", "/creative/gilded-bazaar/", "/creative/vestigia-new-dawn/", "/creative/akuma-velocity/", "/engineering/",
+  "/creative/", "/creative/read-me-a-story/", "/creative/riff-wilde/", "/creative/forge-arena/", "/creative/gilded-bazaar/", "/creative/vestigia-new-dawn/", "/creative/akuma-velocity/", "/web-client-work/", "/web-client-work/anyaparallax/", "/web-client-work/amped-up-music-promotions/", "/engineering/",
   "/robots.txt", "/sitemap.xml"
 ];
 const origin = process.env.LOCAL_ORIGIN;
