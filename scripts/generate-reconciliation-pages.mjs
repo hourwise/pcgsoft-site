@@ -71,7 +71,7 @@ const pages = [
     answers: [
       ["What is The Gilded Bazaar?", "It is a tabletop RPG campaign companion focused on shops, party purchases, approvals and the shared economy around downtime."],
       ["Who is it for?", "The project is shaped for campaign groups and Dungeon Masters who want an explicit, shared way to manage purchases and the consequences of an economy."],
-      ["What is the source trail?", "The public repository describes a React Native and Expo application using TypeScript and Supabase, with the project still in early development."],
+      ["What is public?", "The public record is limited to the project identity, concept and early-development status. Implementation details are intentionally not published."],
       ["Current status and limits", "Early development. It is not presented as a character-sheet replacement, finished service or generally available product."],
     ],
     evidence: [],

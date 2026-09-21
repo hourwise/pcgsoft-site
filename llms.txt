@@ -24,7 +24,7 @@ This is a navigation aid generated from the public PCGsoft project registry. It 
 - [Moirae Protocol](https://pcgsoft.co.uk/open-source/moirae-protocol/): submitted Agents for Humans hackathon build demonstrating governed-agent proposals, deterministic action compilation, human approval and evidence-aware reconciliation; not production security software.
 - [Moirae Accord](https://pcgsoft.co.uk/open-source/moirae-accord/): accepted ACCORD-02 research and specification package for portable records, authority composition, effect settlement and falsification testing; not a production runtime.
 - [Fates Integration](https://pcgsoft.co.uk/open-source/fates-integration/): public integration and system-validation layer for the Fates ecosystem.
-- [The Trace Manifest](https://pcgsoft.co.uk/products/the-trace-manifest/): evidence-linked AI intelligence platform.
+- [The Trace Manifest](https://pcgsoft.co.uk/products/the-trace-manifest/): live public evidence-linked AI intelligence surface under controlled rollout; Ask/AI, editorial, provider and activation capabilities remain gated.
 - [TRACE Capture App](https://pcgsoft.co.uk/products/trace-capture/): local-first capture companion for The Trace Manifest.
 - [Reticle Systems](https://pcgsoft.co.uk/products/reticle/): deterministic software project planning core; reticlesystems.co.uk is coming soon.
 - [PlainSpeak](https://pcgsoft.co.uk/open-source/plain-speak/): deterministic presentation layer for AI- and machine-generated text.

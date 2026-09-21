@@ -122,6 +122,12 @@ const robots = read("robots.txt");
 if (!/^User-agent: \*\s*$/m.test(robots) || !/^Allow: \/\s*$/m.test(robots)) fail("robots.txt must allow public crawling");
 if (!robots.includes("https://pcgsoft.co.uk/sitemap.xml")) fail("robots.txt must point to sitemap.xml");
 
+const llms = read("llms.txt");
+if (!/The Trace Manifest[^\n]*controlled rollout/i.test(llms)) fail("llms.txt must record The Trace Manifest controlled-rollout state");
+const reconciliationGenerator = read("scripts/generate-reconciliation-pages.mjs");
+const gildedGeneratorBlock = reconciliationGenerator.match(/slug: "gilded-bazaar"[\s\S]*?relatedCopy:/i)?.[0] || "";
+if (/public repository describes|React Native and Expo|Supabase/i.test(gildedGeneratorBlock)) fail("Gilded Bazaar reconciliation source contains stale public-repository wording");
+
 const inspectedTextFiles = allFiles.filter((file) => /\.(html|css|js|mjs|json|xml|txt)$/.test(file));
 for (const file of inspectedTextFiles) {
   const relative = path.relative(root, file);
