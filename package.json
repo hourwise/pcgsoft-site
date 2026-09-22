@@ -8,7 +8,6 @@
     "build": "npm run validate",
     "validate": "node scripts/validate-site.mjs",
     "portfolio:sync": "node scripts/sync-portfolio.mjs",
-    "portfolio:test": "node --test scripts/portfolio-sync.test.mjs",
-    "portfolio:audit-local": "node scripts/sync-portfolio.mjs --dry-run --check-live-urls"
+    "portfolio:test": "node --test scripts/portfolio-sync.test.mjs"
   }
 }

@@ -12,7 +12,6 @@ npm run portfolio:test
 npm run portfolio:sync -- --dry-run
 npm run portfolio:sync -- --check
 npm run portfolio:sync -- --write
-npm run portfolio:audit-local
 ```
 
 `--dry-run` prints a reconciliation report. `--check` exits non-zero when
@@ -63,7 +62,9 @@ publish discovery results.
 
 ## Local development reality
 
-`npm run portfolio:audit-local` is an optional operator-side audit. Local
-branches and worktrees may be ahead of GitHub, but their evidence is never
-treated as public or publication authority. Scheduled automation runs only
-against bounded public GitHub metadata and checked-in PCGsoft inputs.
+An optional future local-audit command may compare operator-provided local
+repositories with public GitHub state. Local branches and worktrees may be
+ahead of GitHub, but their evidence is never treated as public or publication
+authority. Scheduled automation runs only against bounded public GitHub
+metadata and checked-in PCGsoft inputs; AUTO-01 does not recursively scan
+operator drives.
