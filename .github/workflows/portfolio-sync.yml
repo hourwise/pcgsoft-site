@@ -82,6 +82,3 @@ jobs:
             proposals, privacy warnings and canonical conflicts remain in the
             report for human review. No project pages, sitemap entries or
             canonical registry records are changed by this workflow.
-          labels: |
-            portfolio-sync
-            needs-review
