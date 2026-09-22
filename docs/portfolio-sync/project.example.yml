@@ -1,0 +1,23 @@
+schemaVersion: 1
+project:
+  id: example-project
+  name: Example Project
+  slug: example-project
+  alternateNames:
+    - Example
+  public: true
+  category: open-source
+  status: active-development
+  statusLabel: Active development
+  summary: A concise factual project summary.
+  featured: false
+  liveUrl: https://example.com/
+  websiteState: planned
+  parentProject: null
+  relatedProjects: []
+  lastReviewed: 2026-09-22
+publication:
+  eligible: false
+  notes: Requires explicit PCGsoft review.
+activity:
+  enabled: false

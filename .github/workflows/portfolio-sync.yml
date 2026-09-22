@@ -1,0 +1,87 @@
+name: Governed portfolio sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: governed-portfolio-sync
+  cancel-in-progress: false
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out PCGsoft site
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install site dependencies only
+        run: npm install --package-lock=false --ignore-scripts --no-audit --no-fund
+
+      - name: Run deterministic sync check
+        id: sync-check
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/sync-portfolio.mjs --check
+
+      - name: Write derived reconciliation artefacts
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/sync-portfolio.mjs --write --report-json docs/portfolio-sync/portfolio-sync-report.json
+
+      - name: Validate and build
+        run: |
+          npm run validate
+          npm run build
+          git diff --check
+
+      - name: Add report to workflow summary
+        if: always()
+        run: |
+          if [ -f docs/portfolio-sync/portfolio-sync-report.md ]; then
+            cat docs/portfolio-sync/portfolio-sync-report.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload reconciliation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-sync-report
+          path: |
+            docs/portfolio-sync/portfolio-sync-report.md
+            docs/portfolio-sync/portfolio-sync-report.json
+            data/generated/github-portfolio-snapshot.json
+            data/generated/portfolio-sync-report.json
+
+      - name: Create or update one review PR
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          branch: codex/auto-01-portfolio-sync
+          delete-branch: false
+          title: "chore(portfolio): reconcile discovered evidence"
+          commit-message: "chore(portfolio): reconcile discovered evidence"
+          body: |
+            This PR contains deterministic AUTO-01 derived evidence only.
+
+            Discovery is not publication authority. Unknown projects, manifest
+            proposals, privacy warnings and canonical conflicts remain in the
+            report for human review. No project pages, sitemap entries or
+            canonical registry records are changed by this workflow.
+          labels: |
+            portfolio-sync
+            needs-review

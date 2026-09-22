@@ -1,0 +1,42 @@
+{
+  "repositories": [
+    {
+      "name": "Moirae-Protocol",
+      "html_url": "https://github.com/hourwise/Moirae-Protocol",
+      "visibility": "public",
+      "private": false,
+      "default_branch": "main",
+      "archived": false,
+      "description": "Governed-agent hackathon reference build",
+      "homepage": null,
+      "language": "TypeScript",
+      "license": null,
+      "latestDefaultBranchCommit": { "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "date": "2026-09-22T00:00:00Z" }
+    },
+    {
+      "name": "Unknown-Public-Project",
+      "html_url": "https://github.com/hourwise/Unknown-Public-Project",
+      "visibility": "public",
+      "private": false,
+      "default_branch": "main",
+      "archived": false,
+      "description": "A repository awaiting project review"
+    },
+    {
+      "name": "Archived-Public-Project",
+      "html_url": "https://github.com/hourwise/Archived-Public-Project",
+      "visibility": "public",
+      "private": false,
+      "default_branch": "main",
+      "archived": true,
+      "description": "An archived source"
+    },
+    {
+      "name": "Former-Public-Source",
+      "html_url": "https://github.com/hourwise/Former-Public-Source",
+      "visibility": "private",
+      "private": true,
+      "default_branch": "main"
+    }
+  ]
+}

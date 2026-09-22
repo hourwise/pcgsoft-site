@@ -1,0 +1,23 @@
+schemaVersion: 1
+project:
+  id: fixture-project
+  name: Fixture Project
+  slug: fixture-project
+  alternateNames:
+    - Fixture
+  public: true
+  category: open-source
+  status: active-development
+  statusLabel: Active development
+  summary: A bounded fixture project.
+  featured: false
+  liveUrl: https://fixture.example/
+  websiteState: planned
+  parentProject: null
+  relatedProjects: []
+  lastReviewed: 2026-09-22
+publication:
+  eligible: false
+  notes: Human review required.
+activity:
+  enabled: false
