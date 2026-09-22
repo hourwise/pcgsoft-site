@@ -45,6 +45,22 @@ Meaningful activity is reserved for `STATUS_CHANGED`, `RELEASE_PUBLISHED`,
 `PUBLIC_PREVIEW_AVAILABLE`, `LIVE_SURFACE_AVAILABLE`, `MILESTONE_NOTE` and
 `PROJECT_COMPLETED`. AUTO-01 does not synthesize activity from commits.
 
+## AUTO-02 pilot plan
+
+AUTO-02 is documented here but is not executed by AUTO-01. The recommended
+first pilot repositories are:
+
+1. `hourwise/Moirae-Protocol` — newer project with strong evidence and
+   explicit Fates / Ananke / Horae relationships.
+2. `hourwise/Reticle-systems` — public default branch may lag the current
+   project direction and therefore exercises conservative source drift review.
+3. `hourwise/PlainSpeak-Next` — exercises original/current repository lineage.
+
+AUTO-02 should add manifests only after a human approves the pilot scope,
+prove the first governed sync against offline and live evidence, and keep all
+canonical publication changes behind a reviewed PR. It must not auto-merge or
+publish discovery results.
+
 ## Local development reality
 
 `npm run portfolio:audit-local` is an optional operator-side audit. Local
