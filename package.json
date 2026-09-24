@@ -8,7 +8,7 @@
     "build": "npm run validate && node scripts/build-public.mjs",
     "validate": "node scripts/validate-site.mjs",
     "portfolio:sync": "node scripts/sync-portfolio.mjs",
-    "portfolio:test": "node --test scripts/portfolio-sync.test.mjs scripts/portfolio-reconcile.test.mjs scripts/portfolio-pilot-certification.test.mjs",
+    "portfolio:test": "node --test scripts/portfolio-sync.test.mjs scripts/portfolio-reconcile.test.mjs scripts/portfolio-pilot-certification.test.mjs scripts/portfolio-eligibility.test.mjs",
     "public:test": "node --test scripts/public-build.test.mjs",
     "public:smoke": "node scripts/smoke-public.mjs"
   }

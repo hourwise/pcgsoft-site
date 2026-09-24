@@ -189,11 +189,13 @@ test("16. current/original repository roles reconcile against canonical lineage"
   assert.deepEqual(lineage.repositories.map((item) => [item.repository, item.canonicalRole]), [["PlainSpeak-Next", "current"], ["Project-PlainSpeak", "original"]]);
 });
 
-test("17. two repositories resolve to one project", () => {
+test("17. two repositories resolve to one project; only the eligible one is reconciled", () => {
   const original = v2Fixture("plainspeak-next.yml").replace("role: current", "role: original");
   const { report } = run({ manifests: { "PlainSpeak-Next": v2Fixture("plainspeak-next.yml"), "Project-PlainSpeak": original } });
   const resolved = report.manifestProvenance.map((item) => [item.repository, item.classification, item.projectId]);
-  assert.deepEqual(resolved, [["PlainSpeak-Next", "SOURCE_IDENTITY_MATCH", "plain-speak"], ["Project-PlainSpeak", "SOURCE_IDENTITY_MATCH", "plain-speak"]]);
+  // AUTO-04A: the canonical original repository is not a manifest source.
+  assert.deepEqual(resolved, [["PlainSpeak-Next", "SOURCE_IDENTITY_MATCH", "plain-speak"], ["Project-PlainSpeak", "MANIFEST_SOURCE_INELIGIBLE", "plain-speak"]]);
+  assert.deepEqual([...new Set(report.fieldOutcomes.map((item) => item.repository))], ["PlainSpeak-Next"]);
   assert.equal(outcome(report, "plain-speak", "repository.role").outcome, "AGREEMENT");
 });
 

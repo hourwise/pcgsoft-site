@@ -305,6 +305,12 @@ export function normalizeRepository(raw) {
     primaryLanguage: raw.language || raw.primaryLanguage || null,
     licence: raw.license?.spdx_id || raw.licence || null,
     latestDefaultBranchCommit: raw.latestDefaultBranchCommit || raw.latestCommit || null,
+    // RESOLVED: default-branch head SHA known. EMPTY_REPOSITORY: GitHub reports
+    // no commits (a normal state). NOT_RESOLVED: not looked up (offline input)
+    // or the lookup failed, which live discovery records as an error.
+    defaultBranchState: raw.empty === true || raw.defaultBranchState === "EMPTY_REPOSITORY"
+      ? "EMPTY_REPOSITORY"
+      : (raw.latestDefaultBranchCommit || raw.latestCommit)?.sha ? "RESOLVED" : "NOT_RESOLVED",
     latestRelease: raw.latestRelease || null,
   };
 }
@@ -327,6 +333,7 @@ export async function discoverPublicGithubRepos({ owner = "hourwise", token = pr
     if (pageData.length < 100) break;
   }
   const repositories = [];
+  const errors = [];
   let privateSeen = 0;
   for (const raw of rawRepositories) {
     if (raw.private === true || raw.visibility === "private") {
@@ -335,15 +342,26 @@ export async function discoverPublicGithubRepos({ owner = "hourwise", token = pr
     }
     const normalized = normalizeRepository(raw);
     if (!normalized) continue;
-    const commitResponse = await fetchImpl(`https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(normalized.name)}/commits?sha=${encodeURIComponent(normalized.defaultBranch)}&per_page=1`, { headers });
-    if (commitResponse.ok) {
-      const commits = await commitResponse.json();
-      const latest = commits[0];
-      if (latest) normalized.latestDefaultBranchCommit = { sha: latest.sha, date: latest.commit?.committer?.date || latest.commit?.author?.date || null };
+    try {
+      const commitResponse = await fetchImpl(`https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(normalized.name)}/commits?sha=${encodeURIComponent(normalized.defaultBranch)}&per_page=1`, { headers });
+      // GitHub answers 409 "Git Repository is empty" for a repository with no commits.
+      if (commitResponse.status === 409) normalized.defaultBranchState = "EMPTY_REPOSITORY";
+      else if (!commitResponse.ok) throw new Error(`default-branch commit lookup failed with HTTP ${commitResponse.status}`);
+      else {
+        const commits = await commitResponse.json();
+        if (!Array.isArray(commits)) throw new Error("default-branch commit lookup returned a malformed response");
+        const latest = commits[0];
+        if (latest?.sha) {
+          normalized.latestDefaultBranchCommit = { sha: latest.sha, date: latest.commit?.committer?.date || latest.commit?.author?.date || null };
+          normalized.defaultBranchState = "RESOLVED";
+        } else normalized.defaultBranchState = "EMPTY_REPOSITORY";
+      }
+    } catch (error) {
+      errors.push({ repository: normalized.name, error: error.message });
     }
     repositories.push(normalized);
   }
-  return { complete: true, repositories: sortBy(repositories, "name"), privateSeen, errors: [] };
+  return { complete: true, repositories: sortBy(repositories, "name"), privateSeen, errors };
 }
 
 export function buildApprovedSourceIndex(registry) {

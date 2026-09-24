@@ -41,6 +41,10 @@ export const AUTHORITY = {
   GITHUB: "GITHUB_METADATA",
   DERIVED: "DERIVED_FACT",
 };
+// AUTO-04A: only the repository whose canonical role is primary or current may
+// act as a project's manifest source. Eligibility comes from the canonical
+// mapping, never from the manifest's own repository.role.
+export const ELIGIBLE_CANONICAL_ROLES = new Set(["primary", "current", "lineage/current"]);
 export const OUTCOMES = ["AGREEMENT", "CONFLICT", "NOT_PROPOSED", "UNCOMPARABLE", "INFORMATIONAL", "UNSUPPORTED_FIELD"];
 
 const V2_KEYS = {
@@ -291,17 +295,39 @@ export function reconcileFields({ model, schemaVersion, canonical, context }) {
   return outcomes.sort((a, b) => a.field.localeCompare(b.field));
 }
 
+// Per project: which canonical repositories may carry its manifest. Zero is a
+// valid state; more than one is a governance problem and no winner is chosen.
+export function manifestSourceEligibility(registry) {
+  const eligibility = new Map();
+  for (const project of registry) {
+    const eligibleRepositories = (project.repositories || [])
+      .filter((repository) => ELIGIBLE_CANONICAL_ROLES.has(repository.role))
+      .map((repository) => ({ repository: repository.url.split("/").pop(), url: repository.url, role: repository.role }))
+      .sort((a, b) => a.repository.localeCompare(b.repository) || a.role.localeCompare(b.role));
+    const state = eligibleRepositories.length === 0 ? "NO_ELIGIBLE_SOURCE" : eligibleRepositories.length === 1 ? "SINGLE_ELIGIBLE_SOURCE" : "DUPLICATE_ELIGIBLE_MANIFEST_SOURCE";
+    eligibility.set(project.slug, { projectId: project.slug, state, eligibleRepositories });
+  }
+  return eligibility;
+}
+
 // Bind a manifest to the repository that actually supplied it, then check the
 // manifest's declared project against the canonical repository mapping.
-export function resolveManifestSource(source, parsed, index, registryBySlug) {
+export function resolveManifestSource(source, parsed, index, registryBySlug, eligibility = new Map()) {
   if (source.state === "NO_MANIFEST") return { classification: "NO_MANIFEST" };
+  if (source.state === "EMPTY_REPOSITORY") return { classification: "EMPTY_REPOSITORY" };
   if (source.state !== "MANIFEST_FOUND") return { classification: "MANIFEST_SOURCE_ERROR" };
   if (source.integrity !== "VERIFIED") return { classification: "SOURCE_INTEGRITY_FAILURE" };
   if (parsed.errors.length) return { classification: "MANIFEST_INVALID" };
   const mappings = index.byUrl.get(source.repositoryUrl) || [];
   if (!mappings.length) return { classification: "SOURCE_NOT_CANONICALLY_MAPPED" };
   const mapped = mappings.filter((mapping) => mapping.projectId === parsed.declaredProject);
-  if (mapped.length) return { classification: "SOURCE_IDENTITY_MATCH", projectId: parsed.declaredProject, canonicalRoles: sortedUnique(mapped.map((mapping) => mapping.role)) };
+  if (mapped.length) {
+    const canonicalRoles = sortedUnique(mapped.map((mapping) => mapping.role));
+    const resolved = { projectId: parsed.declaredProject, canonicalRoles };
+    if (!canonicalRoles.some((role) => ELIGIBLE_CANONICAL_ROLES.has(role))) return { classification: "MANIFEST_SOURCE_INELIGIBLE", ...resolved };
+    if (eligibility.get(parsed.declaredProject)?.state === "DUPLICATE_ELIGIBLE_MANIFEST_SOURCE") return { classification: "DUPLICATE_ELIGIBLE_MANIFEST_SOURCE", ...resolved };
+    return { classification: "SOURCE_IDENTITY_MATCH", ...resolved };
+  }
   if (registryBySlug.has(parsed.declaredProject)) return { classification: "MANIFEST_PROJECT_MISMATCH", sourceProjects: sortedUnique(mappings.map((mapping) => mapping.projectId)) };
   return { classification: "MANIFEST_PROJECT_UNKNOWN", sourceProjects: sortedUnique(mappings.map((mapping) => mapping.projectId)) };
 }
@@ -332,6 +358,10 @@ export async function discoverManifests({ repositories, owner = "hourwise", refO
     const base = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repository.name)}`;
     const override = refOverrides[repository.name];
     const record = { repository: repository.name, repositoryUrl: repository.url, repositoryId: repository.id ?? null, path: MANIFEST_PATH, sourceKind: "github-api", ref: override ? "pinned-override" : "default-branch-head", commitSha: override || repository.latestDefaultBranchCommit?.sha || null, blobSha: null, integrity: null, content: null };
+    if (!override && repository.defaultBranchState === "EMPTY_REPOSITORY") {
+      sources.push({ ...record, commitSha: null, state: "EMPTY_REPOSITORY" });
+      continue;
+    }
     try {
       if (!record.commitSha) throw new Error("repository has no resolvable commit SHA; refusing to read a floating branch");
       if (override) {
@@ -371,12 +401,13 @@ export function manifestSourcesFromFixture(fixture, repositories) {
     if (!repository) errors.push({ repository: entry.repository, error: "manifest fixture names a repository that was not discovered as public" });
     else if (!SHA_PATTERN.test(entry.commitSha || "")) errors.push({ repository: entry.repository, error: "manifest fixture commitSha must be a full 40-character SHA" });
     else if (entry.path !== MANIFEST_PATH) errors.push({ repository: entry.repository, error: `manifest fixture path must be ${MANIFEST_PATH}` });
+    else if (repository.defaultBranchState === "EMPTY_REPOSITORY") errors.push({ repository: entry.repository, error: "manifest fixture pins a commit in a repository discovered as empty" });
     else pinned.set(entry.repository, entry);
   }
   const sources = sortBy(repositories, "name").map((repository) => {
     const entry = pinned.get(repository.name);
     const record = { repository: repository.name, repositoryUrl: repository.url, repositoryId: repository.id ?? null, path: MANIFEST_PATH, sourceKind: "offline-fixture", ref: "fixture", commitSha: entry?.commitSha || repository.latestDefaultBranchCommit?.sha || null, blobSha: null, integrity: null, content: null };
-    if (!entry) return { ...record, state: "NO_MANIFEST" };
+    if (!entry) return { ...record, state: repository.defaultBranchState === "EMPTY_REPOSITORY" ? "EMPTY_REPOSITORY" : "NO_MANIFEST", ...(repository.defaultBranchState === "EMPTY_REPOSITORY" ? { commitSha: null } : {}) };
     const content = String(entry.content ?? "");
     return { ...record, state: "MANIFEST_FOUND", blobSha: entry.blobSha, integrity: gitBlobSha(content) === entry.blobSha ? "VERIFIED" : "MISMATCH", content };
   });
@@ -391,6 +422,15 @@ export function buildSyncOutputs({ registry, discovery, manifestSources = [], ma
   const index = buildApprovedSourceIndex(registry);
   const registryBySlug = new Map(registry.map((project) => [project.slug, project]));
   const knownSlugs = new Set(registryBySlug.keys());
+  const eligibility = manifestSourceEligibility(registry);
+  const governanceFindings = [];
+  // Reports name a canonical repository only if discovery saw it as public; a
+  // repository that has since gone private is counted, never named.
+  const discoveredUrls = new Set(discovery.repositories.map((repository) => repository.url));
+  const disclose = (repositories) => ({
+    named: repositories.filter((item) => discoveredUrls.has(item.url)).map(({ repository, role }) => ({ repository, role })),
+    undiscoveredCount: repositories.filter((item) => !discoveredUrls.has(item.url)).length,
+  });
   const classifications = classifyRepositories(discovery.repositories, registry, discovery.complete);
   const knownByRepository = new Map(classifications.known.map((item) => [item.repository, item]));
   const manifestResults = [];
@@ -402,11 +442,11 @@ export function buildSyncOutputs({ registry, discovery, manifestSources = [], ma
 
   for (const manifestSource of sortBy(manifestSources, "repository")) {
     const parsed = manifestSource.state === "MANIFEST_FOUND" && manifestSource.integrity === "VERIFIED" ? parseManifestContent(manifestSource.content) : { errors: [], model: null, declaredProject: null };
-    const resolution = resolveManifestSource(manifestSource, parsed, index, registryBySlug);
+    const resolution = resolveManifestSource(manifestSource, parsed, index, registryBySlug, eligibility);
     const identity = sourceIdentity(manifestSource);
     const result = { ...identity, state: manifestSource.state, integrity: manifestSource.integrity, schemaVersion: parsed.schemaVersion ?? null, declaredProject: parsed.declaredProject, classification: resolution.classification, projectId: resolution.projectId ?? null };
-    if (resolution.classification === "NO_MANIFEST") {
-      manifestResults.push({ ...result, outcome: "NO_MANIFEST" });
+    if (resolution.classification === "NO_MANIFEST" || resolution.classification === "EMPTY_REPOSITORY") {
+      manifestResults.push({ ...result, outcome: resolution.classification });
       continue;
     }
     if (resolution.classification === "MANIFEST_SOURCE_ERROR") {
@@ -423,10 +463,19 @@ export function buildSyncOutputs({ registry, discovery, manifestSources = [], ma
       manifestResults.push({ ...result, outcome: "REJECTED" });
       continue;
     }
-    manifestProposals.push({ ...identity, schemaVersion: parsed.schemaVersion, declaredProject: parsed.declaredProject, authority: AUTHORITY.MANIFEST, fields: Object.fromEntries(Object.entries(parsed.model).map(([field, { value }]) => [field, value])) });
+    manifestProposals.push({ ...identity, schemaVersion: parsed.schemaVersion, declaredProject: parsed.declaredProject, classification: resolution.classification, authority: AUTHORITY.MANIFEST, fields: Object.fromEntries(Object.entries(parsed.model).map(([field, { value }]) => [field, value])) });
     if (resolution.classification === "MANIFEST_PROJECT_MISMATCH") {
       provenanceWarnings.push({ severity: "HIGH", issue: "MANIFEST_PROJECT_MISMATCH", ...identity, declaredProject: parsed.declaredProject, sourceProjects: resolution.sourceProjects, action: "manifest names a project its source repository does not canonically belong to; not reconciled" });
       manifestResults.push({ ...result, outcome: "REJECTED" });
+      continue;
+    }
+    if (resolution.classification === "MANIFEST_SOURCE_INELIGIBLE") {
+      governanceFindings.push({ issue: "MANIFEST_SOURCE_INELIGIBLE", projectId: resolution.projectId, repository: manifestSource.repository, commitSha: manifestSource.commitSha, blobSha: manifestSource.blobSha, canonicalRoles: resolution.canonicalRoles, proposedRole: parsed.model["repository.role"]?.value ?? null, action: "manifest is not from the canonical primary/current repository of its project; not reconciled" });
+      manifestResults.push({ ...result, canonicalRoles: resolution.canonicalRoles, outcome: "NOT_RECONCILED" });
+      continue;
+    }
+    if (resolution.classification === "DUPLICATE_ELIGIBLE_MANIFEST_SOURCE") {
+      manifestResults.push({ ...result, canonicalRoles: resolution.canonicalRoles, outcome: "NOT_RECONCILED" });
       continue;
     }
     if (resolution.classification !== "SOURCE_IDENTITY_MATCH") {
@@ -458,9 +507,20 @@ export function buildSyncOutputs({ registry, discovery, manifestSources = [], ma
 
   const canonicalConflicts = fieldOutcomes.filter((item) => item.outcome === "CONFLICT").map((item) => ({ ...item, authority: { canonical: AUTHORITY.CANONICAL, proposed: AUTHORITY.MANIFEST }, evidence: evidenceFor(item), action: "HUMAN_REVIEW_REQUIRED" }));
   const canonicalAgreements = fieldOutcomes.filter((item) => item.outcome === "AGREEMENT").map(({ projectId, repository, field, canonicalValue }) => ({ projectId, repository, field, value: canonicalValue, authority: AUTHORITY.CANONICAL }));
-  const humanApprovalRequired = fieldOutcomes
-    .filter((item) => ["CONFLICT", "UNCOMPARABLE", "UNSUPPORTED_FIELD"].includes(item.outcome))
-    .map(({ projectId, repository, field, outcome, canonicalValue, proposedValue }) => ({ projectId, repository, field, reason: outcome, canonicalValue, proposedValue, decision: "HUMAN_REVIEW_REQUIRED" }));
+  // Project-level ambiguity is detected from canonical mappings alone, with or
+  // without manifests; no eligible repository is preferred over another.
+  for (const project of [...eligibility.values()].filter((item) => item.state === "DUPLICATE_ELIGIBLE_MANIFEST_SOURCE")) {
+    const repositoriesWithManifests = manifestResults.filter((item) => item.projectId === project.projectId && item.state === "MANIFEST_FOUND").map((item) => item.repository).sort();
+    const { named, undiscoveredCount } = disclose(project.eligibleRepositories);
+    governanceFindings.push({ issue: "DUPLICATE_ELIGIBLE_MANIFEST_SOURCE", projectId: project.projectId, repository: null, eligibleRepositoryCount: project.eligibleRepositories.length, eligibleRepositories: named, undiscoveredEligibleRepositoryCount: undiscoveredCount, repositoriesWithManifests, action: "canonical record names more than one primary/current repository; no manifest is reconciled until a human resolves it" });
+  }
+  governanceFindings.sort((a, b) => a.issue.localeCompare(b.issue) || a.projectId.localeCompare(b.projectId) || String(a.repository).localeCompare(String(b.repository)));
+  const humanApprovalRequired = [
+    ...fieldOutcomes
+      .filter((item) => ["CONFLICT", "UNCOMPARABLE", "UNSUPPORTED_FIELD"].includes(item.outcome))
+      .map(({ projectId, repository, field, outcome, canonicalValue, proposedValue }) => ({ projectId, repository, field, reason: outcome, canonicalValue, proposedValue, decision: "HUMAN_REVIEW_REQUIRED" })),
+    ...governanceFindings.map((finding) => ({ projectId: finding.projectId, repository: finding.repository, field: "manifestSource", reason: finding.issue, canonicalValue: finding.canonicalRoles ?? finding.eligibleRepositories, proposedValue: finding.proposedRole ?? null, decision: "HUMAN_REVIEW_REQUIRED" })),
+  ];
 
   // Repository lineage: every repository that canonically maps to a project,
   // grouped by project. Repositories never create projects.
@@ -468,11 +528,13 @@ export function buildSyncOutputs({ registry, discovery, manifestSources = [], ma
   for (const project of sortBy(registry, "slug")) {
     const repositories = (project.repositories || []).filter((repository) => repository.visibility === "public");
     if (repositories.length < 2 && !repositories.some((repository) => ["original", "current", "lineage/original", "lineage/current"].includes(repository.role))) continue;
+    const discoveredRepositories = repositories.filter((repository) => discoveredUrls.has(repository.url));
     lineage.push({
       projectId: project.slug,
-      repositories: repositories.map((repository) => {
+      undiscoveredRepositoryCount: repositories.length - discoveredRepositories.length,
+      repositories: discoveredRepositories.map((repository) => {
         const name = repository.url.split("/").pop();
-        return { repository: name, canonicalRole: repository.role, discovered: knownByRepository.has(name), classification: knownByRepository.get(name)?.classification ?? null, manifest: manifestResults.find((item) => item.repository === name)?.classification ?? "NOT_CHECKED" };
+        return { repository: name, canonicalRole: repository.role, eligibleManifestSource: ELIGIBLE_CANONICAL_ROLES.has(repository.role), discovered: knownByRepository.has(name), classification: knownByRepository.get(name)?.classification ?? null, manifest: manifestResults.find((item) => item.repository === name)?.classification ?? "NOT_CHECKED" };
       }).sort((a, b) => a.repository.localeCompare(b.repository)),
     });
   }
@@ -488,13 +550,20 @@ export function buildSyncOutputs({ registry, discovery, manifestSources = [], ma
     visibility: repository.visibility,
     archived: repository.archived,
     defaultBranch: repository.defaultBranch,
+    defaultBranchState: repository.defaultBranchState ?? "NOT_RESOLVED",
     defaultBranchSha: repository.latestDefaultBranchCommit?.sha ?? null,
-    manifest: manifestByRepository.get(repository.name)?.classification ?? "NOT_CHECKED",
+    manifest: manifestByRepository.get(repository.name)?.classification ?? (repository.defaultBranchState === "EMPTY_REPOSITORY" ? "EMPTY_REPOSITORY" : "NOT_CHECKED"),
     manifestCommitSha: manifestByRepository.get(repository.name)?.commitSha ?? null,
-    canonicalMapping: (index.byUrl.get(repository.url) || []).map(({ projectId, role }) => ({ projectId, role })).sort((a, b) => a.projectId.localeCompare(b.projectId)),
+    canonicalMapping: (index.byUrl.get(repository.url) || []).map(({ projectId, role }) => ({ projectId, role, eligibleManifestSource: ELIGIBLE_CANONICAL_ROLES.has(role) })).sort((a, b) => a.projectId.localeCompare(b.projectId)),
     authority: AUTHORITY.DERIVED,
   }));
   const reviewRepositories = new Set([...humanApprovalRequired, ...provenanceWarnings].map((item) => item.repository));
+  for (const finding of governanceFindings) for (const item of finding.eligibleRepositories || []) reviewRepositories.add(item.repository);
+  const eligibilityProjects = [...eligibility.values()].sort((a, b) => a.projectId.localeCompare(b.projectId)).map(({ projectId, state, eligibleRepositories }) => {
+    const { named, undiscoveredCount } = disclose(eligibleRepositories);
+    return { projectId, state, eligibleRepositoryCount: eligibleRepositories.length, eligibleRepositories: named, undiscoveredEligibleRepositoryCount: undiscoveredCount };
+  });
+  const countState = (state) => eligibilityProjects.filter((item) => item.state === state).length;
   const newProjectsPendingReview = [...classifications.pendingReview, ...manifestPending].sort((a, b) => String(a.repository).localeCompare(String(b.repository)) || String(a.reason).localeCompare(String(b.reason)));
 
   const report = {
@@ -506,6 +575,7 @@ export function buildSyncOutputs({ registry, discovery, manifestSources = [], ma
       archivedRepositories: discovery.repositories.filter((repository) => repository.archived).map((repository) => repository.name).sort(),
       privateRepositoriesWithheld: discovery.privateSeen || 0,
       manifestsFound: manifestResults.filter((item) => item.state === "MANIFEST_FOUND").length,
+      emptyRepositories: discovery.repositories.filter((repository) => repository.defaultBranchState === "EMPTY_REPOSITORY").map((repository) => repository.name).sort(),
       repositories: repositoryFacts,
     },
     manifestProvenance: manifestResults.filter((item) => item.state !== "NO_MANIFEST"),
@@ -517,6 +587,11 @@ export function buildSyncOutputs({ registry, discovery, manifestSources = [], ma
     relationshipWarnings: validateRelationships(registry),
     githubMetadataEvidence,
     provenanceWarnings,
+    manifestSourceEligibility: {
+      summary: { projects: eligibilityProjects.length, singleEligibleSource: countState("SINGLE_ELIGIBLE_SOURCE"), noEligibleSource: countState("NO_ELIGIBLE_SOURCE"), duplicateEligibleSource: countState("DUPLICATE_ELIGIBLE_MANIFEST_SOURCE") },
+      projects: eligibilityProjects,
+    },
+    governanceFindings,
     privacyVisibilityWarnings: [...classifications.visibilityWarnings, ...canonicalPrivacyWarnings],
     newProjectsPendingReview,
     humanApprovalRequired,
@@ -543,6 +618,12 @@ export function buildSyncOutputs({ registry, discovery, manifestSources = [], ma
     manifestSources: sortBy(manifestSources, "repository").map((item) => ({ ...sourceIdentity(item), state: item.state, integrity: item.integrity })),
   };
   return { snapshot, report, markdown: renderReportMarkdown(report) };
+}
+
+// Only infrastructure failures block --write. Empty repositories and missing,
+// invalid or ineligible manifests are per-repository findings.
+export function writeRefusalReason(report) {
+  return report.discoveryErrors.length ? "refusing --write because discovery failed" : null;
 }
 
 export function renderReportMarkdown(report) {
@@ -587,6 +668,18 @@ ${list(report.relationshipFindings.lineage, (item) => `${item.projectId} lineage
 ## GitHub metadata evidence
 
 ${list(report.githubMetadataEvidence, (item) => `${item.projectId} ${item.repository} ${item.field} ${item.value}: ${item.relation}`)}
+
+## Manifest source eligibility
+
+- Projects with one eligible source: ${report.manifestSourceEligibility.summary.singleEligibleSource}
+- Projects with no eligible source: ${report.manifestSourceEligibility.summary.noEligibleSource}
+- Projects with duplicate eligible sources: ${report.manifestSourceEligibility.summary.duplicateEligibleSource}
+
+${list(report.governanceFindings, (item) => item.issue === "DUPLICATE_ELIGIBLE_MANIFEST_SOURCE" ? `${item.issue} ${item.projectId}: ${item.eligibleRepositories.map((repository) => `${repository.repository} (${repository.role})`).join(", ")}` : `${item.issue} ${item.projectId} ${item.repository}@${item.commitSha} (canonical ${item.canonicalRoles.join("/")}${item.proposedRole ? `, proposes ${item.proposedRole}` : ""})`)}
+
+## Empty repositories
+
+${list(facts.emptyRepositories)}
 
 ## Provenance warnings
 

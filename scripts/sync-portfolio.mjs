@@ -8,7 +8,7 @@ import {
   readJson,
   stableJson,
 } from "./portfolio-sync-lib.mjs";
-import { buildSyncOutputs, discoverManifests, manifestSourcesFromFixture } from "./portfolio-reconcile.mjs";
+import { buildSyncOutputs, discoverManifests, manifestSourcesFromFixture, writeRefusalReason } from "./portfolio-reconcile.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -101,9 +101,8 @@ async function main() {
   const reportJson = stableJson(outputs.report);
   if (options.reportJson) writeFile(options.reportJson, reportJson);
   if (options.mode === "write") {
-    // An invalid manifest in one repository is a per-manifest finding and must
-    // not suppress review of every other repository; discovery failures still block.
-    if (outputs.report.discoveryErrors.length) throw new Error("refusing --write because discovery failed");
+    const refusal = writeRefusalReason(outputs.report);
+    if (refusal) throw new Error(refusal);
     writeFile("data/generated/github-portfolio-snapshot.json", stableJson(outputs.snapshot));
     writeFile("data/generated/portfolio-sync-report.json", reportJson);
     writeFile("docs/portfolio-sync/portfolio-sync-report.md", outputs.markdown);
