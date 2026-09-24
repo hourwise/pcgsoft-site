@@ -1,0 +1,14 @@
+schemaVersion: 2
+project:
+  slug: reticle
+  name: Reticle Systems
+  category: products
+  status: active-development
+  statusLabel: "Active development — frontend phases 0-9 complete (v0.0.1)"
+  summary: "A guided launch-readiness and diagnostic platform for AI-built applications, led by the O.D.I.N. assistant, with an Idea Architect planning flow."
+repository:
+  role: primary
+web:
+  state: preview
+  urls:
+    - https://reticle-systems.vercel.app

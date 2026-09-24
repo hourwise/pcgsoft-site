@@ -1,0 +1,13 @@
+schemaVersion: 2
+project:
+  slug: plain-speak
+  name: PlainSpeak
+  alternateNames:
+    - PlainSpeak Next
+  category: open-source
+  status: active-development
+  summary: "A diagnostic and review assistant for plain-language communication, being rebuilt into a deterministic prose transformation and review engine."
+repository:
+  role: current
+web:
+  state: none

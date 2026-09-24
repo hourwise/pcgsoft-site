@@ -1,0 +1,19 @@
+schemaVersion: 2
+project:
+  slug: moirae-protocol
+  name: Moirae Protocol
+  category: open-source
+  statusLabel: "Submitted hackathon build — governed-agent reference implementation"
+  summary: "A Strands-powered operations agent that separates model proposals from deterministic action compilation, independent governance, human approval and evidence-aware effect reconciliation."
+  parentProject: null
+  relatedProjects:
+    - fates
+    - ananke
+    - horae
+    - moirae-console
+    - moirae-code
+repository:
+  role: primary
+web:
+  state: none
+  urls: []

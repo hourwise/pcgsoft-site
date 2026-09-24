@@ -20,14 +20,25 @@ derived snapshot and report under `data/generated/` and
 `docs/portfolio-sync/portfolio-sync-report.md`; it never approves or changes
 the canonical registry.
 
+In live mode the CLI also reads `.pcgsoft/project.yml` from every discovered
+public repository at the exact default-branch commit SHA recorded by discovery,
+and verifies the returned bytes against the git blob SHA. `--manifest-ref
+<repo>=<sha>` pins a different exact commit for bounded pilots (for example an
+unmerged manifest branch). Manifests are reconciled only when the repository
+that supplied them canonically maps to the project they name; see
+[project-manifest.md](project-manifest.md).
+
 For deterministic offline work, pass `--github-json` with a fixture containing
-safe repository metadata. `--manifest-root` is an explicit bounded input for
-local audits; the GitHub workflow does not recursively scan an operator drive.
+safe repository metadata and optionally `--manifest-fixture` with pinned
+manifest entries (`repository`, `commitSha`, `path`, `blobSha`, `content`). There
+is no unauthenticated local-directory manifest input: a manifest without
+repository provenance cannot be reconciled.
 
 ## Generated layers
 
 - `data/projects.json` — canonical, human-approved publication state.
-- `data/generated/github-portfolio-snapshot.json` — safe public GitHub facts.
+- `data/generated/github-portfolio-snapshot.json` — safe public GitHub facts and
+  manifest source identities (repository, commit SHA, path, blob SHA).
 - `data/generated/portfolio-sync-report.json` — machine-readable review report.
 - `docs/portfolio-sync/portfolio-sync-report.md` — human-readable report.
 

@@ -40,8 +40,8 @@ const MANIFEST_KEYS = {
   activity: new Set(["enabled"]),
 };
 
-const MAX_MANIFEST_BYTES = 24_000;
-const MAX_TEXT_LENGTH = 2_000;
+export const MAX_MANIFEST_BYTES = 24_000;
+export const MAX_TEXT_LENGTH = 2_000;
 const MAX_README_SECTION_LENGTH = 4_000;
 
 export function readJson(file) {
@@ -180,7 +180,7 @@ export function parseSafeYaml(text) {
   return parsed;
 }
 
-function rejectUnsafeText(value, label) {
+export function rejectUnsafeText(value, label) {
   if (typeof value !== "string") return;
   if (value.length > MAX_TEXT_LENGTH) throw new Error(`${label} exceeds ${MAX_TEXT_LENGTH} characters`);
   if (/<\/?script\b|javascript:|on[a-z]+\s*=|\b(?:child_process|process\.env|eval\s*\()/i.test(value)) {
@@ -188,12 +188,12 @@ function rejectUnsafeText(value, label) {
   }
 }
 
-function checkKeys(object, allowed, label) {
+export function checkKeys(object, allowed, label) {
   if (!object || typeof object !== "object" || Array.isArray(object)) throw new Error(`${label} must be a mapping`);
   for (const key of Object.keys(object)) if (!allowed.has(key)) throw new Error(`${label}.${key} is not an allowed field`);
 }
 
-function checkString(value, label, { optional = true } = {}) {
+export function checkString(value, label, { optional = true } = {}) {
   if (value === undefined || value === null) {
     if (!optional) throw new Error(`${label} is required`);
     return;
@@ -202,7 +202,7 @@ function checkString(value, label, { optional = true } = {}) {
   rejectUnsafeText(value, label);
 }
 
-function checkStringArray(value, label) {
+export function checkStringArray(value, label) {
   if (value === undefined || value === null) return;
   if (!Array.isArray(value) || value.length > 50) throw new Error(`${label} must be an array of at most 50 strings`);
   value.forEach((item, index) => checkString(item, `${label}[${index}]`, { optional: false }));
@@ -249,23 +249,6 @@ export function loadManifest(file) {
   }
 }
 
-export function discoverManifestFiles(root, maxFiles = 100) {
-  if (!root || !fs.existsSync(root)) return [];
-  const found = [];
-  function walk(directory) {
-    if (found.length >= maxFiles) return;
-    for (const entry of fs.readdirSync(directory, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name))) {
-      if (entry.name === ".git" || entry.name === "node_modules" || entry.name === "data" || entry.name === "generated") continue;
-      const absolute = path.join(directory, entry.name);
-      if (entry.isDirectory()) walk(absolute);
-      else if (entry.name === "project.yml" && path.basename(path.dirname(absolute)) === ".pcgsoft") found.push(absolute);
-      if (found.length >= maxFiles) return;
-    }
-  }
-  walk(root);
-  return found;
-}
-
 export function extractBoundedReadmeSections(text) {
   const sections = {};
   const errors = [];
@@ -294,7 +277,7 @@ export function extractBoundedReadmeSections(text) {
   return { sections, errors, missingMarkers: Object.keys(sections).length === 0 && errors.length === 0 };
 }
 
-function repoNameFromUrl(url) {
+export function repoNameFromUrl(url) {
   try {
     const parsed = new URL(url);
     const parts = parsed.pathname.split("/").filter(Boolean);
@@ -311,6 +294,7 @@ export function normalizeRepository(raw) {
   const name = raw.name || repoNameFromUrl(url);
   if (!name) return null;
   return {
+    id: Number.isInteger(raw.id) ? raw.id : null,
     name,
     url,
     visibility: "public",
@@ -394,34 +378,6 @@ export function validateRelationships(registry) {
   return warnings;
 }
 
-function manifestProposals(manifestRecords, registry) {
-  const bySlug = new Map(registry.map((project) => [project.slug, project]));
-  const conflicts = [];
-  const pending = [];
-  const relationshipWarnings = [];
-  const errors = manifestRecords.flatMap((record) => record.errors.map((error) => ({ file: path.basename(record.file), error })));
-  for (const record of manifestRecords) {
-    if (!record.manifest) continue;
-    const proposal = record.manifest.project || {};
-    const slug = proposal.slug || proposal.id;
-    const canonical = bySlug.get(slug);
-    if (!canonical) {
-      pending.push({ slug: slug || null, name: proposal.name || null, reason: "manifest project is not in the approved registry", action: "PENDING_REVIEW" });
-      continue;
-    }
-    if (proposal.parentProject && !bySlug.has(proposal.parentProject)) relationshipWarnings.push({ projectId: canonical.slug, issue: "MANIFEST_PARENT_PROJECT_MISSING", target: proposal.parentProject });
-    for (const related of proposal.relatedProjects || []) if (!bySlug.has(related)) relationshipWarnings.push({ projectId: canonical.slug, issue: "MANIFEST_RELATED_PROJECT_MISSING", target: related });
-    for (const field of ["name", "slug", "category", "summary", "featured", "parentProject", "websiteState", "liveUrl"]) {
-      if (proposal[field] === undefined) continue;
-      const canonicalValue = field === "websiteState" ? canonical.websiteState || (canonical.liveUrls?.length ? "live" : "none") : canonical[field];
-      if (JSON.stringify(proposal[field]) !== JSON.stringify(canonicalValue)) {
-        conflicts.push({ projectId: canonical.slug, field, canonicalValue: canonicalValue ?? null, proposedValue: proposal[field], action: "HUMAN_REVIEW_REQUIRED" });
-      }
-    }
-  }
-  return { conflicts, pending, errors, relationshipWarnings };
-}
-
 export function classifyRepositories(repositories, registry, discoveryComplete = true) {
   const index = buildApprovedSourceIndex(registry);
   const known = [];
@@ -487,57 +443,6 @@ export function detectStatusAnomalies(registry, repositories) {
     }
   }
   return anomalies;
-}
-
-export function buildSyncOutputs({ registry, discovery, manifests = [], probes = {}, source = "github" }) {
-  const classifications = classifyRepositories(discovery.repositories, registry, discovery.complete);
-  const manifestState = manifestProposals(manifests, registry);
-  const relationshipWarnings = validateRelationships(registry);
-  const liveSurfaceAnomalies = detectLiveSurfaceAnomalies(registry, probes);
-  const statusAnomalies = detectStatusAnomalies(registry, discovery.repositories);
-  const canonicalPrivacyWarnings = registry
-    .filter((project) => project.sourceVisibility === "private" && ((project.repositories || []).length || project.githubUrl || (project.evidenceLinks || []).length))
-    .map((project) => ({ severity: "HIGH", projectId: project.slug, issue: "PRIVATE_SOURCE_HAS_PUBLIC_LINK", action: "remove public source evidence after human review" }));
-  const safeSnapshot = {
-    schemaVersion: SCHEMA_VERSION,
-    owner: "hourwise",
-    source,
-    repositories: sortBy(discovery.repositories, "name"),
-  };
-  const report = {
-    schemaVersion: SCHEMA_VERSION,
-    source,
-    autoDerivedSafeFacts: {
-      publicRepositoryCount: discovery.repositories.length,
-      knownMappedRepositoryCount: classifications.known.length,
-      archivedRepositories: discovery.repositories.filter((repo) => repo.archived).map((repo) => repo.name).sort(),
-      privateRepositoriesWithheld: discovery.privateSeen || 0,
-    },
-    proposedManifestChanges: manifestState.conflicts,
-    canonicalConflicts: manifestState.conflicts,
-    newProjectsPendingReview: [...classifications.pendingReview, ...manifestState.pending].sort((a, b) => String(a.repository || a.slug || "").localeCompare(String(b.repository || b.slug || ""))),
-    privacyVisibilityWarnings: [...classifications.visibilityWarnings, ...canonicalPrivacyWarnings],
-    relationshipWarnings: [...relationshipWarnings, ...manifestState.relationshipWarnings],
-    liveSurfaceAnomalies,
-    statusAnomalies,
-    manifestErrors: manifestState.errors,
-    discoveryErrors: discovery.errors || [],
-    noChangeItems: classifications.known.map((item) => item.repository).sort(),
-  };
-  report.hasMaterialDrift = Boolean(
-    report.newProjectsPendingReview.length || report.canonicalConflicts.length || report.privacyVisibilityWarnings.length ||
-    report.relationshipWarnings.length || report.liveSurfaceAnomalies.length || report.statusAnomalies.length || report.manifestErrors.length || report.discoveryErrors.length,
-  );
-  report.result = report.hasMaterialDrift ? "PROPOSED_CHANGES" : "NO_CHANGE";
-  report.summary = report.hasMaterialDrift
-    ? "Discovery found reviewable portfolio evidence; no canonical publication state was changed."
-    : "No material governed portfolio drift was found.";
-  return { snapshot: safeSnapshot, report, markdown: renderReportMarkdown(report) };
-}
-
-export function renderReportMarkdown(report) {
-  const list = (items, empty = "None") => items.length ? items.map((item) => `- ${typeof item === "string" ? item : JSON.stringify(item)}`).join("\n") : `- ${empty}`;
-  return `# Portfolio Sync Reconciliation Report\n\nResult: **${report.result}**\n\n${report.summary}\n\n## Auto-derived safe facts\n\n- Public repositories: ${report.autoDerivedSafeFacts.publicRepositoryCount}\n- Mapped repositories: ${report.autoDerivedSafeFacts.knownMappedRepositoryCount}\n- Archived repositories: ${report.autoDerivedSafeFacts.archivedRepositories.length}\n- Private repositories withheld: ${report.autoDerivedSafeFacts.privateRepositoriesWithheld}\n\n## Proposed manifest changes\n\n${list(report.proposedManifestChanges)}\n\n## New projects pending review\n\n${list(report.newProjectsPendingReview)}\n\n## Privacy / visibility warnings\n\n${list(report.privacyVisibilityWarnings)}\n\n## Relationship warnings\n\n${list(report.relationshipWarnings)}\n\n## Live-surface anomalies\n\n${list(report.liveSurfaceAnomalies)}\n\n## Status anomalies\n\n${list(report.statusAnomalies)}\n\n## Manifest or discovery errors\n\n${list([...report.manifestErrors, ...report.discoveryErrors])}\n\n## No-change items\n\n${list(report.noChangeItems)}\n`;
 }
 
 export async function probeLiveUrls(registry, fetchImpl = globalThis.fetch) {

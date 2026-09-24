@@ -4,7 +4,6 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 import {
-  buildSyncOutputs,
   classifyRepositories,
   discoverPublicGithubRepos,
   extractBoundedReadmeSections,
@@ -13,6 +12,7 @@ import {
   validateManifest,
 } from "./portfolio-sync-lib.mjs";
 import { buildPublic } from "./build-public.mjs";
+import { buildSyncOutputs, gitBlobSha, manifestSourcesFromFixture } from "./portfolio-reconcile.mjs";
 
 const fixtureRoot = path.resolve("tests/fixtures/portfolio-sync");
 const fixture = (name) => path.join(fixtureRoot, name);
@@ -72,20 +72,26 @@ test("missing expected public source raises a high privacy warning without leaki
   assert.doesNotMatch(JSON.stringify(result.snapshot), /Former-Public-Source/);
 });
 
+const knownRepository = { name: "Known", url: "https://github.com/hourwise/Known", visibility: "public", archived: false };
+const pinnedManifest = (content) => manifestSourcesFromFixture({ manifests: [{ repository: "Known", commitSha: "a".repeat(40), path: ".pcgsoft/project.yml", blobSha: gitBlobSha(content), content }] }, [knownRepository]).sources;
+
 test("manifest proposals conflict with canonical state instead of overriding it", () => {
-  const registry = [{ slug: "known", name: "Known", category: "products", summary: "Canonical", featured: false, repositories: [], relatedProjects: [] }];
-  const manifest = { file: "known/project.yml", errors: [], manifest: { schemaVersion: 1, project: { slug: "known", name: "Known", summary: "Proposed", featured: true } } };
-  const result = buildSyncOutputs({ registry, discovery: { complete: true, repositories: [], privateSeen: 0, errors: [] }, manifests: [manifest] });
-  assert.equal(result.report.canonicalConflicts.length, 2);
+  const registry = [{ slug: "known", name: "Known", category: "products", summary: "Canonical", featured: false, repositories: [{ url: knownRepository.url, visibility: "public", role: "primary" }], relatedProjects: [] }];
+  const before = structuredClone(registry);
+  const content = "schemaVersion: 1\nproject:\n  slug: known\n  name: Known\n  summary: Proposed\n  featured: true\n";
+  const result = buildSyncOutputs({ registry, discovery: { complete: true, repositories: [knownRepository], privateSeen: 0, errors: [] }, manifestSources: pinnedManifest(content) });
+  assert.deepEqual(result.report.canonicalConflicts.map((item) => item.field), ["project.featured", "project.summary"]);
+  assert.deepEqual(registry, before);
   assert.equal(result.report.hasMaterialDrift, true);
   assert.equal(result.report.result, "PROPOSED_CHANGES");
 });
 
 test("manifest relationship targets are reviewable when absent from the registry", () => {
-  const registry = [{ slug: "known", name: "Known", repositories: [], relatedProjects: [] }];
-  const manifest = { file: "known/project.yml", errors: [], manifest: { schemaVersion: 1, project: { slug: "known", relatedProjects: ["missing-project"] } } };
-  const result = buildSyncOutputs({ registry, discovery: { complete: true, repositories: [], privateSeen: 0, errors: [] }, manifests: [manifest] });
-  assert.equal(result.report.relationshipWarnings[0].issue, "MANIFEST_RELATED_PROJECT_MISSING");
+  const registry = [{ slug: "known", name: "Known", repositories: [{ url: knownRepository.url, visibility: "public", role: "primary" }], relatedProjects: [] }];
+  const content = "schemaVersion: 1\nproject:\n  slug: known\n  relatedProjects:\n    - missing-project\n";
+  const result = buildSyncOutputs({ registry, discovery: { complete: true, repositories: [knownRepository], privateSeen: 0, errors: [] }, manifestSources: pinnedManifest(content) });
+  assert.deepEqual(result.report.relationshipFindings.projectRelationships[0].unknownTargets, ["missing-project"]);
+  assert.equal(result.report.canonicalConflicts.find((item) => item.field === "project.relatedProjects").action, "HUMAN_REVIEW_REQUIRED");
 });
 
 test("relationship graph supports component and lineage relationships", () => {
