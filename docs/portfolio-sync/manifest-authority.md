@@ -247,10 +247,10 @@ bypass. Move to Option B if more maintainers join.
 ## Review branch name
 
 `codex/auto-01-portfolio-sync` is historical but now misleading, since the
-branch carries AUTO-03 reports. Recommend renaming it to
-`automation/portfolio-sync` in the review-delivery slice, at the same time as
-certifying delivery, because the first delivered run replaces its stale
-content anyway. Not renamed here.
+branch carries AUTO-03 reports. AUTO-04C moves review delivery to
+`automation/portfolio-sync` and leaves the old branch untouched as historical
+evidence. AUTO-04C also removes the recurring schedule trigger from the
+workflow, so re-enabling the schedule is an explicit, reviewed change.
 
 ## Decision table
 

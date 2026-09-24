@@ -30,6 +30,19 @@ that supplied them canonically maps to the project they name; see
 who may edit them and the scheduler re-enable gate are decided in
 [manifest-authority.md](manifest-authority.md).
 
+## Review delivery
+
+The `Governed portfolio sync` workflow runs on manual dispatch only; it has no
+recurring schedule, and restoring one is a separate reviewed change. Each run
+reconciles `main` and commits only the four generated report files to the
+stable review branch `automation/portfolio-sync` via one pull request. An open
+review PR is updated rather than duplicated, and an unchanged report produces
+no commit. The workflow token has only `contents: write` and
+`pull-requests: write`; the workflow never approves or merges. A ruleset on
+`main` requires a pull request with one approval, dismisses the approval when
+new commits arrive, and blocks force pushes and deletion. Only the repository
+admin may bypass it, never GitHub Actions.
+
 For deterministic offline work, pass `--github-json` with a fixture containing
 safe repository metadata and optionally `--manifest-fixture` with pinned
 manifest entries (`repository`, `commitSha`, `path`, `blobSha`, `content`). There
