@@ -1,0 +1,21 @@
+{
+  "description": "Real AUTO-03F V2 pilot manifests, captured read-only from GitHub at their pinned pilot-branch commits. Content hashes to blobSha.",
+  "manifests": [
+    {
+      "repository": "Reticle-systems",
+      "commitSha": "b40f8493001948210eaa26b13e9f0e32d40f0e78",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": "f67686e8a02f6dea495a062012a101420d6019f0",
+      "schemaVersion": 2,
+      "content": "# PCGsoft governed project manifest (proposal data only; not publication authority).\n# Describes what this repository's default branch currently supports.\nschemaVersion: 2\nproject:\n  slug: reticle\n  name: Reticle Systems\n  category: products\n  status: active-development\n  statusLabel: \"Active development — frontend phases 0-9 complete (v0.0.1)\"\n  summary: \"A guided launch-readiness and diagnostic platform for AI-built applications, led by the O.D.I.N. assistant, with an Idea Architect planning flow.\"\n  parentProject: null\n  lastReviewed: 2026-09-24\nrepository:\n  role: primary\nweb:\n  state: preview\n  urls:\n    - https://reticle-systems.vercel.app\n"
+    },
+    {
+      "repository": "PlainSpeak-Next",
+      "commitSha": "00e6b4492a5e6317dcbed2dbcb60257f55119911",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": "38648c8f69febc381939f0e7ea1838a0eaf63198",
+      "schemaVersion": 2,
+      "content": "# PCGsoft governed project manifest (proposal data only; not publication authority).\n# This repository is the current implementation of the PlainSpeak project;\n# hourwise/Project-PlainSpeak is the original repository (see UPSTREAM.md).\nschemaVersion: 2\nproject:\n  slug: plain-speak\n  name: PlainSpeak\n  alternateNames:\n    - PlainSpeak Next\n  category: open-source\n  status: active-development\n  statusLabel: \"Active development — rebuilding into a deterministic prose transformation and review engine\"\n  summary: \"A diagnostic and review assistant for plain-language communication, being rebuilt into a deterministic prose transformation and review engine. All suggestions require human review.\"\n  parentProject: null\n  lastReviewed: 2026-09-24\nrepository:\n  role: current\nweb:\n  state: none\n"
+    }
+  ]
+}

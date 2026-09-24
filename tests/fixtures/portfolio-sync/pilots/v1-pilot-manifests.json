@@ -1,0 +1,29 @@
+{
+  "description": "Exact AUTO-02 V1 pilot manifests, captured read-only from GitHub at their pinned commits. Content hashes to blobSha.",
+  "manifests": [
+    {
+      "repository": "Moirae-Protocol",
+      "commitSha": "0c96ec56a035594162d506a46754e2570845209a",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": "3ec548b63687994fff7e4f74b12bc4223a61415b",
+      "schemaVersion": 1,
+      "content": "# PCGsoft governed project manifest (proposal data only; not publication authority).\nschemaVersion: 1\nproject:\n  id: moirae-protocol\n  name: Moirae Protocol\n  slug: moirae-protocol\n  public: true\n  category: open-source\n  status: prototype\n  statusLabel: \"Early hackathon build — not production security software\"\n  summary: \"A Strands-powered operations agent that separates model proposals from deterministic action compilation, independent governance, human approval and evidence-aware effect reconciliation.\"\n  websiteState: none\n  parentProject: null\n  relatedProjects:\n    - fates\n    - ananke\n    - horae\n    - moirae-console\n    - moirae-code\n  lastReviewed: 2026-09-24\n"
+    },
+    {
+      "repository": "Reticle-systems",
+      "commitSha": "daef3fa9a55ec82c31e52bce440d6d92831fa5af",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": "c9628a00355127330ce62a076d546fbabc1bd58a",
+      "schemaVersion": 1,
+      "content": "# PCGsoft governed project manifest (proposal data only; not publication authority).\n# Describes what this repository's default branch currently supports.\nschemaVersion: 1\nproject:\n  id: reticle\n  name: Reticle Systems\n  slug: reticle\n  public: true\n  category: products\n  status: active-development\n  statusLabel: \"Active development — frontend phases 0-9 complete (v0.0.1)\"\n  summary: \"A guided launch-readiness and diagnostic platform for AI-built applications, led by the O.D.I.N. assistant, with an Idea Architect planning flow.\"\n  liveUrl: https://reticle-systems.vercel.app\n  websiteState: preview\n  parentProject: null\n  lastReviewed: 2026-09-24\n"
+    },
+    {
+      "repository": "PlainSpeak-Next",
+      "commitSha": "443af9c6330cfb226ff48f1bf45eaaeec4d28e49",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": "a2f529d777e74edfd7c3123306c96cf9eaf8d408",
+      "schemaVersion": 1,
+      "content": "# PCGsoft governed project manifest (proposal data only; not publication authority).\n# This repository is the current implementation of the PlainSpeak project;\n# hourwise/Project-PlainSpeak is the original repository (see UPSTREAM.md).\nschemaVersion: 1\nproject:\n  id: plain-speak\n  name: PlainSpeak\n  slug: plain-speak\n  alternateNames:\n    - PlainSpeak Next\n  public: true\n  category: open-source\n  status: active-development\n  statusLabel: \"Active development — rebuilding into a deterministic prose transformation and review engine\"\n  summary: \"A diagnostic and review assistant for plain-language communication, being rebuilt into a deterministic prose transformation and review engine. All suggestions require human review.\"\n  websiteState: none\n  parentProject: null\n  lastReviewed: 2026-09-24\n"
+    }
+  ]
+}

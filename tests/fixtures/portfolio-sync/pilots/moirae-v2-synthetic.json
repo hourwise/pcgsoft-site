@@ -1,0 +1,19 @@
+{
+  "description": "SYNTHETIC. Moirae-Protocol V1 manifest (0c96ec5, blob 3ec548b) re-expressed in V2 syntax for equivalence testing. The all-zero commitSha marks it as not a real commit; it was never written to Moirae-Protocol.",
+  "synthetic": true,
+  "derivedFrom": {
+    "repository": "Moirae-Protocol",
+    "commitSha": "0c96ec56a035594162d506a46754e2570845209a",
+    "blobSha": "3ec548b63687994fff7e4f74b12bc4223a61415b"
+  },
+  "manifests": [
+    {
+      "repository": "Moirae-Protocol",
+      "commitSha": "0000000000000000000000000000000000000000",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": "cbd24330a698c7a95f83e1dd6ce6b1e0b82485a8",
+      "schemaVersion": 2,
+      "content": "# SYNTHETIC AUTO-03F fixture: the Moirae-Protocol V1 manifest at 0c96ec5 expressed in V2 syntax.\n# Local to pcgsoft-site tests only. Moirae-Protocol is frozen read-only; this was never committed there.\nschemaVersion: 2\nproject:\n  slug: moirae-protocol\n  name: Moirae Protocol\n  category: open-source\n  status: prototype\n  statusLabel: \"Early hackathon build — not production security software\"\n  summary: \"A Strands-powered operations agent that separates model proposals from deterministic action compilation, independent governance, human approval and evidence-aware effect reconciliation.\"\n  parentProject: null\n  relatedProjects:\n    - fates\n    - ananke\n    - horae\n    - moirae-console\n    - moirae-code\n  lastReviewed: 2026-09-24\nrepository:\n  role: primary\nweb:\n  state: none\n"
+    }
+  ]
+}
