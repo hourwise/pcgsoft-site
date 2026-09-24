@@ -26,7 +26,9 @@ and verifies the returned bytes against the git blob SHA. `--manifest-ref
 <repo>=<sha>` pins a different exact commit for bounded pilots (for example an
 unmerged manifest branch). Manifests are reconciled only when the repository
 that supplied them canonically maps to the project they name; see
-[project-manifest.md](project-manifest.md).
+[project-manifest.md](project-manifest.md). Where production manifests live,
+who may edit them and the scheduler re-enable gate are decided in
+[manifest-authority.md](manifest-authority.md).
 
 For deterministic offline work, pass `--github-json` with a fixture containing
 safe repository metadata and optionally `--manifest-fixture` with pinned
