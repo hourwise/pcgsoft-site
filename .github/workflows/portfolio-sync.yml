@@ -76,9 +76,13 @@ jobs:
           title: "chore(portfolio): reconcile discovered evidence"
           commit-message: "chore(portfolio): reconcile discovered evidence"
           body: |
-            This PR contains deterministic AUTO-01 derived evidence only.
+            This PR contains deterministic generated reconciliation evidence only:
+            safe public GitHub facts, and manifest proposals pinned to a source
+            repository commit and blob SHA, reconciled field by field against the
+            canonical registry.
 
-            Discovery is not publication authority. Unknown projects, manifest
-            proposals, privacy warnings and canonical conflicts remain in the
-            report for human review. No project pages, sitemap entries or
-            canonical registry records are changed by this workflow.
+            Discovery and manifests are not publication authority. Unmapped
+            repositories, provenance warnings, canonical conflicts and
+            uncomparable fields remain in the report for human review. No project
+            pages, sitemap entries or canonical registry records are changed by
+            this workflow.
