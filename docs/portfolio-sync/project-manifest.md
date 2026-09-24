@@ -38,7 +38,17 @@ The source repository must canonically map to the project the manifest names:
 | `MANIFEST_PROJECT_UNKNOWN` | Declared project is not in the registry | `PENDING_REVIEW`; not reconciled |
 | `SOURCE_INTEGRITY_FAILURE` | Content does not hash to its blob SHA | HIGH provenance warning; ignored |
 | `MANIFEST_INVALID` | Schema validation failed | Manifest error; not reconciled |
+| `MANIFEST_SOURCE_INELIGIBLE` | Source is mapped to the declared project, but its canonical role is not `primary`/`current` | Review finding; not reconciled |
+| `DUPLICATE_ELIGIBLE_MANIFEST_SOURCE` | The declared project has more than one canonical `primary`/`current` repository | Review finding; no manifest for that project is reconciled |
 | `NO_MANIFEST` | Repository has no manifest at that commit | Normal state |
+| `EMPTY_REPOSITORY` | GitHub reports the repository has no commits | Normal state; no manifest fetch |
+
+Only a project's canonical `primary` or `current` repository is a manifest
+source ([manifest-authority.md](manifest-authority.md)). Eligibility comes from
+the canonical mapping; a manifest's own `repository.role` cannot grant it. A
+project with no eligible repository is valid. A project with more than one is
+flagged from the canonical mapping even when no manifest exists, and no
+repository is given precedence.
 
 A manifest in repository A therefore cannot make a proposal on behalf of
 project B merely by naming B's slug.

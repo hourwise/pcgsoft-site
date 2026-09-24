@@ -1,7 +1,8 @@
 # Production manifest authority and location (AUTO-04A)
 
-Status: proposed decision, pending review. Documentation only; nothing here
-changes engine behaviour, repository settings or the workflow schedule.
+Status: accepted (AUTO-04A, merged in `cba4067`). The manifest-source and
+empty-repository engine rules it called for are implemented in AUTO-04B.
+Nothing here changes repository settings or the workflow schedule.
 
 This decides where production project manifests live, what authority they
 have, how projects with several repositories behave, and what must be true
@@ -112,8 +113,9 @@ this only if a future threat model needs it.
 
 ## Projects with several repositories
 
-Today the engine reconciles each manifest on its own against the canonical
-record, and never compares two manifests for the same project.
+Before AUTO-04B the engine reconciled each manifest on its own against the
+canonical record, whichever mapped repository supplied it, and never compared
+two manifests for the same project.
 
 **Decision: Option 1, one manifest source per project.** A repository may carry
 the project manifest only if its canonical role for that project is `primary`
@@ -139,11 +141,12 @@ Option 2 (several manifests, with repository-scoped and project-scoped fields
 and intra-project conflict detection) is deferred until a genuinely composite
 project needs it. No current project does.
 
-**Needs engine work (not done here):** classify a manifest from a mapped but
-ineligible repository as a review finding (for example
-`MANIFEST_SOURCE_NOT_ELIGIBLE`) instead of reconciling it, and flag a
-canonical record with more than one `primary`/`current` repository. Neither
-changes the three pilots, which are all eligible.
+**Implemented in AUTO-04B.** A manifest from a mapped but ineligible repository
+is reported as `MANIFEST_SOURCE_INELIGIBLE` and not reconciled. A project whose
+canonical record names more than one `primary`/`current` repository is flagged
+as `DUPLICATE_ELIGIBLE_MANIFEST_SOURCE` from the canonical mapping alone, and no
+manifest for it is reconciled. Neither rule changes the three pilots, which are
+all eligible.
 
 ## Frozen, legacy and external repositories
 
@@ -185,11 +188,13 @@ is not detected. Storing IDs canonically is a possible future hardening.
 | Unknown project slug | `MANIFEST_PROJECT_UNKNOWN`, pending review | Review finding |
 | Manifest names another repository's project | `MANIFEST_PROJECT_MISMATCH`, HIGH, not reconciled | Warning |
 | Unknown field | Schema rejects it (`MANIFEST_INVALID`); a validated field without a rule is `UNSUPPORTED_FIELD` and needs human approval | Review finding |
-| Several manifests for one project | Each reconciled separately (see "Needs engine work" above) | Review finding once implemented |
+| Manifest from an ineligible repository | `MANIFEST_SOURCE_INELIGIBLE`, not reconciled (AUTO-04B) | Review finding |
+| Project with more than one eligible repository | `DUPLICATE_ELIGIBLE_MANIFEST_SOURCE`, flagged from the canonical mapping; no manifest reconciled (AUTO-04B) | Review finding |
 | Blob integrity failure | `SOURCE_INTEGRITY_FAILURE`, HIGH, ignored | Warning |
 | Manifest fetch error (HTTP other than 404) | Recorded as a discovery error; `--write` refuses | Scheduler-blocking infrastructure error |
 | Repository listing fails | Run fails | Scheduler-blocking infrastructure error |
-| Repository with no resolvable commit SHA (for example an empty repository) | Recorded as a discovery error; `--write` refuses | **Scheduler-blocking; should become a normal state (future work)** |
+| Empty repository (GitHub reports no commits) | `EMPTY_REPOSITORY`; no manifest fetch; `--write` proceeds (AUTO-04B) | Normal state |
+| Default-branch commit lookup fails (HTTP error or malformed response) | Recorded as a discovery error; `--write` refuses | Scheduler-blocking infrastructure error |
 
 One bad manifest does not stop reporting on other repositories. Only
 infrastructure failures block the scheduled write, so a partial report is
@@ -221,8 +226,8 @@ preview), then fails when the repository setting blocks PR creation.
    PR, and its preview passes the public-boundary smoke.
 6. Only then is the recurring schedule re-enabled.
 
-Recommended before re-enabling, not strictly required: make an empty
-repository a normal state instead of a scheduler-blocking error.
+An empty repository is a normal state since AUTO-04B, so it no longer blocks a
+scheduled write.
 
 ## Review-PR delivery options
 
@@ -256,7 +261,7 @@ content anyway. Not renamed here.
 | Are central production manifests allowed? | No. No case needs one; fixtures live in `tests/fixtures/` only |
 | Which Git ref is authoritative? | Default branch, resolved to an exact SHA; `--manifest-ref` is for pilots only |
 | Who may edit a manifest? | Anyone with write access to that repository; no PCGsoft-specific list |
-| How are multi-repository projects handled? | One manifest source per project: the canonical `primary`/`current` repository (engine enforcement is future work) |
+| How are multi-repository projects handled? | One manifest source per project: the canonical `primary`/`current` repository (enforced since AUTO-04B) |
 | What happens for frozen, legacy or external repositories? | No manifest needed; canonical record stands; Moirae's freeze is an operational rule |
 | What is the real scheduler re-enable gate? | Certified review-PR delivery, a ruleset on `main`, and a successful manual run; not manifest adoption |
 | What authority does a manifest possess? | Proposal and evidence only; never canonical or publication authority |
@@ -266,9 +271,9 @@ content anyway. Not renamed here.
 
 ## Future implementation work (not done here)
 
-1. Enforce manifest-source eligibility (`primary`/`current`) and flag
+1. Done in AUTO-04B: enforce manifest-source eligibility (`primary`/`current`) and flag
    canonical records with more than one eligible repository.
-2. Make an empty repository (no resolvable commit) a normal state rather than
+2. Done in AUTO-04B: make an empty repository (no resolvable commit) a normal state rather than
    a scheduler-blocking error.
 3. Review-delivery slice: ruleset on `main`, Actions toggle, review-branch
    rename, certified manual run, then schedule re-enable.
