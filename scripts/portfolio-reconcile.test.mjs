@@ -14,7 +14,8 @@ import {
 
 const registryFile = path.resolve("data/projects.json");
 const loadRegistry = () => JSON.parse(fs.readFileSync(registryFile, "utf8"));
-const v2Fixture = (name) => fs.readFileSync(path.resolve("tests/fixtures/portfolio-sync/v2", name), "utf8");
+// Normalise line endings so text edits below behave the same on CRLF checkouts.
+const v2Fixture = (name) => fs.readFileSync(path.resolve("tests/fixtures/portfolio-sync/v2", name), "utf8").replace(/\r\n/g, "\n");
 const commit = (seed) => seed.repeat(40).slice(0, 40);
 
 // Every public repository the canonical registry maps, as GitHub discovery would report it.
