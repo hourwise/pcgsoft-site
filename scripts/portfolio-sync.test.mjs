@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 import {
@@ -11,6 +12,7 @@ import {
   parseSafeYaml,
   validateManifest,
 } from "./portfolio-sync-lib.mjs";
+import { buildPublic } from "./build-public.mjs";
 
 const fixtureRoot = path.resolve("tests/fixtures/portfolio-sync");
 const fixture = (name) => path.join(fixtureRoot, name);
@@ -126,4 +128,49 @@ test("same inputs produce byte-stable output and stable ordering", () => {
   assert.deepEqual(first.report, second.report);
   assert.equal(first.snapshot.repositories[0].name, "Alpha");
   assert.equal(first.report.result, "PROPOSED_CHANGES");
+});
+
+test("PENDING_REVIEW repositories never become registry records, routes, sitemap entries or llms.txt entries", async () => {
+  const registry = JSON.parse(fs.readFileSync("data/projects.json", "utf8"));
+  const before = structuredClone(registry);
+  const discovery = await discoverPublicGithubRepos({ fixture: JSON.parse(fs.readFileSync(fixture("github-known.json"), "utf8")) });
+  const result = buildSyncOutputs({ registry, discovery });
+  const pending = result.report.newProjectsPendingReview.find((item) => item.repository === "Unknown-Public-Project");
+  assert.equal(pending?.classification, "PENDING_REVIEW");
+  assert.deepEqual(registry, before);
+  assert.equal(registry.some((project) => /unknown-public-project/i.test(`${project.slug} ${project.name} ${JSON.stringify(project.repositories)}`)), false);
+  const outDir = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "pcgsoft-pending-")), "public");
+  buildPublic({ outDir });
+  const publicFiles = (function walk(directory) {
+    return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => entry.isDirectory() ? walk(path.join(directory, entry.name)) : [path.join(directory, entry.name)]);
+  })(outDir);
+  assert.equal(publicFiles.some((file) => /unknown-public-project/i.test(file)), false);
+  for (const file of ["sitemap.xml", "llms.txt", "data/projects.json"]) assert.doesNotMatch(fs.readFileSync(path.join(outDir, file), "utf8"), /Unknown-Public-Project/i);
+  assert.equal(publicFiles.filter((file) => file.endsWith(".html")).some((file) => /Unknown-Public-Project/i.test(fs.readFileSync(file, "utf8"))), false);
+});
+
+test("private source with a public link raises a HIGH warning without exposing the source or deleting the identity", () => {
+  const registry = JSON.parse(fs.readFileSync(fixture("registry-private-source.json"), "utf8"));
+  const before = structuredClone(registry);
+  const discovery = { complete: true, repositories: [
+    { name: "Public-Project", url: "https://github.com/hourwise/Public-Project", visibility: "public", defaultBranch: "main", archived: false },
+  ], privateSeen: 1, errors: [] };
+  const result = buildSyncOutputs({ registry, discovery });
+  const warning = result.report.privacyVisibilityWarnings.find((item) => item.issue === "PRIVATE_SOURCE_HAS_PUBLIC_LINK");
+  assert.equal(warning?.severity, "HIGH");
+  assert.equal(warning?.projectId, "private-identity");
+  for (const output of [JSON.stringify(result.report), JSON.stringify(result.snapshot), result.markdown]) assert.doesNotMatch(output, /Private-Implementation/);
+  assert.deepEqual(registry, before);
+  assert.ok(registry.some((project) => project.slug === "private-identity"));
+  assert.equal(result.report.result, "PROPOSED_CHANGES");
+});
+
+test("lineage relationship roles classify as project lineage", () => {
+  const registry = [{ slug: "plain-speak", name: "PlainSpeak", repositories: [
+    { url: "https://github.com/hourwise/PlainSpeak", visibility: "public", role: "lineage/original" },
+    { url: "https://github.com/hourwise/PlainSpeak-Next", visibility: "public", role: "current" },
+  ] }];
+  const repositories = registry[0].repositories.map((item) => ({ name: item.url.split("/").pop(), url: item.url, visibility: "public", archived: false }));
+  const result = classifyRepositories(repositories, registry);
+  assert.deepEqual(result.known.map((item) => item.classification), ["PROJECT_LINEAGE", "PROJECT_LINEAGE"]);
 });

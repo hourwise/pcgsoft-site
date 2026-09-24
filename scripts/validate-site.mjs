@@ -11,6 +11,7 @@ function walk(directory) {
   const entries = fs.readdirSync(directory, { withFileTypes: true });
   return entries.flatMap((entry) => {
     if (entry.name === ".git" || entry.name === "node_modules") return [];
+    if (directory === root && entry.name === "public") return [];
     const absolute = path.join(directory, entry.name);
     return entry.isDirectory() ? walk(absolute) : [absolute];
   });

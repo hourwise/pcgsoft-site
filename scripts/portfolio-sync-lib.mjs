@@ -430,7 +430,7 @@ export function classifyRepositories(repositories, registry, discoveryComplete =
     if (role === "primary") return "KNOWN_PUBLIC_SOURCE";
     if (["component", "integration", "web-app"].includes(role)) return "PROJECT_COMPONENT";
     if (["companion", "evidence", "documentation"].includes(role)) return "SUPPORTING_REPOSITORY";
-    if (["original", "current"].includes(role)) return "PROJECT_LINEAGE";
+    if (["original", "current", "lineage/original", "lineage/current"].includes(role)) return "PROJECT_LINEAGE";
     return "RELATED_REPOSITORY";
   };
   for (const repository of repositories) {

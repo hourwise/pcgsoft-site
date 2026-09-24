@@ -1,0 +1,25 @@
+[
+  {
+    "slug": "private-identity",
+    "name": "Private Identity",
+    "category": "creative",
+    "sourceVisibility": "private",
+    "githubUrl": "https://github.com/hourwise/Private-Implementation",
+    "repositories": [
+      { "name": "Private-Implementation", "url": "https://github.com/hourwise/Private-Implementation", "visibility": "public", "role": "primary" }
+    ],
+    "evidenceLinks": [],
+    "relatedProjects": []
+  },
+  {
+    "slug": "public-project",
+    "name": "Public Project",
+    "category": "open-source",
+    "sourceVisibility": "public",
+    "repositories": [
+      { "name": "Public-Project", "url": "https://github.com/hourwise/Public-Project", "visibility": "public", "role": "primary" }
+    ],
+    "evidenceLinks": [],
+    "relatedProjects": []
+  }
+]

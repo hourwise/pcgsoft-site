@@ -5,9 +5,11 @@
   "description": "Canonical PCGsoft project hub and public AI-discovery surface.",
   "type": "module",
   "scripts": {
-    "build": "npm run validate",
+    "build": "npm run validate && node scripts/build-public.mjs",
     "validate": "node scripts/validate-site.mjs",
     "portfolio:sync": "node scripts/sync-portfolio.mjs",
-    "portfolio:test": "node --test scripts/portfolio-sync.test.mjs"
+    "portfolio:test": "node --test scripts/portfolio-sync.test.mjs",
+    "public:test": "node --test scripts/public-build.test.mjs",
+    "public:smoke": "node scripts/smoke-public.mjs"
   }
 }
