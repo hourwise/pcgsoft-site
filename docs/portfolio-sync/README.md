@@ -32,8 +32,8 @@ who may edit them and the scheduler re-enable gate are decided in
 
 ## Review delivery
 
-The `Governed portfolio sync` workflow runs on manual dispatch only; it has no
-recurring schedule, and restoring one is a separate reviewed change. Each run
+The `Governed portfolio sync` workflow runs daily at 03:17 UTC and on manual
+dispatch; changing the schedule is a reviewed workflow change. Each run
 reconciles `main` and commits only the four generated report files to the
 stable review branch `automation/portfolio-sync` via one pull request. An open
 review PR is updated rather than duplicated, and an unchanged report produces
