@@ -66,9 +66,10 @@ test("8. the PR body describes governed, provenance-bound evidence that needs hu
   assert.doesNotMatch(body, /AUTO-01/);
 });
 
-test("9. the workflow has no recurring schedule", () => {
-  assert.deepEqual(block("on"), ["workflow_dispatch:"]);
-  assert.doesNotMatch(code, /schedule:|cron:/);
+test("9. triggers are manual dispatch plus exactly the reviewed daily 03:17 UTC schedule", () => {
+  assert.deepEqual(block("on"), ["workflow_dispatch:", "schedule:", "- cron: \"17 3 * * *\""]);
+  assert.equal(code.match(/cron:/g).length, 1);
+  assert.doesNotMatch(code, /^\s*(push|pull_request|pull_request_target|workflow_run|repository_dispatch):/m);
 });
 
 test("10. no automated merge path exists", () => {

@@ -1,9 +1,11 @@
 name: Governed portfolio sync
 
-# Manual dispatch only. The recurring schedule was removed in AUTO-04C;
-# restoring it is a separate, explicitly reviewed change.
+# Daily at 03:17 UTC, plus manual dispatch. The schedule was restored in
+# AUTO-04D after AUTO-04C certified the review-PR delivery path.
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * *"
 
 # Minimum needed to push the generated review branch and open or update its PR.
 # Every other GITHUB_TOKEN permission is none. The workflow never approves or
