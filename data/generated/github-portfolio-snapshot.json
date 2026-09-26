@@ -1,0 +1,789 @@
+{
+  "schemaVersion": 2,
+  "owner": "hourwise",
+  "source": "github-public-api",
+  "repositories": [
+    {
+      "id": 1312827206,
+      "name": "AI-Agent-Robot-Battle-Wars",
+      "url": "https://github.com/hourwise/AI-Agent-Robot-Battle-Wars",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "TypeScript",
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "5ea09edf8cc948ec86161c1da0bcf6791f6739df",
+        "date": "2026-07-29T12:59:16Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1378424960,
+      "name": "AmpedUpMusic",
+      "url": "https://github.com/hourwise/AmpedUpMusic",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": null,
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "9cf7a778e83398f784bda9b3631d33f3fc663356",
+        "date": "2026-09-20T14:29:57Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1377517915,
+      "name": "anyaparallax",
+      "url": "https://github.com/hourwise/anyaparallax",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": null,
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "6b47225d019f549878c3638dba4350db344856a3",
+        "date": "2026-09-19T18:59:26Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1158533946,
+      "name": "HourWiseEU_Fleet_Portal",
+      "url": "https://github.com/hourwise/HourWiseEU_Fleet_Portal",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": "https://hour-wise-eu-fleet-portal.vercel.app",
+      "primaryLanguage": "TypeScript",
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "f4e08f0f8d77e08b19a6113d8f43adf56754de27",
+        "date": "2026-08-23T21:54:25Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1116359053,
+      "name": "HourWiseEUVer4",
+      "url": "https://github.com/hourwise/HourWiseEUVer4",
+      "visibility": "public",
+      "defaultBranch": "master",
+      "archived": false,
+      "description": "HourWiseEUVer4",
+      "homepage": null,
+      "primaryLanguage": "TypeScript",
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "6b8736677372520ea06ebb34ec5712c4e143ecdd",
+        "date": "2025-12-14T17:44:51Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1368881069,
+      "name": "Moirae-Accord",
+      "url": "https://github.com/hourwise/Moirae-Accord",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": null,
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "5a8bf1e577f71132665ece271e70e30e87df5676",
+        "date": "2026-09-14T20:35:46Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1346650191,
+      "name": "Moirae-Console",
+      "url": "https://github.com/hourwise/Moirae-Console",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "TypeScript",
+      "licence": "Apache-2.0",
+      "latestDefaultBranchCommit": {
+        "sha": "893ef94fa0dfad3606bd83e8b46351210cfc0d51",
+        "date": "2026-09-01T21:00:08Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1356380109,
+      "name": "Moirae-Protocol",
+      "url": "https://github.com/hourwise/Moirae-Protocol",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "TypeScript",
+      "licence": "Apache-2.0",
+      "latestDefaultBranchCommit": {
+        "sha": "f179104697d5ce126fdc19306e707e100cad05ff",
+        "date": "2026-09-12T21:54:40Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1292230499,
+      "name": "pcgsoft-site",
+      "url": "https://github.com/hourwise/pcgsoft-site",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": "Static homepage for pcgsoft",
+      "homepage": null,
+      "primaryLanguage": "HTML",
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "14dd264c5322bb0f4d26126f8f0e3ae79c8088f0",
+        "date": "2026-09-25T10:32:26Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1350688867,
+      "name": "PlainSpeak-Next",
+      "url": "https://github.com/hourwise/PlainSpeak-Next",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "Python",
+      "licence": "MIT",
+      "latestDefaultBranchCommit": {
+        "sha": "85ccb3834d4562728472237c2b92f4be2a300420",
+        "date": "2026-08-30T11:47:06Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1326511219,
+      "name": "Prefixity",
+      "url": "https://github.com/hourwise/Prefixity",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "Rust",
+      "licence": "MIT",
+      "latestDefaultBranchCommit": {
+        "sha": "b35796d2f3e35266afd011ee4114fbe60ddfe2bb",
+        "date": "2026-09-25T22:18:09Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1294277823,
+      "name": "Project-Adrasteia",
+      "url": "https://github.com/hourwise/Project-Adrasteia",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "TypeScript",
+      "licence": "MIT",
+      "latestDefaultBranchCommit": {
+        "sha": "f9eeb25076e0a590f13c7bed6c8de8c9a363ce1b",
+        "date": "2026-08-03T11:13:13Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1291488908,
+      "name": "Project-Ananke",
+      "url": "https://github.com/hourwise/Project-Ananke",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "TypeScript",
+      "licence": "MIT",
+      "latestDefaultBranchCommit": {
+        "sha": "3d76adb162a0ff07b5630700ae30a823f1419cb4",
+        "date": "2026-08-26T23:06:21Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1305598208,
+      "name": "Project-Fates-Integration",
+      "url": "https://github.com/hourwise/Project-Fates-Integration",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "JavaScript",
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "b4ae41185bafa6b6dd80ff7e41b1de7a2915873f",
+        "date": "2026-08-26T11:58:57Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1296109185,
+      "name": "Project-Horae",
+      "url": "https://github.com/hourwise/Project-Horae",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "TypeScript",
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "3f531d4f5558a10a36aeae20c3458080eb4468b9",
+        "date": "2026-08-11T16:02:13Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1294219565,
+      "name": "Project-Mnemosyne",
+      "url": "https://github.com/hourwise/Project-Mnemosyne",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "TypeScript",
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "f4ab76a9760f856d78908d35facceb068d78c8e5",
+        "date": "2026-07-18T17:10:53Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1297443644,
+      "name": "Project-Moirae-Code",
+      "url": "https://github.com/hourwise/Project-Moirae-Code",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "TypeScript",
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "9a5de8461b96db2cdb7bb85343cb48a60b5e4eb0",
+        "date": "2026-08-03T11:13:11Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1304965293,
+      "name": "Project-PlainSpeak",
+      "url": "https://github.com/hourwise/Project-PlainSpeak",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "Python",
+      "licence": "MIT",
+      "latestDefaultBranchCommit": {
+        "sha": "74ecd51b3ff85af75cd6096524213e19e5d006b8",
+        "date": "2026-08-11T16:47:51Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1298204546,
+      "name": "Relief",
+      "url": "https://github.com/hourwise/Relief",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "TypeScript",
+      "licence": "MIT",
+      "latestDefaultBranchCommit": {
+        "sha": "9cfda375912a84b9ea90b6a267f1678341b055eb",
+        "date": "2026-08-11T11:39:33Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1326658292,
+      "name": "Relief-WebApp",
+      "url": "https://github.com/hourwise/Relief-WebApp",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "TypeScript",
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "ad0c78c21e4d1590dd55d309479a21752e7f7f71",
+        "date": "2026-08-18T21:32:10Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1285103440,
+      "name": "Reticle-systems",
+      "url": "https://github.com/hourwise/Reticle-systems",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": "https://reticle-systems.vercel.app",
+      "primaryLanguage": "TypeScript",
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "7900aff03325de0d32af0504993bb33b94033c05",
+        "date": "2026-07-11T12:33:30Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1286115886,
+      "name": "Riff-Wilde-and-the-Sold-Out-Saga",
+      "url": "https://github.com/hourwise/Riff-Wilde-and-the-Sold-Out-Saga",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "GDScript",
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "aeb1043f3f1b06905bfad564c0c1de5d9230d598",
+        "date": "2026-07-04T15:11:07Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1330772267,
+      "name": "teamsphere",
+      "url": "https://github.com/hourwise/teamsphere",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "TypeScript",
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "16eaead5bbba374d1734183d0cdc5748877a041a",
+        "date": "2026-08-11T11:17:15Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1298340079,
+      "name": "The-Trace-Manifest",
+      "url": "https://github.com/hourwise/The-Trace-Manifest",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "TypeScript",
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "0351df7e64d1faf9456042c468e97efecf934d87",
+        "date": "2026-09-05T15:49:09Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1312898241,
+      "name": "Trace-Capture-App",
+      "url": "https://github.com/hourwise/Trace-Capture-App",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "Kotlin",
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "306c132ddc076b87dfbffde4d779512ba06ffb81",
+        "date": "2026-08-06T18:40:40Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    },
+    {
+      "id": 1336755899,
+      "name": "Whilom",
+      "url": "https://github.com/hourwise/Whilom",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "archived": false,
+      "description": null,
+      "homepage": null,
+      "primaryLanguage": "TypeScript",
+      "licence": null,
+      "latestDefaultBranchCommit": {
+        "sha": "159a154f7c9eec79f0327a022981a9bea512bf81",
+        "date": "2026-08-18T15:38:36Z"
+      },
+      "defaultBranchState": "RESOLVED",
+      "latestRelease": null
+    }
+  ],
+  "manifestSources": [
+    {
+      "repository": "AI-Agent-Robot-Battle-Wars",
+      "repositoryUrl": "https://github.com/hourwise/AI-Agent-Robot-Battle-Wars",
+      "repositoryId": 1312827206,
+      "commitSha": "5ea09edf8cc948ec86161c1da0bcf6791f6739df",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "AmpedUpMusic",
+      "repositoryUrl": "https://github.com/hourwise/AmpedUpMusic",
+      "repositoryId": 1378424960,
+      "commitSha": "9cf7a778e83398f784bda9b3631d33f3fc663356",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "anyaparallax",
+      "repositoryUrl": "https://github.com/hourwise/anyaparallax",
+      "repositoryId": 1377517915,
+      "commitSha": "6b47225d019f549878c3638dba4350db344856a3",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "HourWiseEU_Fleet_Portal",
+      "repositoryUrl": "https://github.com/hourwise/HourWiseEU_Fleet_Portal",
+      "repositoryId": 1158533946,
+      "commitSha": "f4e08f0f8d77e08b19a6113d8f43adf56754de27",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "HourWiseEUVer4",
+      "repositoryUrl": "https://github.com/hourwise/HourWiseEUVer4",
+      "repositoryId": 1116359053,
+      "commitSha": "6b8736677372520ea06ebb34ec5712c4e143ecdd",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Moirae-Accord",
+      "repositoryUrl": "https://github.com/hourwise/Moirae-Accord",
+      "repositoryId": 1368881069,
+      "commitSha": "5a8bf1e577f71132665ece271e70e30e87df5676",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Moirae-Console",
+      "repositoryUrl": "https://github.com/hourwise/Moirae-Console",
+      "repositoryId": 1346650191,
+      "commitSha": "893ef94fa0dfad3606bd83e8b46351210cfc0d51",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Moirae-Protocol",
+      "repositoryUrl": "https://github.com/hourwise/Moirae-Protocol",
+      "repositoryId": 1356380109,
+      "commitSha": "f179104697d5ce126fdc19306e707e100cad05ff",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "pcgsoft-site",
+      "repositoryUrl": "https://github.com/hourwise/pcgsoft-site",
+      "repositoryId": 1292230499,
+      "commitSha": "14dd264c5322bb0f4d26126f8f0e3ae79c8088f0",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "PlainSpeak-Next",
+      "repositoryUrl": "https://github.com/hourwise/PlainSpeak-Next",
+      "repositoryId": 1350688867,
+      "commitSha": "85ccb3834d4562728472237c2b92f4be2a300420",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Prefixity",
+      "repositoryUrl": "https://github.com/hourwise/Prefixity",
+      "repositoryId": 1326511219,
+      "commitSha": "b35796d2f3e35266afd011ee4114fbe60ddfe2bb",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Project-Adrasteia",
+      "repositoryUrl": "https://github.com/hourwise/Project-Adrasteia",
+      "repositoryId": 1294277823,
+      "commitSha": "f9eeb25076e0a590f13c7bed6c8de8c9a363ce1b",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Project-Ananke",
+      "repositoryUrl": "https://github.com/hourwise/Project-Ananke",
+      "repositoryId": 1291488908,
+      "commitSha": "3d76adb162a0ff07b5630700ae30a823f1419cb4",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Project-Fates-Integration",
+      "repositoryUrl": "https://github.com/hourwise/Project-Fates-Integration",
+      "repositoryId": 1305598208,
+      "commitSha": "b4ae41185bafa6b6dd80ff7e41b1de7a2915873f",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Project-Horae",
+      "repositoryUrl": "https://github.com/hourwise/Project-Horae",
+      "repositoryId": 1296109185,
+      "commitSha": "3f531d4f5558a10a36aeae20c3458080eb4468b9",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Project-Mnemosyne",
+      "repositoryUrl": "https://github.com/hourwise/Project-Mnemosyne",
+      "repositoryId": 1294219565,
+      "commitSha": "f4ab76a9760f856d78908d35facceb068d78c8e5",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Project-Moirae-Code",
+      "repositoryUrl": "https://github.com/hourwise/Project-Moirae-Code",
+      "repositoryId": 1297443644,
+      "commitSha": "9a5de8461b96db2cdb7bb85343cb48a60b5e4eb0",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Project-PlainSpeak",
+      "repositoryUrl": "https://github.com/hourwise/Project-PlainSpeak",
+      "repositoryId": 1304965293,
+      "commitSha": "74ecd51b3ff85af75cd6096524213e19e5d006b8",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Relief",
+      "repositoryUrl": "https://github.com/hourwise/Relief",
+      "repositoryId": 1298204546,
+      "commitSha": "9cfda375912a84b9ea90b6a267f1678341b055eb",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Relief-WebApp",
+      "repositoryUrl": "https://github.com/hourwise/Relief-WebApp",
+      "repositoryId": 1326658292,
+      "commitSha": "ad0c78c21e4d1590dd55d309479a21752e7f7f71",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Reticle-systems",
+      "repositoryUrl": "https://github.com/hourwise/Reticle-systems",
+      "repositoryId": 1285103440,
+      "commitSha": "7900aff03325de0d32af0504993bb33b94033c05",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Riff-Wilde-and-the-Sold-Out-Saga",
+      "repositoryUrl": "https://github.com/hourwise/Riff-Wilde-and-the-Sold-Out-Saga",
+      "repositoryId": 1286115886,
+      "commitSha": "aeb1043f3f1b06905bfad564c0c1de5d9230d598",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "teamsphere",
+      "repositoryUrl": "https://github.com/hourwise/teamsphere",
+      "repositoryId": 1330772267,
+      "commitSha": "16eaead5bbba374d1734183d0cdc5748877a041a",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "The-Trace-Manifest",
+      "repositoryUrl": "https://github.com/hourwise/The-Trace-Manifest",
+      "repositoryId": 1298340079,
+      "commitSha": "0351df7e64d1faf9456042c468e97efecf934d87",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Trace-Capture-App",
+      "repositoryUrl": "https://github.com/hourwise/Trace-Capture-App",
+      "repositoryId": 1312898241,
+      "commitSha": "306c132ddc076b87dfbffde4d779512ba06ffb81",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    },
+    {
+      "repository": "Whilom",
+      "repositoryUrl": "https://github.com/hourwise/Whilom",
+      "repositoryId": 1336755899,
+      "commitSha": "159a154f7c9eec79f0327a022981a9bea512bf81",
+      "path": ".pcgsoft/project.yml",
+      "blobSha": null,
+      "ref": "default-branch-head",
+      "sourceKind": "github-api",
+      "state": "NO_MANIFEST",
+      "integrity": null
+    }
+  ]
+}
