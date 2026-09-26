@@ -1,0 +1,933 @@
+{
+  "schemaVersion": 2,
+  "source": "github-public-api",
+  "autoDerivedSafeFacts": {
+    "publicRepositoryCount": 26,
+    "knownMappedRepositoryCount": 23,
+    "archivedRepositories": [],
+    "privateRepositoriesWithheld": 0,
+    "manifestsFound": 0,
+    "emptyRepositories": [],
+    "repositories": [
+      {
+        "repository": "AI-Agent-Robot-Battle-Wars",
+        "id": 1312827206,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "5ea09edf8cc948ec86161c1da0bcf6791f6739df",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "5ea09edf8cc948ec86161c1da0bcf6791f6739df",
+        "canonicalMapping": [
+          {
+            "projectId": "forge-arena",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "AmpedUpMusic",
+        "id": 1378424960,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "9cf7a778e83398f784bda9b3631d33f3fc663356",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "9cf7a778e83398f784bda9b3631d33f3fc663356",
+        "canonicalMapping": [
+          {
+            "projectId": "amped-up-music-promotions",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "anyaparallax",
+        "id": 1377517915,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "6b47225d019f549878c3638dba4350db344856a3",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "6b47225d019f549878c3638dba4350db344856a3",
+        "canonicalMapping": [
+          {
+            "projectId": "anyaparallax",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "HourWiseEU_Fleet_Portal",
+        "id": 1158533946,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "f4e08f0f8d77e08b19a6113d8f43adf56754de27",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "f4e08f0f8d77e08b19a6113d8f43adf56754de27",
+        "canonicalMapping": [
+          {
+            "projectId": "hourwise-fleet",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "HourWiseEUVer4",
+        "id": 1116359053,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "master",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "6b8736677372520ea06ebb34ec5712c4e143ecdd",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "6b8736677372520ea06ebb34ec5712c4e143ecdd",
+        "canonicalMapping": [],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Moirae-Accord",
+        "id": 1368881069,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "5a8bf1e577f71132665ece271e70e30e87df5676",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "5a8bf1e577f71132665ece271e70e30e87df5676",
+        "canonicalMapping": [
+          {
+            "projectId": "moirae-accord",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Moirae-Console",
+        "id": 1346650191,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "893ef94fa0dfad3606bd83e8b46351210cfc0d51",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "893ef94fa0dfad3606bd83e8b46351210cfc0d51",
+        "canonicalMapping": [
+          {
+            "projectId": "moirae-console",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Moirae-Protocol",
+        "id": 1356380109,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "f179104697d5ce126fdc19306e707e100cad05ff",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "f179104697d5ce126fdc19306e707e100cad05ff",
+        "canonicalMapping": [
+          {
+            "projectId": "moirae-protocol",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "pcgsoft-site",
+        "id": 1292230499,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "14dd264c5322bb0f4d26126f8f0e3ae79c8088f0",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "14dd264c5322bb0f4d26126f8f0e3ae79c8088f0",
+        "canonicalMapping": [],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "PlainSpeak-Next",
+        "id": 1350688867,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "85ccb3834d4562728472237c2b92f4be2a300420",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "85ccb3834d4562728472237c2b92f4be2a300420",
+        "canonicalMapping": [
+          {
+            "projectId": "plain-speak",
+            "role": "current",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Prefixity",
+        "id": 1326511219,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "b35796d2f3e35266afd011ee4114fbe60ddfe2bb",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "b35796d2f3e35266afd011ee4114fbe60ddfe2bb",
+        "canonicalMapping": [],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Project-Adrasteia",
+        "id": 1294277823,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "f9eeb25076e0a590f13c7bed6c8de8c9a363ce1b",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "f9eeb25076e0a590f13c7bed6c8de8c9a363ce1b",
+        "canonicalMapping": [
+          {
+            "projectId": "runtime-contracts",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Project-Ananke",
+        "id": 1291488908,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "3d76adb162a0ff07b5630700ae30a823f1419cb4",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "3d76adb162a0ff07b5630700ae30a823f1419cb4",
+        "canonicalMapping": [
+          {
+            "projectId": "ananke",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Project-Fates-Integration",
+        "id": 1305598208,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "b4ae41185bafa6b6dd80ff7e41b1de7a2915873f",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "b4ae41185bafa6b6dd80ff7e41b1de7a2915873f",
+        "canonicalMapping": [
+          {
+            "projectId": "fates",
+            "role": "integration",
+            "eligibleManifestSource": false
+          },
+          {
+            "projectId": "fates-integration",
+            "role": "integration",
+            "eligibleManifestSource": false
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Project-Horae",
+        "id": 1296109185,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "3f531d4f5558a10a36aeae20c3458080eb4468b9",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "3f531d4f5558a10a36aeae20c3458080eb4468b9",
+        "canonicalMapping": [
+          {
+            "projectId": "horae",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Project-Mnemosyne",
+        "id": 1294219565,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "f4ab76a9760f856d78908d35facceb068d78c8e5",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "f4ab76a9760f856d78908d35facceb068d78c8e5",
+        "canonicalMapping": [
+          {
+            "projectId": "mnemosyne",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Project-Moirae-Code",
+        "id": 1297443644,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "9a5de8461b96db2cdb7bb85343cb48a60b5e4eb0",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "9a5de8461b96db2cdb7bb85343cb48a60b5e4eb0",
+        "canonicalMapping": [
+          {
+            "projectId": "moirae-code",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Project-PlainSpeak",
+        "id": 1304965293,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "74ecd51b3ff85af75cd6096524213e19e5d006b8",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "74ecd51b3ff85af75cd6096524213e19e5d006b8",
+        "canonicalMapping": [
+          {
+            "projectId": "plain-speak",
+            "role": "original",
+            "eligibleManifestSource": false
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Relief",
+        "id": 1298204546,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "9cfda375912a84b9ea90b6a267f1678341b055eb",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "9cfda375912a84b9ea90b6a267f1678341b055eb",
+        "canonicalMapping": [
+          {
+            "projectId": "relief",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Relief-WebApp",
+        "id": 1326658292,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "ad0c78c21e4d1590dd55d309479a21752e7f7f71",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "ad0c78c21e4d1590dd55d309479a21752e7f7f71",
+        "canonicalMapping": [
+          {
+            "projectId": "relief",
+            "role": "web-app",
+            "eligibleManifestSource": false
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Reticle-systems",
+        "id": 1285103440,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "7900aff03325de0d32af0504993bb33b94033c05",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "7900aff03325de0d32af0504993bb33b94033c05",
+        "canonicalMapping": [
+          {
+            "projectId": "reticle",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Riff-Wilde-and-the-Sold-Out-Saga",
+        "id": 1286115886,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "aeb1043f3f1b06905bfad564c0c1de5d9230d598",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "aeb1043f3f1b06905bfad564c0c1de5d9230d598",
+        "canonicalMapping": [
+          {
+            "projectId": "riff-wilde",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "teamsphere",
+        "id": 1330772267,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "16eaead5bbba374d1734183d0cdc5748877a041a",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "16eaead5bbba374d1734183d0cdc5748877a041a",
+        "canonicalMapping": [
+          {
+            "projectId": "teamsphere",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "The-Trace-Manifest",
+        "id": 1298340079,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "0351df7e64d1faf9456042c468e97efecf934d87",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "0351df7e64d1faf9456042c468e97efecf934d87",
+        "canonicalMapping": [
+          {
+            "projectId": "the-trace-manifest",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Trace-Capture-App",
+        "id": 1312898241,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "306c132ddc076b87dfbffde4d779512ba06ffb81",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "306c132ddc076b87dfbffde4d779512ba06ffb81",
+        "canonicalMapping": [
+          {
+            "projectId": "trace-capture",
+            "role": "companion",
+            "eligibleManifestSource": false
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      },
+      {
+        "repository": "Whilom",
+        "id": 1336755899,
+        "visibility": "public",
+        "archived": false,
+        "defaultBranch": "main",
+        "defaultBranchState": "RESOLVED",
+        "defaultBranchSha": "159a154f7c9eec79f0327a022981a9bea512bf81",
+        "manifest": "NO_MANIFEST",
+        "manifestCommitSha": "159a154f7c9eec79f0327a022981a9bea512bf81",
+        "canonicalMapping": [
+          {
+            "projectId": "whilom",
+            "role": "primary",
+            "eligibleManifestSource": true
+          }
+        ],
+        "authority": "DERIVED_FACT"
+      }
+    ]
+  },
+  "manifestProvenance": [],
+  "manifestProposals": [],
+  "canonicalAgreements": [],
+  "canonicalConflicts": [],
+  "fieldOutcomes": [],
+  "relationshipFindings": {
+    "projectRelationships": [],
+    "lineage": [
+      {
+        "projectId": "plain-speak",
+        "undiscoveredRepositoryCount": 0,
+        "repositories": [
+          {
+            "repository": "PlainSpeak-Next",
+            "canonicalRole": "current",
+            "eligibleManifestSource": true,
+            "discovered": true,
+            "classification": "PROJECT_LINEAGE",
+            "manifest": "NO_MANIFEST"
+          },
+          {
+            "repository": "Project-PlainSpeak",
+            "canonicalRole": "original",
+            "eligibleManifestSource": false,
+            "discovered": true,
+            "classification": "PROJECT_LINEAGE",
+            "manifest": "NO_MANIFEST"
+          }
+        ]
+      },
+      {
+        "projectId": "relief",
+        "undiscoveredRepositoryCount": 0,
+        "repositories": [
+          {
+            "repository": "Relief",
+            "canonicalRole": "primary",
+            "eligibleManifestSource": true,
+            "discovered": true,
+            "classification": "KNOWN_PUBLIC_SOURCE",
+            "manifest": "NO_MANIFEST"
+          },
+          {
+            "repository": "Relief-WebApp",
+            "canonicalRole": "web-app",
+            "eligibleManifestSource": false,
+            "discovered": true,
+            "classification": "PROJECT_COMPONENT",
+            "manifest": "NO_MANIFEST"
+          }
+        ]
+      }
+    ],
+    "warnings": []
+  },
+  "relationshipWarnings": [],
+  "githubMetadataEvidence": [
+    {
+      "projectId": "hourwise-fleet",
+      "repository": "HourWiseEU_Fleet_Portal",
+      "field": "homepage",
+      "value": "https://hour-wise-eu-fleet-portal.vercel.app",
+      "authority": "GITHUB_METADATA",
+      "relation": "MATCHES_CANONICAL_LIVE_URL"
+    },
+    {
+      "projectId": "reticle",
+      "repository": "Reticle-systems",
+      "field": "homepage",
+      "value": "https://reticle-systems.vercel.app",
+      "authority": "GITHUB_METADATA",
+      "relation": "NOT_IN_CANONICAL_LIVE_URLS"
+    }
+  ],
+  "provenanceWarnings": [],
+  "manifestSourceEligibility": {
+    "summary": {
+      "projects": 29,
+      "singleEligibleSource": 19,
+      "noEligibleSource": 10,
+      "duplicateEligibleSource": 0
+    },
+    "projects": [
+      {
+        "projectId": "akuma-velocity",
+        "state": "NO_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 0,
+        "eligibleRepositories": [],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "amped-up-music-promotions",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "AmpedUpMusic",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "ananke",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "Project-Ananke",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "anyaparallax",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "anyaparallax",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "atlas-ai",
+        "state": "NO_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 0,
+        "eligibleRepositories": [],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "fates",
+        "state": "NO_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 0,
+        "eligibleRepositories": [],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "fates-integration",
+        "state": "NO_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 0,
+        "eligibleRepositories": [],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "forge-arena",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "AI-Agent-Robot-Battle-Wars",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "gilded-bazaar",
+        "state": "NO_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 0,
+        "eligibleRepositories": [],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "horae",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "Project-Horae",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "hourwise-eu",
+        "state": "NO_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 0,
+        "eligibleRepositories": [],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "hourwise-fleet",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "HourWiseEU_Fleet_Portal",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "mnemosyne",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "Project-Mnemosyne",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "moirae-accord",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "Moirae-Accord",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "moirae-code",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "Project-Moirae-Code",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "moirae-console",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "Moirae-Console",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "moirae-protocol",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "Moirae-Protocol",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "plain-speak",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "PlainSpeak-Next",
+            "role": "current"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "prefixity",
+        "state": "NO_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 0,
+        "eligibleRepositories": [],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "read-me-a-story",
+        "state": "NO_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 0,
+        "eligibleRepositories": [],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "relief",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "Relief",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "reticle",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "Reticle-systems",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "riff-wilde",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "Riff-Wilde-and-the-Sold-Out-Saga",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "runtime-contracts",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "Project-Adrasteia",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "teamsphere",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "teamsphere",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "the-trace-manifest",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "The-Trace-Manifest",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "trace-capture",
+        "state": "NO_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 0,
+        "eligibleRepositories": [],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "vestigia-new-dawn",
+        "state": "NO_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 0,
+        "eligibleRepositories": [],
+        "undiscoveredEligibleRepositoryCount": 0
+      },
+      {
+        "projectId": "whilom",
+        "state": "SINGLE_ELIGIBLE_SOURCE",
+        "eligibleRepositoryCount": 1,
+        "eligibleRepositories": [
+          {
+            "repository": "Whilom",
+            "role": "primary"
+          }
+        ],
+        "undiscoveredEligibleRepositoryCount": 0
+      }
+    ]
+  },
+  "governanceFindings": [],
+  "privacyVisibilityWarnings": [],
+  "newProjectsPendingReview": [
+    {
+      "repository": "HourWiseEUVer4",
+      "url": "https://github.com/hourwise/HourWiseEUVer4",
+      "reason": "public repository is not represented in approved project/source mappings",
+      "classification": "PENDING_REVIEW"
+    },
+    {
+      "repository": "pcgsoft-site",
+      "url": "https://github.com/hourwise/pcgsoft-site",
+      "reason": "public repository is not represented in approved project/source mappings",
+      "classification": "PENDING_REVIEW"
+    },
+    {
+      "repository": "Prefixity",
+      "url": "https://github.com/hourwise/Prefixity",
+      "reason": "public repository is not represented in approved project/source mappings",
+      "classification": "PENDING_REVIEW"
+    }
+  ],
+  "humanApprovalRequired": [],
+  "liveSurfaceAnomalies": [],
+  "statusAnomalies": [],
+  "manifestErrors": [],
+  "discoveryErrors": [],
+  "noChangeItems": [
+    "AI-Agent-Robot-Battle-Wars",
+    "AmpedUpMusic",
+    "HourWiseEU_Fleet_Portal",
+    "Moirae-Accord",
+    "Moirae-Console",
+    "Moirae-Protocol",
+    "PlainSpeak-Next",
+    "Project-Adrasteia",
+    "Project-Ananke",
+    "Project-Fates-Integration",
+    "Project-Horae",
+    "Project-Mnemosyne",
+    "Project-Moirae-Code",
+    "Project-PlainSpeak",
+    "Relief",
+    "Relief-WebApp",
+    "Reticle-systems",
+    "Riff-Wilde-and-the-Sold-Out-Saga",
+    "The-Trace-Manifest",
+    "Trace-Capture-App",
+    "Whilom",
+    "anyaparallax",
+    "teamsphere"
+  ],
+  "hasMaterialDrift": true,
+  "result": "PROPOSED_CHANGES",
+  "summary": "Discovery found reviewable portfolio evidence; no canonical publication state was changed."
+}
