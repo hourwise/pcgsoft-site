@@ -36,8 +36,12 @@ The `Governed portfolio sync` workflow runs daily at 03:17 UTC and on manual
 dispatch; changing the schedule is a reviewed workflow change. Each run
 reconciles `main` and commits only the four generated report files to the
 stable review branch `automation/portfolio-sync` via one pull request. An open
-review PR is updated rather than duplicated, and an unchanged report produces
-no commit. The workflow token has only `contents: write` and
+review PR is updated rather than duplicated. A deterministic material-evidence
+comparison skips delivery for unrelated repository HEAD/date changes, while full
+raw observations are retained in each run's artifact for 90 days. The branch
+records the last material review change, not necessarily the latest observation.
+See [material-review-contract.md](material-review-contract.md) for the exact
+manifest provenance, comparison and failure rules. The workflow token has only `contents: write` and
 `pull-requests: write`; the workflow never approves or merges. A ruleset on
 `main` requires a pull request with one approval, dismisses the approval when
 new commits arrive, and blocks force pushes and deletion. Only the repository

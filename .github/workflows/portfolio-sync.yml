@@ -23,15 +23,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out PCGsoft site
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
         with:
           ref: main
           fetch-depth: 0
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7.0.0
         with:
           node-version: 22
+          package-manager-cache: false
 
       - name: Install site dependencies only
         run: npm install --package-lock=false --ignore-scripts --no-audit --no-fund
@@ -61,22 +62,33 @@ jobs:
             cat docs/portfolio-sync/portfolio-sync-report.md >> "$GITHUB_STEP_SUMMARY"
           fi
 
+      - name: Compare material review evidence
+        id: review-change
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/compare-portfolio-review.mjs
+
       - name: Upload reconciliation report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: portfolio-sync-report
+          retention-days: 90
+          archive: true
+          if-no-files-found: error
           path: |
             docs/portfolio-sync/portfolio-sync-report.md
             docs/portfolio-sync/portfolio-sync-report.json
             data/generated/github-portfolio-snapshot.json
             data/generated/portfolio-sync-report.json
+            data/generated/portfolio-review-evidence.json
 
       # One stable branch and one PR: an existing open PR on this branch is
       # updated, and an unchanged report produces no new commit or push.
       - name: Create or update one review PR
         id: review-pr
-        uses: peter-evans/create-pull-request@v7
+        if: steps.review-change.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v8.1.1
         with:
           token: ${{ github.token }}
           branch: automation/portfolio-sync
@@ -105,12 +117,16 @@ jobs:
             A human approval is required before merge. The workflow never
             approves or merges this PR.
 
+            This branch records the last material review change. Every run retains
+            fresh observation SHAs in its portfolio-sync-report artifact for 90 days.
+            HEAD-only changes with identical material evidence do not update this PR.
+
       - name: Record review-PR outcome
         if: always()
         run: |
           {
             echo "## Review PR"
             echo "- operation: ${{ steps.review-pr.outputs.pull-request-operation || 'none' }}"
-            echo "- number: ${{ steps.review-pr.outputs.pull-request-number || 'n/a' }}"
-            echo "- head SHA: ${{ steps.review-pr.outputs.pull-request-head-sha || 'n/a' }}"
+            echo "- number: ${{ steps.review-pr.outputs.pull-request-number || steps.review-change.outputs.number || 'n/a' }}"
+            echo "- head SHA: ${{ steps.review-pr.outputs.pull-request-head-sha || steps.review-change.outputs.head || 'n/a' }}"
           } >> "$GITHUB_STEP_SUMMARY"
