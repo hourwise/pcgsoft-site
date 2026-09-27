@@ -33,7 +33,7 @@ test("1. the review branch is the stable automation branch", () => {
 });
 
 test("2-3. one fixed branch through create-pull-request: an open PR is reused, never duplicated", () => {
-  assert.equal(code.match(/uses: peter-evans\/create-pull-request@v7/g).length, 1);
+  assert.equal(code.match(/uses: peter-evans\/create-pull-request@v8\.1\.1/g).length, 1);
   assert.match(code, /^\s+delete-branch: false$/m);
   assert.doesNotMatch(code, /gh pr create|gh api [^\n]*\/pulls/);
 });
@@ -81,7 +81,31 @@ test("11. no automated approval step exists", () => {
 });
 
 test("the workflow reconciles main and never checks out a project repository", () => {
-  assert.equal(code.match(/uses: actions\/checkout@v4/g).length, 1);
+  assert.equal(code.match(/uses: actions\/checkout@v7\.0\.1/g).length, 1);
   assert.match(code, /^\s+ref: main$/m);
   assert.doesNotMatch(code, /repository: /);
+});
+
+test("HEAD-only no-change skips the PR action and records operation none without a push", () => {
+  assert.match(code, /id: review-pr\n\s+if: steps\.review-change\.outputs\.changed == 'true'\n\s+uses: peter-evans\/create-pull-request/);
+  assert.match(code, /pull-request-operation \|\| 'none'/);
+  assert.match(code, /pull-request-number \|\| steps\.review-change\.outputs\.number/);
+  assert.match(code, /pull-request-head-sha \|\| steps\.review-change\.outputs\.head/);
+  assert.ok(code.indexOf("run: node scripts/compare-portfolio-review.mjs") < code.indexOf("uses: actions/upload-artifact"));
+  assert.ok(code.indexOf("uses: actions/upload-artifact") < code.indexOf("id: review-pr"));
+});
+
+test("raw observations and stable comparison evidence are retained even when delivery is skipped", () => {
+  const upload = code.slice(code.indexOf("- name: Upload reconciliation report"), code.indexOf("- name: Create or update one review PR"));
+  assert.match(upload, /if: always\(\)/);
+  assert.match(upload, /retention-days: 90/);
+  for (const file of [...GENERATED, "data/generated/portfolio-review-evidence.json"]) assert.ok(upload.includes(file));
+  assert.ok(!block("add-paths").includes("data/generated/portfolio-review-evidence.json"));
+});
+
+test("reviewed exact action releases use Node 24 without enabling implicit package caching", () => {
+  assert.match(code, /uses: actions\/setup-node@v7\.0\.0/);
+  assert.match(code, /uses: actions\/upload-artifact@v7\.0\.1/);
+  assert.match(code, /package-manager-cache: false/);
+  assert.match(code, /node-version: 22/);
 });
