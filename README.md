@@ -22,5 +22,30 @@ The project registry lives in `data/projects.json`. Project cards and related-pr
 links are rendered from that registry by `assets/site.js`; detail pages keep their
 core explanations in HTML so they remain useful without JavaScript.
 
-The site is currently being prepared on the local-only branch
-`codex/pcgsoft-aeo-hub`. No deployment is part of this change.
+## Deployment boundary
+
+**Primary control: the `public/` artefact.** Cloudflare Pages (project
+`pcgsoft-site`, production branch `main`) is configured with:
+
+- Build command: `npm run build`
+- Build output directory: `public`
+
+`scripts/build-public.mjs` copies only explicitly approved public artefacts and
+fails the build on anything unexpected. `data/projects.json` is intentionally
+public because `assets/site.js` loads it at runtime. `data/generated/` is never
+public.
+
+**Defence in depth: Cloudflare WAF.** A WAF rule on the public domains blocks
+internal repository path families, including `/docs/`, `/scripts/`, `/tests/`,
+`/.github/` and `/data/generated/`, plus root repository files such as
+`/README.md`, `/package.json` and `/.gitignore`. The rule must **not** block
+`/data/projects.json`.
+
+The WAF is a backstop, not a replacement for the `public/` allowlist. Do not:
+
+- revert the Pages output directory to the repository root;
+- remove the public build without an equivalent allowlist replacement;
+- remove the WAF rule without first checking for stale-cache or internal-path
+  exposure on the public domains.
+
+Pages build settings apply to Preview and Production alike.
