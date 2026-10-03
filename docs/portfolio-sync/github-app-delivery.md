@@ -1,10 +1,10 @@
-# Dedicated GitHub App review delivery (AUTO-04F-B candidate)
+# Dedicated GitHub App review delivery
 
-This is the proposed delivery identity for `hourwise/pcgsoft-site`. It does not
-change discovery, reconciliation, the canonical registry, or public pages. The
-workflow on `main` keeps its existing delivery path until this candidate is
-reviewed and merged. Do not merge the candidate before the App installation,
-variable, secret, and scratch proof are ready.
+This is the active automated review-delivery identity for
+`hourwise/pcgsoft-site`. It does not change discovery, reconciliation, the
+canonical registry, or public pages. The workflow on `main` uses the scoped App
+only to create or update review evidence; human review remains required before
+anything can enter `main`.
 
 ## App registration and installation
 
@@ -71,7 +71,7 @@ identity of future App-authenticated commits is determined only after the App
 exists. The workflow never attributes a scheduled generated commit to
 `@hourwise`.
 
-## Controlled delivery proof before acceptance
+## Controlled delivery proof
 
 Provision the App, variable, and secret before testing its write path. Use a
 temporary `automation/portfolio-sync-app-test` branch and a scratch PR against
@@ -89,18 +89,21 @@ claim live App delivery or PR #7 reuse from static tests alone.
 
 ## Rollback and key handling
 
-If App delivery fails, leave PR #7 and `automation/portfolio-sync` intact.
-Pause the schedule if repeated failures would create noise. Revert the App
-integration through a human-reviewed PR to restore the prior `GITHUB_TOKEN`
-delivery path while the repository Actions create/approve setting remains on.
-Do not change canonical project data during rollback. If the key is lost or
-compromised, generate a replacement on the App, replace the repository secret,
-verify one controlled token mint, and revoke the old key. Remove the App
-installation if its scope or trust cannot be restored. Keep `main` ruleset and
-Code Owner protection active throughout.
+The normal steady state is `can_approve_pull_request_reviews = false` with
+default `GITHUB_TOKEN` permissions set to `read`. If App delivery fails, pause
+the schedule if needed to prevent repeated noise, preserve PR #7 and
+`automation/portfolio-sync`, then repair or rotate the App key or installation.
+Submit any workflow repair through a human-reviewed PR while keeping the
+`main` ruleset and Code Owner protection active.
 
-AUTO-04F-C, if separately authorized after live App proof, may reassess the
-broad Actions create/approve setting. AUTO-04F-B leaves it on.
+Re-enabling the broad Actions create/approve capability is not an automated
+fallback. It is allowed only as an explicit, human-authorized emergency
+rollback. No workflow may change this repository setting. Do not change
+canonical project data during rollback.
+
+If the key is lost or compromised, generate a replacement on the App, replace
+the repository secret, verify one controlled token mint, and revoke the old
+key. Remove the App installation if its scope or trust cannot be restored.
 
 ## References
 
