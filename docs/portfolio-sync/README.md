@@ -47,6 +47,25 @@ manifest provenance, comparison and failure rules. The workflow token has only `
 new commits arrive, and blocks force pushes and deletion. Only the repository
 admin may bypass it, never GitHub Actions.
 
+## Human-only main review gate (AUTO-04F-A)
+
+`.github/CODEOWNERS` assigns every repository path to the human repository
+owner, `@hourwise`, and explicitly assigns the CODEOWNERS file itself to that
+owner. Automation identities must never be listed as Code Owners.
+
+This source change does not activate a Code Owner requirement by itself. The
+safe order is to merge the CODEOWNERS file through a normal reviewed PR first,
+then update active ruleset `23957714` to require Code Owner review. The only
+planned ruleset delta is `require_code_owner_review: true`; the existing
+approval count, stale-review dismissal, latest-push requirement, force-push and
+deletion protections, and human repository-role bypass remain unchanged. Do
+not enable the rule while the valid CODEOWNERS file is absent from `main`.
+
+A workflow or future GitHub App may have API permission to submit a generic
+`APPROVE` review. That permission does not make the automation identity a Code
+Owner and cannot satisfy the required `@hourwise` approval. The workflow itself
+continues to contain no approval or merge operation.
+
 For deterministic offline work, pass `--github-json` with a fixture containing
 safe repository metadata and optionally `--manifest-fixture` with pinned
 manifest entries (`repository`, `commitSha`, `path`, `blobSha`, `content`). There

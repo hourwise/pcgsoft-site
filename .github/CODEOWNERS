@@ -1,0 +1,3 @@
+# Human review is required for every change to the repository.
+* @hourwise
+/.github/CODEOWNERS @hourwise
