@@ -7,12 +7,11 @@ on:
   schedule:
     - cron: "17 3 * * *"
 
-# Minimum needed to push the generated review branch and open or update its PR.
-# Every other GITHUB_TOKEN permission is none. The workflow never approves or
-# merges; the main ruleset requires a human approval.
+# Native token is read-only. A repository-scoped App token is minted only when
+# material review evidence changes and is used only for review delivery.
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
+  pull-requests: read
 
 concurrency:
   group: governed-portfolio-sync
@@ -27,6 +26,7 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@v7.0.0
@@ -83,14 +83,48 @@ jobs:
             data/generated/portfolio-sync-report.json
             data/generated/portfolio-review-evidence.json
 
+      - name: Mint App token for review delivery
+        id: app-token
+        if: steps.review-change.outputs.changed == 'true'
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ vars.PCGSOFT_SYNC_APP_ID }}
+          private-key: ${{ secrets.PCGSOFT_SYNC_APP_PRIVATE_KEY }}
+          owner: hourwise
+          repositories: pcgsoft-site
+          permission-contents: write
+          permission-pull-requests: write
+
+      - name: Resolve App bot commit identity
+        id: app-bot
+        if: steps.review-change.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
+        run: |
+          if [[ ! "$APP_SLUG" =~ ^[a-z0-9-]+$ ]]; then
+            echo "Invalid App slug" >&2
+            exit 1
+          fi
+          bot_id="$(gh api "/users/${APP_SLUG}[bot]" --jq .id)"
+          if [[ ! "$bot_id" =~ ^[0-9]+$ ]]; then
+            echo "Invalid App bot ID" >&2
+            exit 1
+          fi
+          printf 'git-identity=%s[bot] <%s+%s[bot]@users.noreply.github.com>\n' \
+            "$APP_SLUG" "$bot_id" "$APP_SLUG" >> "$GITHUB_OUTPUT"
+
       # One stable branch and one PR: an existing open PR on this branch is
       # updated, and an unchanged report produces no new commit or push.
       - name: Create or update one review PR
         id: review-pr
         if: steps.review-change.outputs.changed == 'true'
-        uses: peter-evans/create-pull-request@v8.1.1
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
-          token: ${{ github.token }}
+          token: ${{ steps.app-token.outputs.token }}
+          branch-token: ${{ steps.app-token.outputs.token }}
+          author: ${{ steps.app-bot.outputs.git-identity }}
+          committer: ${{ steps.app-bot.outputs.git-identity }}
           branch: automation/portfolio-sync
           delete-branch: false
           add-paths: |

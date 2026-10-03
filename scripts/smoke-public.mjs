@@ -19,6 +19,7 @@ export const FORBIDDEN_HTTP_PATHS = [
   "/data/generated/github-portfolio-snapshot.json",
   "/data/generated/portfolio-sync-report.json",
   "/docs/portfolio-sync/portfolio-sync-report.md",
+  "/docs/portfolio-sync/github-app-delivery.md",
   "/docs/portfolio-sync/project-manifest.md",
   "/docs/portfolio-sync/project.example.yml",
   "/docs/project-inventory.md",

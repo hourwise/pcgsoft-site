@@ -40,7 +40,7 @@ test("internal repository paths are absent from the public build", () => {
   const { outDir } = built();
   for (const forbidden of [
     ".github", ".github/CODEOWNERS", "docs", "scripts", "tests", "package.json", "package-lock.json", ".gitignore", "README.md", "data/generated",
-    "docs/portfolio-sync/project.example.yml", ".github/workflows/portfolio-sync.yml", "scripts/sync-portfolio.mjs", "tests/fixtures/portfolio-sync",
+    "docs/portfolio-sync/project.example.yml", "docs/portfolio-sync/github-app-delivery.md", ".github/workflows/portfolio-sync.yml", "scripts/sync-portfolio.mjs", "tests/fixtures/portfolio-sync",
   ]) assert.equal(fs.existsSync(path.join(outDir, forbidden)), false, `${forbidden} must not be public`);
   assert.deepEqual(fs.readdirSync(path.join(outDir, "data")), ["projects.json"]);
   assert.equal(walk(outDir).some((file) => /\.(?:mjs|md|ya?ml)$/.test(file)), false);

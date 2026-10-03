@@ -41,11 +41,14 @@ comparison skips delivery for unrelated repository HEAD/date changes, while full
 raw observations are retained in each run's artifact for 90 days. The branch
 records the last material review change, not necessarily the latest observation.
 See [material-review-contract.md](material-review-contract.md) for the exact
-manifest provenance, comparison and failure rules. The workflow token has only `contents: write` and
-`pull-requests: write`; the workflow never approves or merges. A ruleset on
-`main` requires a pull request with one approval, dismisses the approval when
-new commits arrive, and blocks force pushes and deletion. Only the repository
-admin may bypass it, never GitHub Actions.
+manifest provenance, comparison and failure rules. The AUTO-04F-B candidate
+reduces the native workflow token to `contents: read` and
+`pull-requests: read`, then uses a conditional, repository-scoped GitHub App
+token only for review delivery. Provisioning and the live proof gate are in
+[github-app-delivery.md](github-app-delivery.md). The workflow never approves
+or merges. The active `main` ruleset requires one human Code Owner approval,
+dismisses it when new commits arrive, and blocks force pushes and deletion.
+GitHub Actions is not a bypass actor.
 
 ## Human-only main review gate (AUTO-04F-A)
 
@@ -53,13 +56,10 @@ admin may bypass it, never GitHub Actions.
 owner, `@hourwise`, and explicitly assigns the CODEOWNERS file itself to that
 owner. Automation identities must never be listed as Code Owners.
 
-This source change does not activate a Code Owner requirement by itself. The
-safe order is to merge the CODEOWNERS file through a normal reviewed PR first,
-then update active ruleset `23957714` to require Code Owner review. The only
-planned ruleset delta is `require_code_owner_review: true`; the existing
+The CODEOWNERS file was merged before active ruleset `23957714` was updated on
+2026-10-03. `require_code_owner_review: true` is now active. The existing
 approval count, stale-review dismissal, latest-push requirement, force-push and
-deletion protections, and human repository-role bypass remain unchanged. Do
-not enable the rule while the valid CODEOWNERS file is absent from `main`.
+deletion protections, and human repository-role bypass remain unchanged.
 
 A workflow or future GitHub App may have API permission to submit a generic
 `APPROVE` review. That permission does not make the automation identity a Code
