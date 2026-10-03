@@ -116,6 +116,11 @@ single generated commit on the then-current main, as before.
 
 ## Runtime compatibility review
 
+The following table records the AUTO-04E runtime review as of 2026-09-27.
+AUTO-04F-B proposes a dedicated App token, read-only native token, bot commit
+identity, and immutable delivery-action pins; see
+[github-app-delivery.md](github-app-delivery.md) for the candidate behavior.
+
 Verified against upstream stable release tags on 2026-09-27:
 
 | Action | Old | New | Compatibility and authority |

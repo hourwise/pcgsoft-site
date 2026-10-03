@@ -47,6 +47,7 @@ export const FORBIDDEN_PUBLIC_PATHS = [
   "data/generated/portfolio-sync-report.json",
   "docs",
   "docs/portfolio-sync/portfolio-sync-report.md",
+  "docs/portfolio-sync/github-app-delivery.md",
   "docs/portfolio-sync/project.example.yml",
   "node_modules",
   "package-lock.json",
