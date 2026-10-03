@@ -13,6 +13,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = path.join(root, "public");
 
 export const FORBIDDEN_HTTP_PATHS = [
+  "/.github/CODEOWNERS",
   "/.github/workflows/portfolio-sync.yml",
   "/README.md",
   "/data/generated/github-portfolio-snapshot.json",

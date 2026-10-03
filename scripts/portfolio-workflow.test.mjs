@@ -32,6 +32,16 @@ test("1. the review branch is the stable automation branch", () => {
   assert.doesNotMatch(code, /auto-01-portfolio-sync/);
 });
 
+test("main has one human Code Owner for all paths and for the CODEOWNERS file itself", () => {
+  const codeowners = fs.readFileSync(path.resolve(".github/CODEOWNERS"), "utf8")
+    .replace(/\r\n/g, "\n")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith("#"));
+  assert.deepEqual(codeowners, ["* @hourwise", "/.github/CODEOWNERS @hourwise"]);
+  assert.doesNotMatch(codeowners.join("\n"), /github-actions|\[bot\]|automation/i);
+});
+
 test("2-3. one fixed branch through create-pull-request: an open PR is reused, never duplicated", () => {
   assert.equal(code.match(/uses: peter-evans\/create-pull-request@v8\.1\.1/g).length, 1);
   assert.match(code, /^\s+delete-branch: false$/m);
