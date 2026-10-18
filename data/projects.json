@@ -1540,5 +1540,57 @@
     "documentationLinks": [],
     "parentProject": null,
     "sourceVisibility": "public"
+  },
+  {
+    "slug": "lvrc-events",
+    "name": "LVRC Events Payment & Registration",
+    "shortName": "LVRC Events",
+    "category": "web-client",
+    "categoryLabel": "Web & Client Work",
+    "status": "Live — client project",
+    "summary": "A live event registration and payment platform developed by PCGsoft for Liverpool Victoria Rowing Club, with individual and relay entries, online payments, booking confirmations and protected reporting.",
+    "description": "LVRC Events is a standalone client implementation for Liverpool Victoria Rowing Club. It brings together individual race entries, named four-person relay teams, configured eligibility rules, SumUp payments, payment reconciliation, automated booking confirmations and restricted spreadsheet reporting. It is a live club service with private source, not a PCGsoft subscription product.",
+    "sitePath": "/web-client-work/lvrc-events/",
+    "canonicalUrl": "https://pcgsoft.co.uk/web-client-work/lvrc-events/",
+    "githubUrl": null,
+    "liveUrl": "https://lvrceventspayment.co.uk",
+    "documentationUrl": null,
+    "licence": null,
+    "openSource": false,
+    "technologies": [
+      "TypeScript",
+      "Cloudflare Workers",
+      "Cloudflare D1",
+      "Cloudflare Access",
+      "SumUp",
+      "Resend"
+    ],
+    "relatedProjects": [],
+    "lastReviewed": "2026-10-18",
+    "featured": false,
+    "evidenceLinks": [
+      {
+        "label": "Visit LVRC Events",
+        "url": "https://lvrceventspayment.co.uk",
+        "note": "Public club event service"
+      },
+      {
+        "label": "View Vic’s 500 registration",
+        "url": "https://lvrceventspayment.co.uk/events/vics-500-2026",
+        "note": "Public event registration; entering and paying are separate actions"
+      }
+    ],
+    "alternateNames": [
+      "LVRC Events"
+    ],
+    "liveUrls": [
+      "https://lvrceventspayment.co.uk",
+      "https://lvrceventspayment.co.uk/events/vics-500-2026"
+    ],
+    "repositories": [],
+    "documentationLinks": [],
+    "parentProject": null,
+    "sourceVisibility": "private",
+    "websiteState": "live"
   }
 ]

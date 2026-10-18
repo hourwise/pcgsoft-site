@@ -31,6 +31,8 @@ This is a navigation aid generated from the public PCGsoft project registry. It 
 
 ## Additional public projects
 
+- [LVRC Events Payment & Registration](https://pcgsoft.co.uk/web-client-work/lvrc-events/): live client registration and payment service for Liverpool Victoria Rowing Club; private application source.
+
 - [TeamSphere](https://pcgsoft.co.uk/products/teamsphere/): club and community operations platform in active development.
 - [Forge Arena](https://pcgsoft.co.uk/creative/forge-arena/): deterministic AI-agent robot combat prototype.
 - [The Gilded Bazaar](https://pcgsoft.co.uk/creative/gilded-bazaar/): tabletop campaign economy and downtime companion.

@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { privateSourceIssues } from "./private-source-policy.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const failures = [];
@@ -63,7 +64,7 @@ for (const record of registry) {
   if (!["public", "private", "mixed", "none", "unknown"].includes(record.sourceVisibility)) fail(`${record.slug} has an invalid sourceVisibility`);
   if (record.parentProject !== null && !slugs.includes(record.parentProject)) fail(`${record.slug} has an unknown parentProject ${record.parentProject}`);
   if (record.parentProject === record.slug) fail(`${record.slug} cannot be its own parentProject`);
-  if (record.sourceVisibility === "private" && (record.githubUrl || record.repositories.length || record.liveUrls.length || record.evidenceLinks.length)) fail(`${record.slug} has public links despite private sourceVisibility`);
+  for (const issue of privateSourceIssues(record)) fail(`${record.slug} violates private-source protection: ${issue}`);
   for (const liveUrl of record.liveUrls) if (!/^https:\/\//.test(liveUrl)) fail(`${record.slug} has an invalid live URL`);
   for (const item of record.repositories) {
     if (!item || !item.name || !item.url || !allowedRepositoryRoles.has(item.role) || !allowedVisibility.has(item.visibility)) fail(`${record.slug} has an invalid repository entry`);

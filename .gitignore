@@ -1,2 +1,3 @@
 .wrangler/
 public/
+output/playwright/
