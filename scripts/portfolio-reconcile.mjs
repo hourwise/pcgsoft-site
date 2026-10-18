@@ -6,6 +6,7 @@
 // supported field produces an explicit outcome; nothing is applied to the
 // canonical registry.
 import crypto from "node:crypto";
+import { privateSourceIssues } from "./private-source-policy.mjs";
 import {
   LIFECYCLE_STATES,
   MAX_MANIFEST_BYTES,
@@ -541,7 +542,7 @@ export function buildSyncOutputs({ registry, discovery, manifestSources = [], ma
   const projectRelationships = fieldOutcomes.filter((item) => item.field === "project.relatedProjects" && item.outcome !== "NOT_PROPOSED").map(({ projectId, repository, outcome, detail }) => ({ projectId, repository, outcome, agreements: detail.agreements, additions: detail.additions, removals: detail.removals, unknownTargets: detail.unknownTargets }));
 
   const canonicalPrivacyWarnings = registry
-    .filter((project) => project.sourceVisibility === "private" && ((project.repositories || []).length || project.githubUrl || (project.evidenceLinks || []).length))
+    .filter((project) => privateSourceIssues(project).length > 0)
     .map((project) => ({ severity: "HIGH", projectId: project.slug, issue: "PRIVATE_SOURCE_HAS_PUBLIC_LINK", action: "remove public source evidence after human review" }));
   const manifestByRepository = new Map(manifestResults.map((item) => [item.repository, item]));
   const repositoryFacts = sortBy(discovery.repositories, "name").map((repository) => ({

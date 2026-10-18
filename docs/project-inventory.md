@@ -55,6 +55,14 @@ those projects as products.
 | Unknown / none | The page records only the evidence that has been verified; repository existence is not inferred from a project identity. |
 | Pending public launch | A declared domain may be shown as planned or launch-pending; it is not added to `liveUrls` without verified public availability. |
 
+Private implementation does not imply a private website. A human-reviewed
+private-source client record may list verified public `liveUrls` and evidence
+links to those exact URLs. It still has no repository/documentation mapping or
+source link. The validator and reconciliation share this rule; discovery remains
+public-only and an absent private repository cannot downgrade the canonical
+record. LVRC Events uses this model. See the portfolio acceptance record for
+the evidence and publication boundary.
+
 The Gilded Bazaar is intentionally a public creative identity with
 `sourceVisibility: private`, no `githubUrl`, no repository entry and no public
 source evidence link. Anyaparallax and Amped Up Music Promotions are public
