@@ -11,14 +11,14 @@ inventory of the operator's private repositories or local worktrees.
 | Website source repository | `hourwise/pcgsoft-site` |
 | Production branch | `main` |
 | Production source SHA at refresh start | `29f8f028af86893f09ba2c2162decf3cc9ffeead` |
-| Registry records after candidate update | 29 |
+| Registry records after candidate update | 31 |
 | Categories | Products; Open source; Creative; Web & Client Work |
-| Category counts | Products 10; Open source 11; Creative 6; Web & Client Work 2 |
+| Category counts | Products 10; Open source 12; Creative 6; Web & Client Work 3 |
 | Canonical origin | `https://pcgsoft.co.uk/` |
 
 ## Public project identities
 
-The registry contains 29 public project identities. A project identity may be
+The registry contains 31 public project identities. A project identity may be
 source-linked, live-surface-linked, private-source, or intentionally source-free.
 
 ### Products — 10
@@ -26,24 +26,28 @@ source-linked, live-surface-linked, private-source, or intentionally source-free
 HourWise EU; HourWise Fleet Portal; Atlas AI; Reticle Systems; Relief; Whilom;
 The Trace Manifest; TRACE Capture App; TeamSphere; Prefixity.
 
-### Open source — 11
+### Open source — 12
 
 The Fates; Project Ananke; Project Mnemosyne; Project Horae; Runtime Contracts /
 Project Adrasteia; Moirae Console; Project Moirae Code; PlainSpeak; Fates
-Integration; Moirae Protocol; Moirae Accord.
+Integration; Moirae Protocol; Moirae Accord; Panoptes.
 
 ### Creative — 6
 
 Read Me a Story; Riff Wilde and the Sold Out Saga; Forge Arena; The Gilded
 Bazaar; Vestigia: New Dawn; Akuma Velocity.
 
-### Web & Client Work — 2
+### Web & Client Work — 3
 
-Anyaparallax; Amped Up Music Promotions.
+Anyaparallax; Amped Up Music Promotions; LVRC Events Payment & Registration.
 
 This category identifies studio-built websites and applications for real people,
 organisations or client-facing projects. It does not imply PCGsoft ownership of
 those projects as products.
+
+Added after the September review: **LVRC Events Payment & Registration**
+(18 October 2026) and **Panoptes** (20 November 2026); the counts above
+include both.
 
 ## Source boundaries
 

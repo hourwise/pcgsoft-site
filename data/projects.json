@@ -1592,5 +1592,83 @@
     "parentProject": null,
     "sourceVisibility": "private",
     "websiteState": "live"
+  },
+  {
+    "slug": "panoptes",
+    "name": "Panoptes",
+    "shortName": "Panoptes",
+    "category": "open-source",
+    "categoryLabel": "Open source",
+    "status": "Active development",
+    "summary": "A local, browser-based control centre for an AI workstation: live hardware and inference telemetry, engine profile switching with automatic rollback, AI-agent job history, and an experiment lab — standard-library Python, no build step, loopback-only by design.",
+    "description": "Panoptes is a local, browser-based control centre for a self-hosted AI development workstation. One standard-library Python server serves a plain HTML, CSS and JavaScript dashboard that reports CPU, memory, storage and per-GPU telemetry, shows one section per configured local inference engine, switches engine profiles with a preview, an explicit confirm and automatic rollback, guards container start/stop/restart, records local agent-harness telemetry and job history, and compares benchmark variants in a read-only lab. The server binds to the loopback interface only, so nothing leaves the machine; there is no hosted instance and no account. Linux only; Panoptes Guardian, multi-GPU discovery on headless servers, Windows and macOS support and agent harnesses beyond OMP are roadmap items.",
+    "sitePath": "/open-source/panoptes/",
+    "canonicalUrl": "https://pcgsoft.co.uk/open-source/panoptes/",
+    "githubUrl": "https://github.com/hourwise/panoptes",
+    "liveUrl": null,
+    "documentationUrl": "https://github.com/hourwise/panoptes/tree/main/docs",
+    "licence": "MIT",
+    "openSource": true,
+    "technologies": [
+      "Python 3.12",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "unittest",
+      "Bash"
+    ],
+    "relatedProjects": [],
+    "lastReviewed": "2026-11-20",
+    "featured": false,
+    "evidenceLinks": [
+      {
+        "label": "View source",
+        "url": "https://github.com/hourwise/panoptes",
+        "note": "Public repository"
+      },
+      {
+        "label": "Read the project overview",
+        "url": "https://github.com/hourwise/panoptes/blob/main/README.md",
+        "note": "Verified file"
+      },
+      {
+        "label": "Read the project-owned portfolio manifest",
+        "url": "https://github.com/hourwise/panoptes/blob/main/.pcgsoft/project.yml",
+        "note": "Verified file; proposal data only"
+      },
+      {
+        "label": "Read the licence",
+        "url": "https://github.com/hourwise/panoptes/blob/main/LICENSE",
+        "note": "MIT licence, Copyright 2026 PCGsoft"
+      }
+    ],
+    "alternateNames": [],
+    "liveUrls": [],
+    "repositories": [
+      {
+        "name": "panoptes",
+        "url": "https://github.com/hourwise/panoptes",
+        "visibility": "public",
+        "role": "primary",
+        "label": "Primary public repository",
+        "licence": "MIT"
+      }
+    ],
+    "documentationLinks": [
+      {
+        "label": "Project documentation",
+        "url": "https://github.com/hourwise/panoptes/tree/main/docs"
+      },
+      {
+        "label": "Installation guide",
+        "url": "https://github.com/hourwise/panoptes/blob/main/docs/INSTALL.md"
+      },
+      {
+        "label": "Security documentation",
+        "url": "https://github.com/hourwise/panoptes/blob/main/docs/SECURITY.md"
+      }
+    ],
+    "parentProject": null,
+    "sourceVisibility": "public"
   }
 ]
